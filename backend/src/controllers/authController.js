@@ -21,15 +21,22 @@ function sign(userId) {
   return jwt.sign({ sub: userId }, process.env.JWT_SECRET || 'dev-secret', { expiresIn: '7d' });
 }
 
-async function bootstrap(userId) {
-  const cats = [
-    ...DEFAULT_EXPENSE_CATS.map(([name, icon, color]) => ({ userId, name, kind: 'expense', icon, color, isDefault: true })),
-    ...DEFAULT_INCOME_CATS.map(([name, icon, color]) => ({ userId, name, kind: 'income', icon, color, isDefault: true })),
-  ];
-  await Category.insertMany(cats, { ordered: false }).catch(() => {});
-  const existing = await Account.findOne({ userId });
-  if (!existing) {
-    await Account.create({ userId, name: 'Cash', type: 'cash', openingBalance: 0, balance: 0, icon: '💵', color: '#22c55e' });
+export async function bootstrap(userId) {
+  try {
+    const existingAcc = await Account.findOne({ userId });
+    if (!existingAcc) {
+      await Account.create({ userId, name: 'Cash', type: 'cash', openingBalance: 0, balance: 0, icon: '💵', color: '#22c55e' });
+    }
+    const existingCat = await Category.findOne({ userId });
+    if (!existingCat) {
+      const cats = [
+        ...DEFAULT_EXPENSE_CATS.map(([name, icon, color]) => ({ userId, name, kind: 'expense', icon, color, isDefault: true })),
+        ...DEFAULT_INCOME_CATS.map(([name, icon, color]) => ({ userId, name, kind: 'income', icon, color, isDefault: true })),
+      ];
+      await Category.insertMany(cats, { ordered: false }).catch(() => {});
+    }
+  } catch (e) {
+    console.error('Bootstrap error:', e);
   }
 }
 
@@ -54,6 +61,7 @@ export async function login(req, res, next) {
     if (!user) return res.status(401).json({ message: 'Invalid credentials' });
     const ok = await bcrypt.compare(password, user.passwordHash);
     if (!ok) return res.status(401).json({ message: 'Invalid credentials' });
+    await bootstrap(user._id);
     res.json({ token: sign(user._id), user: { id: user._id, name: user.name, email: user.email } });
   } catch (e) { next(e); }
 }

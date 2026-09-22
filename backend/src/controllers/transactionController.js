@@ -3,10 +3,12 @@ import Transaction from '../models/Transaction.js';
 import Account from '../models/Account.js';
 
 async function adjustBalance(accountId, userId, delta, session) {
+  const options = { new: true };
+  if (session) options.session = session;
   const acc = await Account.findOneAndUpdate(
     { _id: accountId, userId },
     { $inc: { balance: delta, version: 1 } },
-    { new: true, session }
+    options
   );
   if (!acc) {
     const err = new Error('Account not found');
@@ -41,8 +43,6 @@ export async function list(req, res, next) {
 }
 
 export async function create(req, res, next) {
-  // Idempotent on clientId for offline retry safety (last-write-wins v1)
-  const session = await mongoose.startSession();
   try {
     const { type, amount, category = 'Other', subcategory = '', accountId, date, time = '', description = '', tags = [], paymentMethod = '', clientId = null, deviceId = null } = req.body;
     if (!['expense', 'income', 'transfer', 'lending', 'borrowing', 'repayment'].includes(type)) return res.status(400).json({ message: 'Invalid type' });
@@ -53,19 +53,31 @@ export async function create(req, res, next) {
       if (existing) return res.json({ transaction: existing, deduped: true });
     }
     let tx;
-    await session.withTransaction(async () => {
+    let session = null;
+    try {
+      session = await mongoose.startSession();
+      await session.withTransaction(async () => {
+        tx = new Transaction({
+          userId: req.userId, type, amount: Number(amount), category, subcategory, accountId,
+          date: date ? new Date(date) : new Date(), time, description, tags, paymentMethod, clientId, deviceId, syncStatus: 'synced',
+        });
+        await tx.save({ session });
+        await adjustBalance(accountId, req.userId, deltaFor(tx), session);
+      });
+    } catch (sessionErr) {
       tx = new Transaction({
         userId: req.userId, type, amount: Number(amount), category, subcategory, accountId,
         date: date ? new Date(date) : new Date(), time, description, tags, paymentMethod, clientId, deviceId, syncStatus: 'synced',
       });
-      await tx.save({ session });
-      await adjustBalance(accountId, req.userId, deltaFor(tx), session);
-    });
+      await tx.save();
+      await adjustBalance(accountId, req.userId, deltaFor(tx), null);
+    } finally {
+      if (session) session.endSession();
+    }
     res.status(201).json({ transaction: tx });
-  } catch (e) { next(e); } finally { session.endSession(); }
+  } catch (e) { next(e); }
 }
 
-// Bulk sync endpoint: POST /api/transactions/sync { items: [...] }
 export async function syncBulk(req, res, next) {
   try {
     const items = Array.isArray(req.body.items) ? req.body.items : [];
@@ -76,10 +88,29 @@ export async function syncBulk(req, res, next) {
         if (existing) { results.push({ clientId: item.clientId, id: existing._id, deduped: true }); continue; }
       }
       if (!item.accountId || !item.amount) { results.push({ clientId: item.clientId, error: 'accountId/amount required' }); continue; }
-      const session = await mongoose.startSession();
+      let session = null;
       try {
         let tx;
-        await session.withTransaction(async () => {
+        try {
+          session = await mongoose.startSession();
+          await session.withTransaction(async () => {
+            tx = new Transaction({
+              userId: req.userId,
+              type: item.type || 'expense',
+              amount: Number(item.amount),
+              category: item.category || 'Other',
+              subcategory: item.subcategory || '',
+              accountId: item.accountId,
+              date: item.date ? new Date(item.date) : new Date(),
+              time: item.time || '', description: item.description || '',
+              tags: item.tags || [], paymentMethod: item.paymentMethod || '',
+              clientId: item.clientId || null, deviceId: item.deviceId || null,
+              syncStatus: 'synced',
+            });
+            await tx.save({ session });
+            await adjustBalance(item.accountId, req.userId, deltaFor(tx), session);
+          });
+        } catch (sessionErr) {
           tx = new Transaction({
             userId: req.userId,
             type: item.type || 'expense',
@@ -93,45 +124,66 @@ export async function syncBulk(req, res, next) {
             clientId: item.clientId || null, deviceId: item.deviceId || null,
             syncStatus: 'synced',
           });
-          await tx.save({ session });
-          await adjustBalance(item.accountId, req.userId, deltaFor(tx), session);
-        });
+          await tx.save();
+          await adjustBalance(item.accountId, req.userId, deltaFor(tx), null);
+        }
         results.push({ clientId: item.clientId, id: tx._id });
       } catch (e) {
         results.push({ clientId: item.clientId, error: e.message });
-      } finally { session.endSession(); }
+      } finally {
+        if (session) session.endSession();
+      }
     }
     res.json({ results });
   } catch (e) { next(e); }
 }
 
 export async function remove(req, res, next) {
-  const session = await mongoose.startSession();
   try {
     const tx = await Transaction.findOne({ _id: req.params.id, userId: req.userId });
     if (!tx) return res.status(404).json({ message: 'Transaction not found' });
-    await session.withTransaction(async () => {
-      await adjustBalance(tx.accountId, req.userId, -deltaFor(tx), session);
-      await tx.deleteOne({ session });
-    });
+    let session = null;
+    try {
+      session = await mongoose.startSession();
+      await session.withTransaction(async () => {
+        await adjustBalance(tx.accountId, req.userId, -deltaFor(tx), session);
+        await tx.deleteOne({ session });
+      });
+    } catch (sessionErr) {
+      await adjustBalance(tx.accountId, req.userId, -deltaFor(tx), null);
+      await tx.deleteOne();
+    } finally {
+      if (session) session.endSession();
+    }
     res.json({ ok: true });
-  } catch (e) { next(e); } finally { session.endSession(); }
+  } catch (e) { next(e); }
 }
 
 export async function update(req, res, next) {
-  // Simple last-write-wins: reverse old delta, apply new one.
-  const session = await mongoose.startSession();
   try {
     const tx = await Transaction.findOne({ _id: req.params.id, userId: req.userId });
     if (!tx) return res.status(404).json({ message: 'Transaction not found' });
-    await session.withTransaction(async () => {
-      await adjustBalance(tx.accountId, req.userId, -deltaFor(tx), session);
+    let session = null;
+    try {
+      session = await mongoose.startSession();
+      await session.withTransaction(async () => {
+        await adjustBalance(tx.accountId, req.userId, -deltaFor(tx), session);
+        const allowed = ['amount', 'category', 'subcategory', 'description', 'tags', 'date', 'time', 'paymentMethod'];
+        for (const k of allowed) if (req.body[k] !== undefined) tx[k] = req.body[k];
+        tx.version += 1;
+        await tx.save({ session });
+        await adjustBalance(tx.accountId, req.userId, deltaFor(tx), session);
+      });
+    } catch (sessionErr) {
+      await adjustBalance(tx.accountId, req.userId, -deltaFor(tx), null);
       const allowed = ['amount', 'category', 'subcategory', 'description', 'tags', 'date', 'time', 'paymentMethod'];
       for (const k of allowed) if (req.body[k] !== undefined) tx[k] = req.body[k];
       tx.version += 1;
-      await tx.save({ session });
-      await adjustBalance(tx.accountId, req.userId, deltaFor(tx), session);
-    });
+      await tx.save();
+      await adjustBalance(tx.accountId, req.userId, deltaFor(tx), null);
+    } finally {
+      if (session) session.endSession();
+    }
     res.json({ transaction: tx });
-  } catch (e) { next(e); } finally { session.endSession(); }
+  } catch (e) { next(e); }
 }

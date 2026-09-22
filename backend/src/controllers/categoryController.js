@@ -1,10 +1,15 @@
 import Category from '../models/Category.js';
+import { bootstrap } from './authController.js';
 
 export async function list(req, res, next) {
   try {
     const filter = { userId: req.userId };
     if (req.query.kind) filter.kind = req.query.kind;
-    const categories = await Category.find(filter).sort({ kind: 1, name: 1 });
+    let categories = await Category.find(filter).sort({ kind: 1, name: 1 });
+    if (!categories.length) {
+      await bootstrap(req.userId);
+      categories = await Category.find(filter).sort({ kind: 1, name: 1 });
+    }
     res.json({ categories });
   } catch (e) { next(e); }
 }

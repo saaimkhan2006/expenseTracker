@@ -52,6 +52,8 @@ export const useFinance = create<{
       a._id === t.accountId ? { ...a, balance: a.balance + (t.type === 'income' ? t.amount : -t.amount) } : a
     );
     set({ accounts: accs });
+    await idb.clear('accounts').catch(() => {});
+    for (const acc of accs) await idb.put('accounts', acc).catch(() => {});
     await get().sync();
   },
 
@@ -70,6 +72,13 @@ export const useFinance = create<{
       for (const c of [...okIds]) {
         const rec = txs.find((t) => t.clientId === c);
         if (rec) await idb.put('transactions', rec);
+      }
+      // Re-fetch fresh accounts to sync balances with server
+      const { data: aData } = await api.get('/accounts');
+      if (aData?.accounts?.length) {
+        set({ accounts: aData.accounts });
+        await idb.clear('accounts').catch(() => {});
+        for (const acc of aData.accounts) await idb.put('accounts', acc).catch(() => {});
       }
     } catch {
       // keep pending, retry on next online event

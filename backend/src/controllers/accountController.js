@@ -1,8 +1,13 @@
 import Account from '../models/Account.js';
+import { bootstrap } from './authController.js';
 
 export async function list(req, res, next) {
   try {
-    const accounts = await Account.find({ userId: req.userId, isActive: true }).sort({ createdAt: 1 });
+    let accounts = await Account.find({ userId: req.userId, isActive: true }).sort({ createdAt: 1 });
+    if (!accounts.length) {
+      await bootstrap(req.userId);
+      accounts = await Account.find({ userId: req.userId, isActive: true }).sort({ createdAt: 1 });
+    }
     res.json({ accounts });
   } catch (e) { next(e); }
 }

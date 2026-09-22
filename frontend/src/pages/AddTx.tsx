@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useFinance } from '../stores/finance';
 
@@ -12,8 +12,18 @@ export function AddTx() {
   const [category, setCategory] = useState('Food');
   const [accountId, setAccountId] = useState('');
   const [description, setDescription] = useState('');
-  const { accounts, addTx } = useFinance();
+  const { accounts, addTx, load } = useFinance();
   const nav = useNavigate();
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  useEffect(() => {
+    if (!accountId && accounts.length > 0) {
+      setAccountId(accounts[0]._id);
+    }
+  }, [accounts, accountId]);
 
   const cats = type === 'expense' ? EXPENSE_CATS : INCOME_CATS;
 
