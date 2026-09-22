@@ -1,0 +1,14 @@
+[Unit]
+Description=Smart Budget API
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/home/deploy/ExpenseTracker/backend
+EnvironmentFile=/home/deploy/ExpenseTracker/backend/.env
+ExecStart=/usr/bin/node src/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

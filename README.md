@@ -18,10 +18,27 @@ cd backend && cp .env.example .env && npm install && npm run dev
 # frontend (new terminal)
 cd frontend && npm install && npm run dev
 ```
-Needs MongoDB at `MONGO_URI` (or `docker compose up mongo`). Frontend proxies `/api` → `localhost:4000`.
+Needs MongoDB at `MONGO_URI` (local `mongod` or MongoDB Atlas). Frontend proxies `/api` → `localhost:4000`.
 
-## Docker
-`docker compose up --build` → web :8080, api :4000, mongo :27017.
+## Deploy (no Docker — systemd + nginx)
+Ready-made configs live in `deploy/`.
+```bash
+# backend
+cd backend && npm install --omit=dev
+cp .env.example .env   # set MONGO_URI, JWT_SECRET, CORS_ORIGIN=https://yourdomain.com
+sudo cp ../deploy/smartbudget-api.service /etc/systemd/system/
+sudo systemctl enable --now smartbudget-api
+
+# frontend
+cd ../frontend && npm install && npm run build
+sudo cp -r dist/. /var/www/smartbudget/
+sudo cp ../deploy/nginx-smartbudget.conf /etc/nginx/sites-available/smartbudget
+sudo ln -s /etc/nginx/sites-available/smartbudget /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+
+# HTTPS
+sudo certbot --nginx -d yourdomain.com
+```
 
 ## PWA / offline
 `vite-plugin-pwa` generates the service worker on `npm run build`. App shell cached; data in IndexedDB (`smart-budget` DB: `transactions`, `accounts`). Offline banner + `✓ Synced / 🔄 Syncing / 📴 Offline` states.
