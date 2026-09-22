@@ -1,11 +1,11 @@
 // Centralized financial calculations. All balance/stats must go through here.
-function monthRange(year, month /* 1-12 */) {
+export function monthRange(year, month /* 1-12 */) {
   const start = new Date(year, month - 1, 1, 0, 0, 0, 0);
   const end = new Date(year, month, 0, 23, 59, 59, 999);
   return { start, end };
 }
 
-function summarize(transactions) {
+export function summarize(transactions) {
   let income = 0;
   let expenses = 0;
   for (const t of transactions) {
@@ -19,7 +19,7 @@ function summarize(transactions) {
 }
 
 // Balance = opening + income - expenses +/- transfers - lending + borrowing + repayments
-function applyToBalance(balance, tx, sign = 1) {
+export function applyToBalance(balance, tx, sign = 1) {
   const a = tx.amount * sign;
   switch (tx.type) {
     case 'income':
@@ -30,5 +30,3 @@ function applyToBalance(balance, tx, sign = 1) {
       return balance; // transfers/lending handled explicitly in controllers
   }
 }
-
-module.exports = { monthRange, summarize, applyToBalance };

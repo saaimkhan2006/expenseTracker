@@ -1,8 +1,8 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
-const Category = require('../models/Category');
-const Account = require('../models/Account');
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
+import Category from '../models/Category.js';
+import Account from '../models/Account.js';
 
 const DEFAULT_EXPENSE_CATS = [
   ['Food', '🍔', '#f87171'], ['Transport', '🚕', '#fb923c'], ['Shopping', '🛍️', '#f472b6'],
@@ -33,7 +33,7 @@ async function bootstrap(userId) {
   }
 }
 
-async function register(req, res, next) {
+export async function register(req, res, next) {
   try {
     const { name, email, password } = req.body;
     if (!name || !email || !password) return res.status(400).json({ message: 'name, email, password required' });
@@ -47,7 +47,7 @@ async function register(req, res, next) {
   } catch (e) { next(e); }
 }
 
-async function login(req, res, next) {
+export async function login(req, res, next) {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: (email || '').toLowerCase() });
@@ -58,11 +58,9 @@ async function login(req, res, next) {
   } catch (e) { next(e); }
 }
 
-async function me(req, res, next) {
+export async function me(req, res, next) {
   try {
     const user = await User.findById(req.userId).select('_id name email currency createdAt');
     res.json({ user });
   } catch (e) { next(e); }
 }
-
-module.exports = { register, login, me };

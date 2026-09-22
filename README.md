@@ -1,6 +1,6 @@
 # Smart Budget — Phase 1 (Foundation + MVP)
 
-Offline-first personal finance app. React + Vite + TS + Tailwind + PWA frontend. Express + MongoDB + JWT backend.
+Offline-first personal finance app. React + Vite + TS + Tailwind + PWA frontend. Express 5 + MongoDB + JWT backend (native ES modules).
 
 ## Phase 1 scope
 Register → Login → Create account → Add expense/income → Instant UI → Offline queue (IndexedDB, `syncStatus: pending`) → Auto-sync (`POST /api/transactions/sync`, idempotent on `clientId`) → Dashboard updates. Calendar (basic), Analytics (basic), Accounts, Categories included.

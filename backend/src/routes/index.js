@@ -1,11 +1,11 @@
-const express = require('express');
-const { body } = require('express-validator');
-const auth = require('../middleware/auth');
-const authC = require('../controllers/authController');
-const accC = require('../controllers/accountController');
-const catC = require('../controllers/categoryController');
-const txC = require('../controllers/transactionController');
-const dashC = require('../controllers/dashboardController');
+import express from 'express';
+import { body } from 'express-validator';
+import { auth } from '../middleware/auth.js';
+import * as authC from '../controllers/authController.js';
+import * as accC from '../controllers/accountController.js';
+import * as catC from '../controllers/categoryController.js';
+import * as txC from '../controllers/transactionController.js';
+import * as dashC from '../controllers/dashboardController.js';
 
 const router = express.Router();
 
@@ -30,4 +30,4 @@ router.delete('/transactions/:id', auth, txC.remove);
 
 router.get('/health', (req, res) => res.json({ ok: true }));
 
-module.exports = router;
+export default router;

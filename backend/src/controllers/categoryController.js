@@ -1,6 +1,6 @@
-const Category = require('../models/Category');
+import Category from '../models/Category.js';
 
-async function list(req, res, next) {
+export async function list(req, res, next) {
   try {
     const filter = { userId: req.userId };
     if (req.query.kind) filter.kind = req.query.kind;
@@ -9,7 +9,7 @@ async function list(req, res, next) {
   } catch (e) { next(e); }
 }
 
-async function create(req, res, next) {
+export async function create(req, res, next) {
   try {
     const { name, kind, icon = '📦', color = '#38bdf8' } = req.body;
     if (!name || !kind) return res.status(400).json({ message: 'name and kind required' });
@@ -20,5 +20,3 @@ async function create(req, res, next) {
     next(e);
   }
 }
-
-module.exports = { list, create };

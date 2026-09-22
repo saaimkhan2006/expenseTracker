@@ -1,8 +1,8 @@
-const Account = require('../models/Account');
-const Transaction = require('../models/Transaction');
-const { monthRange, summarize } = require('../utils/finance');
+import Account from '../models/Account.js';
+import Transaction from '../models/Transaction.js';
+import { monthRange, summarize } from '../utils/finance.js';
 
-async function dashboard(req, res, next) {
+export async function dashboard(req, res, next) {
   try {
     const now = new Date();
     const year = Number(req.query.year) || now.getFullYear();
@@ -16,5 +16,3 @@ async function dashboard(req, res, next) {
     res.json({ totalBalance, accounts, monthly, recent, period: { year, month } });
   } catch (e) { next(e); }
 }
-
-module.exports = { dashboard };

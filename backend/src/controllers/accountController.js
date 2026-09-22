@@ -1,13 +1,13 @@
-const Account = require('../models/Account');
+import Account from '../models/Account.js';
 
-async function list(req, res, next) {
+export async function list(req, res, next) {
   try {
     const accounts = await Account.find({ userId: req.userId, isActive: true }).sort({ createdAt: 1 });
     res.json({ accounts });
   } catch (e) { next(e); }
 }
 
-async function create(req, res, next) {
+export async function create(req, res, next) {
   try {
     const { name, type = 'bank', openingBalance = 0, icon = '🏦', color = '#38bdf8' } = req.body;
     if (!name) return res.status(400).json({ message: 'name required' });
@@ -24,7 +24,7 @@ async function create(req, res, next) {
   }
 }
 
-async function update(req, res, next) {
+export async function update(req, res, next) {
   try {
     const acc = await Account.findOneAndUpdate(
       { _id: req.params.id, userId: req.userId },
@@ -35,5 +35,3 @@ async function update(req, res, next) {
     res.json({ account: acc });
   } catch (e) { next(e); }
 }
-
-module.exports = { list, create, update };

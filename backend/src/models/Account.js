@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Phase 1: cash/bank accounts. Phase 2+ adds credit-card liabilities handling.
 const accountSchema = new mongoose.Schema(
@@ -22,4 +22,6 @@ const accountSchema = new mongoose.Schema(
 
 accountSchema.index({ userId: 1, name: 1 }, { unique: true });
 
-module.exports = mongoose.model('Account', accountSchema);
+const Account = mongoose.model('Account', accountSchema);
+
+export default Account;

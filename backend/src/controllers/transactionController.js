@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const Transaction = require('../models/Transaction');
-const Account = require('../models/Account');
+import mongoose from 'mongoose';
+import Transaction from '../models/Transaction.js';
+import Account from '../models/Account.js';
 
 async function adjustBalance(accountId, userId, delta, session) {
   const acc = await Account.findOneAndUpdate(
@@ -8,7 +8,11 @@ async function adjustBalance(accountId, userId, delta, session) {
     { $inc: { balance: delta, version: 1 } },
     { new: true, session }
   );
-  if (!acc) throw Object.assign(new Error('Account not found'), { status: 400 });
+  if (!acc) {
+    const err = new Error('Account not found');
+    err.status = 400;
+    throw err;
+  }
   return acc;
 }
 
@@ -18,7 +22,7 @@ function deltaFor(tx) {
   return 0;
 }
 
-async function list(req, res, next) {
+export async function list(req, res, next) {
   try {
     const { type, category, accountId, from, to, q, limit = 100, skip = 0 } = req.query;
     const filter = { userId: req.userId };
@@ -36,7 +40,7 @@ async function list(req, res, next) {
   } catch (e) { next(e); }
 }
 
-async function create(req, res, next) {
+export async function create(req, res, next) {
   // Idempotent on clientId for offline retry safety (last-write-wins v1)
   const session = await mongoose.startSession();
   try {
@@ -62,7 +66,7 @@ async function create(req, res, next) {
 }
 
 // Bulk sync endpoint: POST /api/transactions/sync { items: [...] }
-async function syncBulk(req, res, next) {
+export async function syncBulk(req, res, next) {
   try {
     const items = Array.isArray(req.body.items) ? req.body.items : [];
     const results = [];
@@ -101,7 +105,7 @@ async function syncBulk(req, res, next) {
   } catch (e) { next(e); }
 }
 
-async function remove(req, res, next) {
+export async function remove(req, res, next) {
   const session = await mongoose.startSession();
   try {
     const tx = await Transaction.findOne({ _id: req.params.id, userId: req.userId });
@@ -114,7 +118,7 @@ async function remove(req, res, next) {
   } catch (e) { next(e); } finally { session.endSession(); }
 }
 
-async function update(req, res, next) {
+export async function update(req, res, next) {
   // Simple last-write-wins: reverse old delta, apply new one.
   const session = await mongoose.startSession();
   try {
@@ -131,5 +135,3 @@ async function update(req, res, next) {
     res.json({ transaction: tx });
   } catch (e) { next(e); } finally { session.endSession(); }
 }
-
-module.exports = { list, create, syncBulk, remove, update };

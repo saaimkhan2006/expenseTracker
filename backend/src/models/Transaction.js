@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Unified transaction model. Phase 1 uses expense/income (+transfer passthrough).
 // lending/borrowing/repayment/transfer reserved for Phase 2 but accepted by the enum
@@ -34,4 +34,6 @@ const transactionSchema = new mongoose.Schema(
 transactionSchema.index({ userId: 1, date: -1 });
 transactionSchema.index({ userId: 1, clientId: 1 }, { unique: true, sparse: true });
 
-module.exports = mongoose.model('Transaction', transactionSchema);
+const Transaction = mongoose.model('Transaction', transactionSchema);
+
+export default Transaction;
