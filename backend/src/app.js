@@ -10,7 +10,23 @@ import { sanitize } from './middleware/sanitize.js';
 export function createApp() {
   const app = express();
   app.use(helmet());
-  app.use(cors({ origin: (process.env.CORS_ORIGIN || 'http://localhost:5173').split(','), credentials: true }));
+  
+  const rawOrigins = process.env.CORS_ORIGIN || 'http://localhost:5173';
+  const allowedOrigins = rawOrigins.split(',').map((o) => o.trim().replace(/\/$/, ''));
+
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        const cleanOrigin = origin.replace(/\/$/, '');
+        if (allowedOrigins.includes('*') || allowedOrigins.includes(cleanOrigin)) {
+          return callback(null, true);
+        }
+        return callback(null, false);
+      },
+      credentials: true,
+    })
+  );
   app.use(express.json({ limit: '1mb' }));
   app.use(sanitize);
   app.use(morgan('dev'));
