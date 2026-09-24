@@ -9,10 +9,11 @@ export function AddTx() {
   const [type, setType] = useState<'expense' | 'income'>('expense');
   const [amountStr, setAmountStr] = useState('500');
   const [category, setCategory] = useState('Food & Dining');
-  const [accountId, setAccountId] = useState(accounts[0]?._id || 'acc1');
+  const [accountId, setAccountId] = useState(accounts[0]?._id || '');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const expenseCategories = [
     { name: 'Food & Dining', icon: 'restaurant' },
@@ -43,19 +44,31 @@ export function AddTx() {
     e.preventDefault();
     const numericAmount = parseFloat(amountStr);
     if (!numericAmount || numericAmount <= 0) return;
-
+    const acc = accountId || accounts[0]?._id;
+    if (!acc) { setError('Create an account first — every entry needs a real account.'); return; }
+    setError('');
     setSubmitting(true);
     await addTx({
       type,
       amount: numericAmount,
       category,
-      accountId: accountId || 'acc1',
+      accountId: acc,
       date,
       description: description || category,
     });
     setSubmitting(false);
     nav('/transactions');
   };
+
+  if (!accounts.length) {
+    return (
+      <div className="max-w-2xl mx-auto flex flex-col gap-space-md text-on-surface text-center p-space-xl">
+        <h1 className="font-headline-lg text-headline-lg font-medium">Add Entry</h1>
+        <p className="text-on-surface-variant">Create your first account before recording transactions.</p>
+        <button onClick={() => nav('/accounts')} className="mx-auto px-4 py-2 rounded-lg bg-primary-container text-on-primary-fixed font-semibold">Go to Accounts</button>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-2xl mx-auto flex flex-col gap-space-lg text-on-surface">
@@ -143,23 +156,15 @@ export function AddTx() {
           <div className="flex flex-col gap-1.5">
             <label className="font-label-xs text-label-xs text-outline uppercase tracking-wider">Account Rail</label>
             <select
-              value={accountId}
+              value={accountId || accounts[0]?._id || ''}
               onChange={(e) => setAccountId(e.target.value)}
               className="p-space-sm rounded-xl bg-surface-container border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
             >
-              {accounts.length ? (
-                accounts.map((acc) => (
-                  <option key={acc._id} value={acc._id}>
-                    {acc.name} (₹{acc.balance?.toLocaleString('en-IN')})
-                  </option>
-                ))
-              ) : (
-                <>
-                  <option value="acc1">HDFC Main Checking (₹18,450)</option>
-                  <option value="acc2">ICICI Wealth Savings (₹6,400)</option>
-                  <option value="acc3">Axis Rewards Credit (-₹2,400)</option>
-                </>
-              )}
+              {accounts.map((acc) => (
+                <option key={acc._id} value={acc._id}>
+                  {acc.name} (₹{acc.balance?.toLocaleString('en-IN')})
+                </option>
+              ))}
             </select>
           </div>
 
@@ -215,6 +220,7 @@ export function AddTx() {
         </div>
 
         {/* Submit Action Button */}
+        {error && <p className="text-error font-semibold text-center">{error}</p>}
         <button
           type="submit"
           disabled={submitting}

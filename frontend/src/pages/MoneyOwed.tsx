@@ -1,55 +1,46 @@
 import { useState } from 'react';
+import { useFinance } from '../stores/finance';
 
-type PeerRecord = {
-  id: string;
-  name: string;
-  type: 'LENT' | 'BORROWED';
-  amount: number;
-  dueDate: string;
-  notes: string;
-  status: 'PENDING' | 'OVERDUE' | 'SETTLED';
-};
+const STATUS_LABEL: Record<string, string> = { pending: 'PENDING', partial: 'PARTIAL', overdue: 'OVERDUE', paid: 'SETTLED' };
 
 export function MoneyOwed() {
+  const { loans, receivable, payable, accounts, createLoan, repayLoan } = useFinance();
   const [showModal, setShowModal] = useState(false);
   const [personName, setPersonName] = useState('');
   const [amountStr, setAmountStr] = useState('1000');
-  const [recordType, setRecordType] = useState<'LENT' | 'BORROWED'>('LENT');
+  const [recordType, setRecordType] = useState<'lent' | 'borrowed'>('lent');
   const [notes, setNotes] = useState('Dinner split');
-  const defaultDue = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10);
-  const [dueDate, setDueDate] = useState(defaultDue);
+  const [accountId, setAccountId] = useState('');
+  const [dueDate, setDueDate] = useState(() => new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10));
+  const [error, setError] = useState('');
+  const [busy, setBusy] = useState<string | null>(null);
 
-  const [records, setRecords] = useState<PeerRecord[]>([
-    { id: 'p1', name: 'Rahul Sharma', type: 'LENT', amount: 2500, dueDate: '28 Oct 2024', notes: 'Weekend Trip Expense Split', status: 'PENDING' },
-    { id: 'p2', name: 'Priya Patel', type: 'LENT', amount: 1000, dueDate: '15 Oct 2024', notes: 'Concert Tickets', status: 'OVERDUE' },
-    { id: 'p3', name: 'Arjun Verma', type: 'BORROWED', amount: 3000, dueDate: '30 Oct 2024', notes: 'Camera Gear Deposit', status: 'PENDING' },
-  ]);
+  const netDelta = receivable - payable;
+  const active = loans.filter((l) => l.status !== 'paid');
 
-  const totalLent = records.filter((r) => r.type === 'LENT' && r.status !== 'SETTLED').reduce((s, r) => s + r.amount, 0);
-  const totalBorrowed = records.filter((r) => r.type === 'BORROWED' && r.status !== 'SETTLED').reduce((s, r) => s + r.amount, 0);
-  const netDelta = totalLent - totalBorrowed;
-
-  const handleSettle = (id: string) => {
-    setRecords(records.map((r) => (r.id === id ? { ...r, status: 'SETTLED' } : r)));
+  const handleSettle = async (id: string, remaining: number) => {
+    setBusy(id);
+    try {
+      await repayLoan(id, remaining);
+    } catch (e: any) {
+      setError(e.response?.data?.message || 'Repayment failed. Try again.');
+    } finally {
+      setBusy(null);
+    }
   };
 
-  const handleAddRecord = (e: React.FormEvent) => {
+  const handleAddRecord = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!personName.trim()) return;
-    setRecords([
-      ...records,
-      {
-        id: Date.now().toString(),
-        name: personName.trim(),
-        type: recordType,
-        amount: parseFloat(amountStr) || 1000,
-        dueDate,
-        notes,
-        status: 'PENDING',
-      },
-    ]);
-    setPersonName('');
-    setShowModal(false);
+    const acc = accountId || accounts[0]?._id;
+    if (!personName.trim() || !acc) { setError('Enter a name and select an account.'); return; }
+    setError('');
+    try {
+      await createLoan(recordType, personName.trim(), parseFloat(amountStr) || 0, acc, dueDate || undefined, notes);
+      setPersonName('');
+      setShowModal(false);
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Could not save. Try again.');
+    }
   };
 
   return (
@@ -80,6 +71,8 @@ export function MoneyOwed() {
         </button>
       </div>
 
+      {error && <p className="text-error font-semibold">{error}</p>}
+
       {/* Metric Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
         <div className="p-space-lg bg-surface-container-low rounded-xl border border-surface-variant/30 flex flex-col justify-between">
@@ -88,7 +81,7 @@ export function MoneyOwed() {
             <span className="font-label-xs text-label-xs text-primary-fixed bg-primary-container/10 px-2 py-0.5 rounded font-semibold">ASSETS</span>
           </div>
           <div className="my-space-md font-display-lg text-display-lg text-primary-fixed font-semibold tracking-tight">
-            ₹{totalLent.toLocaleString('en-IN')}
+            ₹{receivable.toLocaleString('en-IN')}
           </div>
           <span className="font-label-xs text-label-xs text-outline">Owed to you by peers</span>
         </div>
@@ -99,7 +92,7 @@ export function MoneyOwed() {
             <span className="font-label-xs text-label-xs text-secondary bg-secondary-container/20 px-2 py-0.5 rounded font-semibold">DEBT</span>
           </div>
           <div className="my-space-md font-display-lg text-display-lg text-secondary font-semibold tracking-tight">
-            ₹{totalBorrowed.toLocaleString('en-IN')}
+            ₹{payable.toLocaleString('en-IN')}
           </div>
           <span className="font-label-xs text-label-xs text-outline">To be paid back by you</span>
         </div>
@@ -120,45 +113,53 @@ export function MoneyOwed() {
       <div className="rounded-xl bg-surface-container-low border border-surface-variant/30 overflow-hidden">
         <div className="p-space-md border-b border-surface-variant/40 flex items-center justify-between">
           <h2 className="font-headline-md text-headline-md font-medium text-on-surface">Active Counterparties</h2>
-          <span className="font-label-xs text-label-xs text-outline">{records.length} Peer Records</span>
+          <span className="font-label-xs text-label-xs text-outline">{active.length} Peer Records</span>
         </div>
 
         <div className="divide-y divide-surface-variant/30">
-          {records.map((r) => (
-            <div key={r.id} className="p-space-md flex items-center justify-between gap-space-md hover:bg-surface-container/30 transition-colors">
-              <div className="flex items-center gap-space-sm">
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold ${r.type === 'LENT' ? 'bg-primary-container/15 text-primary-fixed' : 'bg-secondary-container/20 text-secondary'}`}>
-                  <span className="material-symbols-outlined text-[20px]">
-                    {r.type === 'LENT' ? 'arrow_outward' : 'arrow_downward'}
-                  </span>
-                </div>
-                <div>
-                  <div className="font-body-md text-body-md font-semibold text-on-surface">{r.name}</div>
-                  <div className="font-label-xs text-label-xs text-outline">{r.notes} • Due: {r.dueDate}</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-space-md">
-                <div className="text-right">
-                  <div className={`font-label-lg text-label-lg font-bold ${r.type === 'LENT' ? 'text-primary-fixed' : 'text-secondary'}`}>
-                    {r.type === 'LENT' ? '+' : '-'}₹{r.amount.toLocaleString('en-IN')}
+          {active.map((r: any) => {
+            const remaining = r.amount - (r.paidAmount || 0);
+            return (
+              <div key={r._id} className="p-space-md flex items-center justify-between gap-space-md hover:bg-surface-container/30 transition-colors">
+                <div className="flex items-center gap-space-sm">
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold ${r.kind === 'lent' ? 'bg-primary-container/15 text-primary-fixed' : 'bg-secondary-container/20 text-secondary'}`}>
+                    <span className="material-symbols-outlined text-[20px]">
+                      {r.kind === 'lent' ? 'arrow_outward' : 'arrow_downward'}
+                    </span>
                   </div>
-                  <span className={`font-label-xs text-label-xs uppercase ${r.status === 'OVERDUE' ? 'text-error font-semibold' : r.status === 'SETTLED' ? 'text-outline line-through' : 'text-outline'}`}>
-                    {r.status}
-                  </span>
+                  <div>
+                    <div className="font-body-md text-body-md font-semibold text-on-surface">{r.person}</div>
+                    <div className="font-label-xs text-label-xs text-outline">
+                      {r.description || '—'} • Due: {r.dueDate ? new Date(r.dueDate).toLocaleDateString('en-IN') : '—'}
+                      {r.paidAmount > 0 && ` • Paid ₹${r.paidAmount.toLocaleString('en-IN')}`}
+                    </div>
+                  </div>
                 </div>
 
-                {r.status !== 'SETTLED' && (
+                <div className="flex items-center gap-space-md">
+                  <div className="text-right">
+                    <div className={`font-label-lg text-label-lg font-bold ${r.kind === 'lent' ? 'text-primary-fixed' : 'text-secondary'}`}>
+                      {r.kind === 'lent' ? '+' : '-'}₹{remaining.toLocaleString('en-IN')}
+                    </div>
+                    <span className={`font-label-xs text-label-xs uppercase ${r.status === 'overdue' ? 'text-error font-semibold' : 'text-outline'}`}>
+                      {STATUS_LABEL[r.status] || r.status}
+                    </span>
+                  </div>
+
                   <button
-                    onClick={() => handleSettle(r.id)}
-                    className="px-3 py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-xs text-label-xs uppercase font-semibold transition-all"
+                    onClick={() => handleSettle(r._id, remaining)}
+                    disabled={busy === r._id}
+                    className="px-3 py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-xs text-label-xs uppercase font-semibold transition-all disabled:opacity-50"
                   >
-                    Settle
+                    {busy === r._id ? '...' : 'Settle'}
                   </button>
-                )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+          {!active.length && (
+            <p className="p-space-lg text-center text-outline">No active peer records. Add your first entry above.</p>
+          )}
         </div>
       </div>
 
@@ -177,18 +178,18 @@ export function MoneyOwed() {
               <div className="flex items-center p-1 rounded-lg bg-surface-container-lowest border border-surface-variant/40">
                 <button
                   type="button"
-                  onClick={() => setRecordType('LENT')}
+                  onClick={() => setRecordType('lent')}
                   className={`flex-1 py-1.5 rounded-md font-label-xs text-label-xs uppercase font-semibold ${
-                    recordType === 'LENT' ? 'bg-primary-container text-on-primary-fixed' : 'text-on-surface-variant'
+                    recordType === 'lent' ? 'bg-primary-container text-on-primary-fixed' : 'text-on-surface-variant'
                   }`}
                 >
                   I Lent Money
                 </button>
                 <button
                   type="button"
-                  onClick={() => setRecordType('BORROWED')}
+                  onClick={() => setRecordType('borrowed')}
                   className={`flex-1 py-1.5 rounded-md font-label-xs text-label-xs uppercase font-semibold ${
-                    recordType === 'BORROWED' ? 'bg-secondary-container text-on-secondary-container' : 'text-on-surface-variant'
+                    recordType === 'borrowed' ? 'bg-secondary-container text-on-secondary-container' : 'text-on-surface-variant'
                   }`}
                 >
                   I Borrowed Money
@@ -207,26 +208,49 @@ export function MoneyOwed() {
                 />
               </div>
 
-              <div className="space-y-1">
-                <label className="font-label-xs text-label-xs uppercase text-outline">Amount (₹)</label>
-                <input
-                  type="number"
-                  value={amountStr}
-                  onChange={(e) => setAmountStr(e.target.value)}
-                  className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
-                  required
-                />
+              <div className="grid grid-cols-2 gap-space-sm">
+                <div className="space-y-1">
+                  <label className="font-label-xs text-label-xs uppercase text-outline">Amount (₹)</label>
+                  <input
+                    type="number"
+                    value={amountStr}
+                    onChange={(e) => setAmountStr(e.target.value)}
+                    className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
+                    required
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="font-label-xs text-label-xs uppercase text-outline">Account</label>
+                  <select
+                    value={accountId || accounts[0]?._id || ''}
+                    onChange={(e) => setAccountId(e.target.value)}
+                    className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
+                  >
+                    {accounts.map((a) => <option key={a._id} value={a._id}>{a.name}</option>)}
+                  </select>
+                </div>
               </div>
 
-              <div className="space-y-1">
-                <label className="font-label-xs text-label-xs uppercase text-outline">Notes / Context</label>
-                <input
-                  type="text"
-                  placeholder="e.g. Dinner split, Concert tickets..."
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
-                  className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
-                />
+              <div className="grid grid-cols-2 gap-space-sm">
+                <div className="space-y-1">
+                  <label className="font-label-xs text-label-xs uppercase text-outline">Due Date</label>
+                  <input
+                    type="date"
+                    value={dueDate}
+                    onChange={(e) => setDueDate(e.target.value)}
+                    className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="font-label-xs text-label-xs uppercase text-outline">Notes / Context</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Dinner split..."
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
+                  />
+                </div>
               </div>
 
               <button type="submit" className="w-full py-2.5 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-semibold hover:bg-primary-fixed-dim transition-all">

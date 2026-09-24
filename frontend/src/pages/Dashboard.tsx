@@ -5,38 +5,25 @@ export function Dashboard() {
   const nav = useNavigate();
   const { transactions, accounts } = useFinance();
 
-  // Compute live metrics from store or rich defaults
+  // Live metrics from the real ledger — never fabricate financial data.
   const totalIncome = transactions
     .filter((t) => t.type === 'income')
-    .reduce((sum, t) => sum + t.amount, 0) || 45000;
+    .reduce((sum, t) => sum + t.amount, 0);
 
   const totalExpense = transactions
     .filter((t) => t.type === 'expense')
-    .reduce((sum, t) => sum + t.amount, 0) || 20150;
+    .reduce((sum, t) => sum + t.amount, 0);
 
   const netRetained = totalIncome - totalExpense;
-  const savingsRate = totalIncome > 0 ? ((netRetained / totalIncome) * 100).toFixed(1) : '55.2';
+  const savingsRate = totalIncome > 0 ? ((netRetained / totalIncome) * 100).toFixed(1) : '0.0';
 
-  // Demo fallback accounts if empty
-  const displayAccounts = accounts.length
-    ? accounts
-    : [
-        { _id: 'acc1', name: 'HDFC Main Checking', type: 'Checking', balance: 18450, accountNum: '•••• 4921' },
-        { _id: 'acc2', name: 'ICICI Wealth Savings', type: 'Savings', balance: 6400, accountNum: '•••• 8812' },
-        { _id: 'acc3', name: 'Axis Rewards Credit', type: 'Credit Card', balance: -2400, accountNum: '•••• 3109' },
-      ];
+  const displayAccounts = accounts;
 
   const totalAvailable = displayAccounts.reduce((acc, a) => acc + (a.balance > 0 ? a.balance : 0), 0);
 
-  // Demo fallback recent transactions if empty
-  const recentTxs = transactions.length
-    ? transactions.slice(0, 5)
-    : [
-        { clientId: 'tx1', description: 'AWS Cloud Infrastructure', category: 'Operations', amount: 4200, type: 'expense', date: 'Today, 14:32' },
-        { clientId: 'tx2', description: 'Stripe Client Payout', category: 'Income', amount: 15000, type: 'income', date: 'Yesterday' },
-        { clientId: 'tx3', description: 'Blue Tokai Coffee Roast', category: 'Food & Dining', amount: 480, type: 'expense', date: 'Yesterday' },
-        { clientId: 'tx4', description: 'Figma Professional Annual', category: 'Software', amount: 1290, type: 'expense', date: '22 Oct 2024' },
-      ];
+  const recentTxs = transactions.slice(0, 5);
+
+  const monthLabel = new Date().toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
 
   return (
     <div className="flex flex-col w-full gap-space-xl">
@@ -54,7 +41,7 @@ export function Dashboard() {
         <div className="flex items-center gap-space-sm flex-wrap">
           <div className="px-space-md py-2 rounded bg-surface-container border border-surface-variant/30 flex items-center gap-2">
             <span className="material-symbols-outlined text-outline text-[16px]">calendar_month</span>
-            <span className="font-label-xs text-label-xs text-on-surface uppercase tracking-wider font-semibold">October 2024 • Fiscal Q4</span>
+            <span className="font-label-xs text-label-xs text-on-surface uppercase tracking-wider font-semibold">{monthLabel}</span>
           </div>
           <button onClick={() => nav('/add')} className="px-space-md py-2 rounded bg-primary-container text-on-primary font-label-xs text-label-xs uppercase tracking-wider font-semibold hover:bg-primary-fixed-dim transition-all flex items-center gap-1.5 shadow-sm">
             <span className="material-symbols-outlined text-[16px]">add</span>
@@ -176,6 +163,11 @@ export function Dashboard() {
             </div>
 
             <div className="divide-y divide-surface-variant/30">
+              {!recentTxs.length && (
+                <p className="py-space-md text-center text-outline font-body-sm">
+                  No activity yet. Tap Add Entry to record your first transaction.
+                </p>
+              )}
               {recentTxs.map((tx, idx) => (
                 <div key={tx.clientId || idx} className="py-space-sm flex items-center justify-between gap-space-sm">
                   <div className="flex items-center gap-space-sm">
@@ -215,6 +207,12 @@ export function Dashboard() {
             </div>
 
             <div className="space-y-space-md">
+              {!displayAccounts.length && (
+                <p className="text-center text-outline font-body-sm">
+                  No accounts yet.{' '}
+                  <button onClick={() => nav('/accounts')} className="text-primary-fixed hover:underline">Create one →</button>
+                </p>
+              )}
               {displayAccounts.map((acc) => (
                 <div key={acc._id} className="p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 space-y-1">
                   <div className="flex justify-between items-center">

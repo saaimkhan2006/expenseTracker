@@ -1,52 +1,61 @@
 import { useState } from 'react';
+import { useFinance } from '../stores/finance';
 
 type Sub = {
-  id: string;
+  _id: string;
   name: string;
   category: string;
   amount: number;
-  cycle: 'Monthly' | 'Annual';
+  cycle: string;
   nextBilling: string;
-  cardName: string;
+  accountId: string;
   icon: string;
 };
 
+const CYCLE_LABEL: Record<string, string> = { daily: 'Daily', weekly: 'Weekly', monthly: 'Monthly', yearly: 'Annual' };
+
 export function Subscriptions() {
+  const { subscriptions, subsMonthly, subsAnnual, accounts, createSubscription } = useFinance();
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState('');
   const [amountStr, setAmountStr] = useState('649');
-  const [cycle, setCycle] = useState<'Monthly' | 'Annual'>('Monthly');
+  const [cycle, setCycle] = useState('monthly');
   const [category, setCategory] = useState('Entertainment');
-  const [nextBilling, setNextBilling] = useState('2024-10-28');
+  const [accountId, setAccountId] = useState('');
+  const [error, setError] = useState('');
+  const [nextBilling, setNextBilling] = useState(() => {
+    const d = new Date();
+    d.setMonth(d.getMonth() + 1);
+    return d.toISOString().slice(0, 10);
+  });
 
-  const [subs, setSubs] = useState<Sub[]>([
-    { id: 's1', name: 'Netflix Premium 4K', category: 'Entertainment', amount: 649, cycle: 'Monthly', nextBilling: '28 Oct 2024', cardName: 'HDFC Checking', icon: 'tv' },
-    { id: 's2', name: 'Spotify Duo Family', category: 'Media', amount: 149, cycle: 'Monthly', nextBilling: '02 Nov 2024', cardName: 'ICICI Savings', icon: 'music_note' },
-    { id: 's3', name: 'Figma Pro Team', category: 'Software', amount: 1290, cycle: 'Monthly', nextBilling: '14 Nov 2024', cardName: 'Axis Credit Card', icon: 'palette' },
-    { id: 's4', name: 'AWS Cloud Infrastructure', category: 'Infrastructure', amount: 4200, cycle: 'Monthly', nextBilling: '01 Nov 2024', cardName: 'HDFC Checking', icon: 'dns' },
-  ]);
+  const subs: Sub[] = subscriptions;
 
-  const monthlyTotal = subs.reduce((acc, s) => acc + (s.cycle === 'Monthly' ? s.amount : s.amount / 12), 0);
-  const annualTotal = monthlyTotal * 12;
+  const monthlyTotal = subsMonthly;
+  const annualTotal = subsAnnual;
 
-  const handleAddSub = (e: React.FormEvent) => {
+  const upcoming = [...subs].sort(
+    (a, b) => +new Date(a.nextBilling) - +new Date(b.nextBilling)
+  )[0];
+  const upcomingInDays = upcoming
+    ? Math.max(0, Math.ceil((+new Date(upcoming.nextBilling) - Date.now()) / 864e5))
+    : null;
+
+  const handleAddSub = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim()) return;
-    setSubs([
-      ...subs,
-      {
-        id: Date.now().toString(),
-        name: name.trim(),
-        category,
-        amount: parseFloat(amountStr) || 499,
-        cycle,
-        nextBilling,
-        cardName: 'HDFC Checking',
-        icon: 'subscriptions',
-      },
-    ]);
-    setName('');
-    setShowModal(false);
+    const acc = accountId || accounts[0]?._id;
+    if (!name.trim() || !acc) { setError('Enter a name and select an account.'); return; }
+    setError('');
+    try {
+      await createSubscription({
+        name: name.trim(), amount: parseFloat(amountStr) || 0,
+        cycle, accountId: acc, nextBilling, category,
+      });
+      setName('');
+      setShowModal(false);
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Could not save. Try again.');
+    }
   };
 
   return (
@@ -104,10 +113,18 @@ export function Subscriptions() {
 
         <div className="p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/30 flex flex-col justify-between">
           <span className="font-label-xs text-label-xs uppercase tracking-widest text-error">Next Renewal Event</span>
-          <div className="my-space-md font-headline-lg text-headline-lg font-semibold tracking-tight text-on-surface">
-            In 4 Days
-          </div>
-          <span className="font-label-xs text-label-xs text-outline font-mono">28 Oct • Netflix ₹649</span>
+          {upcoming ? (
+            <>
+              <div className="my-space-md font-headline-lg text-headline-lg font-semibold tracking-tight text-on-surface">
+                In {upcomingInDays} Day{upcomingInDays === 1 ? '' : 's'}
+              </div>
+              <span className="font-label-xs text-label-xs text-outline font-mono">
+                {new Date(upcoming.nextBilling).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })} • {upcoming.name} ₹{upcoming.amount.toLocaleString('en-IN')}
+              </span>
+            </>
+          ) : (
+            <div className="my-space-md font-body-md text-body-md text-outline">No active subscriptions.</div>
+          )}
         </div>
       </div>
 
@@ -119,8 +136,13 @@ export function Subscriptions() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+          {!subs.length && (
+            <p className="text-outline col-span-full text-center py-space-lg">
+              No subscriptions tracked yet. Add your first one above.
+            </p>
+          )}
           {subs.map((s) => (
-            <div key={s.id} className="p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/30 flex items-center justify-between gap-space-md shadow-sm">
+            <div key={s._id} className="p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/30 flex items-center justify-between gap-space-md shadow-sm">
               <div className="flex items-center gap-space-md">
                 <div className="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-fixed shrink-0">
                   <span className="material-symbols-outlined text-[22px]">{s.icon}</span>
@@ -130,7 +152,7 @@ export function Subscriptions() {
                   <div className="flex items-center gap-2 font-label-xs text-label-xs text-outline">
                     <span>{s.category}</span>
                     <span>•</span>
-                    <span>Renews: {s.nextBilling}</span>
+                    <span>Renews: {new Date(s.nextBilling).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
                   </div>
                 </div>
               </div>
@@ -139,7 +161,7 @@ export function Subscriptions() {
                 <div className="font-label-lg text-label-lg font-bold text-on-surface">
                   ₹{s.amount.toLocaleString('en-IN')}
                 </div>
-                <span className="font-label-xs text-label-xs text-outline uppercase">{s.cycle}</span>
+                <span className="font-label-xs text-label-xs text-outline uppercase">{CYCLE_LABEL[s.cycle] || s.cycle}</span>
               </div>
             </div>
           ))}
@@ -186,14 +208,28 @@ export function Subscriptions() {
                   <label className="font-label-xs text-label-xs uppercase text-outline">Billing Cycle</label>
                   <select
                     value={cycle}
-                    onChange={(e) => setCycle(e.target.value as any)}
+                    onChange={(e) => setCycle(e.target.value)}
                     className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
                   >
-                    <option value="Monthly">Monthly</option>
-                    <option value="Annual">Annual</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="yearly">Annual</option>
                   </select>
                 </div>
               </div>
+
+              <div className="grid grid-cols-2 gap-space-sm">
+                <div className="space-y-1">
+                  <label className="font-label-xs text-label-xs uppercase text-outline">Account</label>
+                  <select
+                    value={accountId || accounts[0]?._id || ''}
+                    onChange={(e) => setAccountId(e.target.value)}
+                    className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
+                  >
+                    {accounts.map((a) => <option key={a._id} value={a._id}>{a.name}</option>)}
+                  </select>
+                </div>
 
               <div className="space-y-1">
                 <label className="font-label-xs text-label-xs uppercase text-outline">Next Billing Date</label>
@@ -204,6 +240,9 @@ export function Subscriptions() {
                   className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
                 />
               </div>
+              </div>
+
+              {error && <p className="text-error font-semibold">{error}</p>}
 
               <button type="submit" className="w-full py-2.5 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-semibold hover:bg-primary-fixed-dim transition-all">
                 Save Subscription

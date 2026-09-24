@@ -11,14 +11,25 @@ export type Tx = {
 
 export const useFinance = create<{
   transactions: Tx[]; accounts: any[]; categories: any[];
+  budgets: any[]; budgetMonth: string;
+  loans: any[]; receivable: number; payable: number;
+  subscriptions: any[]; subsMonthly: number; subsAnnual: number;
   online: boolean; syncing: boolean;
   setOnline: (v: boolean) => void;
   load: () => Promise<void>;
+  loadPhase2: () => Promise<void>;
   addTx: (t: Omit<Tx, 'clientId' | 'syncStatus'>) => Promise<void>;
   sync: () => Promise<void>;
   createAccount: (name: string, openingBalance: number) => Promise<void>;
+  transfer: (fromAccountId: string, toAccountId: string, amount: number, description?: string) => Promise<void>;
+  createBudget: (category: string, cap: number) => Promise<void>;
+  createLoan: (kind: 'lent' | 'borrowed', person: string, amount: number, accountId: string, dueDate?: string, description?: string) => Promise<void>;
+  repayLoan: (id: string, amount: number) => Promise<void>;
+  createSubscription: (s: { name: string; amount: number; cycle: string; accountId: string; nextBilling?: string; category?: string }) => Promise<void>;
 }>((set, get) => ({
   transactions: [], accounts: [], categories: [],
+  budgets: [], budgetMonth: '', loans: [], receivable: 0, payable: 0,
+  subscriptions: [], subsMonthly: 0, subsAnnual: 0,
   online: navigator.onLine, syncing: false,
   setOnline: (v) => set({ online: v }),
 
@@ -40,6 +51,21 @@ export const useFinance = create<{
       for (const acc of a.accounts) await idb.put('accounts', acc);
     } catch { /* stay on cache */ }
     await get().sync();
+    await get().loadPhase2();
+  },
+
+  async loadPhase2() {
+    if (!navigator.onLine) return;
+    try {
+      const [{ data: b }, { data: l }, { data: s }] = await Promise.all([
+        api.get('/budgets'), api.get('/loans'), api.get('/subscriptions'),
+      ]);
+      set({
+        budgets: b.budgets, budgetMonth: b.month,
+        loans: l.loans, receivable: l.receivable, payable: l.payable,
+        subscriptions: s.subscriptions, subsMonthly: s.monthly, subsAnnual: s.annual,
+      });
+    } catch { /* phase-2 pages show empty state */ }
   },
 
   async addTx(t) {
@@ -91,5 +117,50 @@ export const useFinance = create<{
     const { data } = await api.post('/accounts', { name, openingBalance });
     set({ accounts: [...get().accounts, data.account] });
     await idb.put('accounts', data.account);
+  },
+
+  async transfer(fromAccountId, toAccountId, amount, description = '') {
+    const { data } = await api.post('/transfers', { fromAccountId, toAccountId, amount, description });
+    // Refresh accounts + transactions (transfer is excluded from income/expense stats server-side)
+    const [{ data: a }, { data: t }] = await Promise.all([
+      api.get('/accounts'), api.get('/transactions?limit=200'),
+    ]);
+    set({
+      accounts: a.accounts,
+      transactions: t.transactions.map((x: any) => ({ ...x, clientId: x.clientId || x._id, syncStatus: 'synced' as const })),
+    });
+    return data.transaction;
+  },
+
+  async createBudget(category, cap) {
+    const { data } = await api.post('/budgets', { category, cap });
+    await get().loadPhase2();
+    return data.budget;
+  },
+
+  async createLoan(kind, person, amount, accountId, dueDate, description = '') {
+    const { data } = await api.post('/loans', { kind, person, amount, accountId, dueDate, description });
+    await get().loadPhase2();
+    const { data: a } = await api.get('/accounts');
+    set({ accounts: a.accounts });
+    return data.loan;
+  },
+
+  async repayLoan(id, amount) {
+    const { data } = await api.post(`/loans/${id}/repay`, { amount });
+    await get().loadPhase2();
+    const { data: a } = await api.get('/accounts');
+    const { data: t } = await api.get('/transactions?limit=200');
+    set({
+      accounts: a.accounts,
+      transactions: t.transactions.map((x: any) => ({ ...x, clientId: x.clientId || x._id, syncStatus: 'synced' as const })),
+    });
+    return data.loan;
+  },
+
+  async createSubscription(s) {
+    const { data } = await api.post('/subscriptions', s);
+    await get().loadPhase2();
+    return data.subscription;
   },
 }));

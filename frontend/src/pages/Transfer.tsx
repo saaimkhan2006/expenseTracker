@@ -4,40 +4,49 @@ import { useFinance } from '../stores/finance';
 
 export function Transfer() {
   const nav = useNavigate();
-  const { accounts } = useFinance();
+  const { accounts, transfer } = useFinance();
 
-  const displayAccounts = accounts.length
-    ? accounts
-    : [
-        { _id: 'acc1', name: 'HDFC Main Checking', balance: 18450 },
-        { _id: 'acc2', name: 'ICICI Wealth Savings', balance: 6400 },
-        { _id: 'acc4', name: 'Cash Reserve Vault', balance: 2400 },
-      ];
-
-  const [fromAccId, setFromAccId] = useState(displayAccounts[0]?._id || 'acc1');
-  const [toAccId, setToAccId] = useState(displayAccounts[1]?._id || 'acc2');
+  const [fromAccId, setFromAccId] = useState(accounts[0]?._id || '');
+  const [toAccId, setToAccId] = useState(accounts[1]?._id || '');
   const [amountStr, setAmountStr] = useState('2000');
   const [notes, setNotes] = useState('Monthly Savings Transfer');
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  const fromAcc = displayAccounts.find((a) => a._id === fromAccId) || displayAccounts[0];
-  const toAcc = displayAccounts.find((a) => a._id === toAccId) || displayAccounts[1];
+  const fromAcc = accounts.find((a) => a._id === fromAccId);
+  const toAcc = accounts.find((a) => a._id === toAccId);
 
   const handleSwap = () => {
-    const prevFrom = fromAccId;
     setFromAccId(toAccId);
-    setToAccId(prevFrom);
+    setToAccId(fromAccId);
   };
 
-  const handleTransfer = (e: React.FormEvent) => {
+  const handleTransfer = async (e: React.FormEvent) => {
     e.preventDefault();
     const val = parseFloat(amountStr);
     if (!val || val <= 0) return;
+    if (!fromAccId || !toAccId) { setError('Select both accounts.'); return; }
+    if (fromAccId === toAccId) { setError('Source and destination must differ.'); return; }
+    setError('');
     setSubmitted(true);
-    setTimeout(() => {
+    try {
+      await transfer(fromAccId, toAccId, val, notes);
       nav('/accounts');
-    }, 800);
+    } catch (err: any) {
+      setSubmitted(false);
+      setError(err.response?.data?.message || 'Transfer failed. Try again.');
+    }
   };
+
+  if (!accounts.length) {
+    return (
+      <div className="max-w-2xl mx-auto card text-center space-y-3">
+        <h1 className="font-headline-lg text-headline-lg">Transfer Capital</h1>
+        <p className="text-on-surface-variant">You need at least two accounts before transferring.</p>
+        <button onClick={() => nav('/accounts')} className="px-4 py-2 rounded-lg bg-primary-container text-on-primary-fixed font-semibold">Go to Accounts</button>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-2xl mx-auto flex flex-col gap-space-lg text-on-surface">
@@ -78,7 +87,7 @@ export function Transfer() {
               onChange={(e) => setFromAccId(e.target.value)}
               className="bg-transparent text-on-surface font-body-md font-semibold focus:outline-none cursor-pointer"
             >
-              {displayAccounts.map((a) => (
+              {accounts.map((a) => (
                 <option key={a._id} value={a._id}>
                   {a.name} (Bal: ₹{a.balance.toLocaleString('en-IN')})
                 </option>
@@ -106,7 +115,7 @@ export function Transfer() {
               onChange={(e) => setToAccId(e.target.value)}
               className="bg-transparent text-on-surface font-body-md font-semibold focus:outline-none cursor-pointer"
             >
-              {displayAccounts.map((a) => (
+              {accounts.map((a) => (
                 <option key={a._id} value={a._id}>
                   {a.name} (Bal: ₹{a.balance.toLocaleString('en-IN')})
                 </option>
@@ -158,6 +167,8 @@ export function Transfer() {
             className="p-space-sm rounded-xl bg-surface-container border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
           />
         </div>
+
+        {error && <p className="text-error font-semibold text-center">{error}</p>}
 
         <button
           type="submit"

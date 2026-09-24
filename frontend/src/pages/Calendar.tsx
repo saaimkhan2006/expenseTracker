@@ -1,27 +1,46 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useFinance } from '../stores/finance';
 
 export function Calendar() {
   const { transactions } = useFinance();
-  const [selectedDay, setSelectedDay] = useState<number | null>(24);
-  const [currentMonth, setCurrentMonth] = useState('October 2024');
+  const today = new Date();
+  const [ym, setYm] = useState({ y: today.getFullYear(), m: today.getMonth() });
+  const [selectedDay, setSelectedDay] = useState<number | null>(today.getDate());
 
-  // Days in month matrix (31 days for October)
-  const daysInMonth = Array.from({ length: 31 }, (_, i) => i + 1);
+  const monthLabel = new Date(ym.y, ym.m, 1).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
+  const daysInMonthCount = new Date(ym.y, ym.m + 1, 0).getDate();
+  const leadBlanks = new Date(ym.y, ym.m, 1).getDay(); // Sun-first, matches header
+  const daysInMonth = Array.from({ length: daysInMonthCount }, (_, i) => i + 1);
 
-  // Sample data map for month days
-  const dayDataMap: Record<number, { expense: number; income: number; txs: string[] }> = {
-    1: { expense: 1200, income: 0, txs: ['Grocery Store - ₹1,200'] },
-    5: { expense: 4500, income: 0, txs: ['Tata Power Electricity - ₹3,500', 'Uber Transit - ₹1,000'] },
-    10: { expense: 0, income: 45000, txs: ['Salary Direct Deposit - ₹45,000'] },
-    15: { expense: 1290, income: 0, txs: ['Figma Software License - ₹1,290'] },
-    18: { expense: 4200, income: 0, txs: ['AWS Cloud Servers - ₹4,200'] },
-    22: { expense: 480, income: 0, txs: ['Blue Tokai Coffee - ₹480'] },
-    24: { expense: 1850, income: 0, txs: ['Nature Basket - ₹1,850'] },
-    28: { expense: 0, income: 15000, txs: ['Stripe Client Payout - ₹15,000'] },
-  };
+  // Real per-day aggregates from the ledger for the visible month.
+  const dayDataMap = useMemo(() => {
+    const map: Record<number, { expense: number; income: number; txs: string[] }> = {};
+    for (const t of transactions) {
+      const d = new Date(t.date);
+      if (d.getFullYear() !== ym.y || d.getMonth() !== ym.m) continue;
+      const k = d.getDate();
+      map[k] ||= { expense: 0, income: 0, txs: [] };
+      if (t.type === 'income') map[k].income += t.amount;
+      else if (t.type === 'expense') map[k].expense += t.amount;
+      map[k].txs.push(`${t.description || t.category} — ${t.type === 'income' ? '+' : '-'}₹${t.amount.toLocaleString('en-IN')}`);
+    }
+    return map;
+  }, [transactions, ym]);
+
+  const monthInflow = Object.values(dayDataMap).reduce((s, d) => s + d.income, 0);
+  const monthOutflow = Object.values(dayDataMap).reduce((s, d) => s + d.expense, 0);
+  const netRetained = monthInflow - monthOutflow;
+  const dayCount = Object.keys(dayDataMap).length;
+  const retention = monthInflow > 0 ? ((netRetained / monthInflow) * 100).toFixed(1) : '0.0';
 
   const dayInfo = selectedDay ? dayDataMap[selectedDay] : null;
+  const selectedLabel = selectedDay ? `${monthLabel.split(' ')[0]} ${selectedDay}, ${ym.y}` : '';
+
+  const shift = (delta: number) => {
+    const d = new Date(ym.y, ym.m + delta, 1);
+    setYm({ y: d.getFullYear(), m: d.getMonth() });
+    setSelectedDay(null);
+  };
 
   return (
     <div className="flex flex-col w-full text-on-surface space-y-space-lg">
@@ -29,13 +48,13 @@ export function Calendar() {
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md border-b border-surface-variant/40 pb-space-md">
         <div className="flex flex-wrap items-center gap-space-md">
           <div className="flex items-center bg-surface-container rounded-lg p-1 border border-surface-variant/40">
-            <button onClick={() => setCurrentMonth('September 2024')} className="w-8 h-8 flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high rounded transition-all">
+            <button onClick={() => shift(-1)} className="w-8 h-8 flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high rounded transition-all">
               <span className="material-symbols-outlined text-[18px]">chevron_left</span>
             </button>
             <div className="px-space-md flex items-center gap-space-xs">
-              <span className="font-headline-md text-headline-md tracking-tight uppercase text-on-surface font-semibold">{currentMonth}</span>
+              <span className="font-headline-md text-headline-md tracking-tight uppercase text-on-surface font-semibold">{monthLabel}</span>
             </div>
-            <button onClick={() => setCurrentMonth('November 2024')} className="w-8 h-8 flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high rounded transition-all">
+            <button onClick={() => shift(1)} className="w-8 h-8 flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high rounded transition-all">
               <span className="material-symbols-outlined text-[18px]">chevron_right</span>
             </button>
           </div>
@@ -58,7 +77,7 @@ export function Calendar() {
         </div>
 
         <span className="font-label-xs text-label-xs uppercase tracking-wider text-outline">
-          Fiscal Q4 • Real-Time Financial Calendar
+          Real-Time Financial Calendar
         </span>
       </div>
 
@@ -66,20 +85,20 @@ export function Calendar() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-space-md">
         <div className="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between border border-surface-variant/30">
           <span className="font-label-xs text-label-xs uppercase text-outline">Total Month Inflow</span>
-          <div className="font-headline-lg text-headline-lg text-primary-fixed font-semibold mt-1">+₹60,000</div>
-          <span className="font-label-xs text-label-xs text-outline mt-1">2 Deposit events</span>
+          <div className="font-headline-lg text-headline-lg text-primary-fixed font-semibold mt-1">+₹{monthInflow.toLocaleString('en-IN')}</div>
+          <span className="font-label-xs text-label-xs text-outline mt-1">{dayCount} active days</span>
         </div>
 
         <div className="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between border border-surface-variant/30">
           <span className="font-label-xs text-label-xs uppercase text-outline">Total Month Outflow</span>
-          <div className="font-headline-lg text-headline-lg text-error font-semibold mt-1">−₹13,520</div>
-          <span className="font-label-xs text-label-xs text-outline mt-1">12 Debit events</span>
+          <div className="font-headline-lg text-headline-lg text-error font-semibold mt-1">−₹{monthOutflow.toLocaleString('en-IN')}</div>
+          <span className="font-label-xs text-label-xs text-outline mt-1">{dayCount} active days</span>
         </div>
 
         <div className="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between border border-surface-variant/30">
           <span className="font-label-xs text-label-xs uppercase text-outline">Net Retained</span>
-          <div className="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">+₹46,480</div>
-          <span className="font-label-xs text-label-xs text-primary-fixed mt-1">77.4% Retention</span>
+          <div className="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">+₹{netRetained.toLocaleString('en-IN')}</div>
+          <span className="font-label-xs text-label-xs text-primary-fixed mt-1">{retention}% Retention</span>
         </div>
 
         <div className="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between border border-surface-variant/30">
@@ -98,11 +117,12 @@ export function Calendar() {
           </div>
 
           <div className="grid grid-cols-7 gap-1">
+            {Array.from({ length: leadBlanks }).map((_, i) => <div key={`pad-${i}`} />)}
             {daysInMonth.map((day) => {
               const info = dayDataMap[day];
               const isSelected = selectedDay === day;
-              const hasIncome = info?.income > 0;
-              const hasExpense = info?.expense > 0;
+              const hasIncome = (info?.income || 0) > 0;
+              const hasExpense = (info?.expense || 0) > 0;
 
               return (
                 <button
@@ -148,10 +168,10 @@ export function Calendar() {
             <div className="border-b border-surface-variant/40 pb-space-sm flex items-center justify-between">
               <div>
                 <span className="font-label-xs text-label-xs uppercase text-outline">DAY INSPECTOR</span>
-                <h3 className="font-headline-md text-headline-md font-medium text-on-surface">October {selectedDay}, 2024</h3>
+                <h3 className="font-headline-md text-headline-md font-medium text-on-surface">{selectedLabel || 'No day selected'}</h3>
               </div>
               <span className="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-semibold">
-                Audit Verified
+                Live Ledger
               </span>
             </div>
 
@@ -178,7 +198,7 @@ export function Calendar() {
               </div>
             ) : (
               <div className="py-space-xl text-center text-outline font-body-sm">
-                No financial dispatches recorded for October {selectedDay}.
+                {selectedDay ? `No entries recorded for ${selectedLabel}.` : 'Select a day to inspect it.'}
               </div>
             )}
           </div>

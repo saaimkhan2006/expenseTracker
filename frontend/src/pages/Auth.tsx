@@ -33,17 +33,19 @@ export function AuthPage({ mode = 'login' }: { mode?: 'login' | 'register' }) {
   };
 
   const handleDemoAccess = async () => {
+    // Real demo account: login, or register-then-login on first use.
+    // Never fabricate a session — a fake token would 401 every API call.
     setLoading(true);
+    setError('');
     try {
-      await login('demo@smartbudget.io', 'demo12345').catch(() => {
-        // Fallback store hydration if offline
-        useAuth.setState({
-          token: 'demo_token_xyz',
-          user: { id: 'u1', email: 'demo@smartbudget.io', name: 'Alex Mercer' },
-        });
-        localStorage.setItem('sb_token', 'demo_token_xyz');
-      });
+      try {
+        await login('demo@smartbudget.io', 'demo12345');
+      } catch {
+        await register('Demo User', 'demo@smartbudget.io', 'demo12345');
+      }
       nav('/');
+    } catch (err: any) {
+      setError(err?.response?.data?.message || 'Demo unavailable. Check your connection or register.');
     } finally {
       setLoading(false);
     }

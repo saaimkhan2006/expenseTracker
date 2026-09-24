@@ -10,15 +10,8 @@ export function Accounts() {
   const [newAccBalance, setNewAccBalance] = useState('10000');
   const [creating, setCreating] = useState(false);
 
-  // Fallback demo accounts if empty
-  const displayAccounts = accounts.length
-    ? accounts
-    : [
-        { _id: 'acc1', name: 'HDFC Main Checking', type: 'Checking Rail', balance: 18450, accountNum: '•••• 4921', status: 'Primary' },
-        { _id: 'acc2', name: 'ICICI Wealth Savings', type: 'Savings Reserve', balance: 6400, accountNum: '•••• 8812', status: 'Active' },
-        { _id: 'acc3', name: 'Axis Rewards Credit', type: 'Credit Line', balance: -2400, accountNum: '•••• 3109', status: 'Unbilled' },
-        { _id: 'acc4', name: 'Physical Cash Reserve', type: 'Vault', balance: 2400, accountNum: 'Liquid Vault', status: 'Offline' },
-      ];
+  // Real accounts only — never fabricate balances.
+  const displayAccounts = accounts;
 
   const totalLiquid = displayAccounts.filter((a) => a.balance > 0).reduce((s, a) => s + a.balance, 0);
   const totalLiabilities = displayAccounts.filter((a) => a.balance < 0).reduce((s, a) => s + Math.abs(a.balance), 0);
@@ -143,6 +136,11 @@ export function Accounts() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+          {!displayAccounts.length && (
+            <p className="text-outline col-span-full text-center py-space-lg">
+              No accounts yet. Add your first account to start tracking.
+            </p>
+          )}
           {displayAccounts.map((acc) => {
             const isNegative = acc.balance < 0;
 

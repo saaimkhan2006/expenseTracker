@@ -6,6 +6,10 @@ import * as accC from '../controllers/accountController.js';
 import * as catC from '../controllers/categoryController.js';
 import * as txC from '../controllers/transactionController.js';
 import * as dashC from '../controllers/dashboardController.js';
+import * as budgetC from '../controllers/budgetController.js';
+import * as transferC from '../controllers/transferController.js';
+import * as loanC from '../controllers/loanController.js';
+import * as subC from '../controllers/subscriptionController.js';
 
 const router = express.Router();
 
@@ -27,6 +31,23 @@ router.post('/transactions', auth, txC.create);
 router.post('/transactions/sync', auth, txC.syncBulk);
 router.put('/transactions/:id', auth, txC.update);
 router.delete('/transactions/:id', auth, txC.remove);
+
+router.get('/budgets', auth, budgetC.list);
+router.post('/budgets', auth, budgetC.create);
+router.put('/budgets/:id', auth, budgetC.update);
+router.delete('/budgets/:id', auth, budgetC.remove);
+
+router.post('/transfers', auth, transferC.create);
+
+router.get('/loans', auth, loanC.list);
+router.post('/loans', auth, loanC.create);
+router.post('/loans/:id/repay', auth, loanC.repay);
+router.delete('/loans/:id', auth, loanC.remove);
+
+router.get('/subscriptions', auth, subC.list);
+router.post('/subscriptions', auth, subC.create);
+router.put('/subscriptions/:id', auth, subC.update);
+router.delete('/subscriptions/:id', auth, subC.remove);
 
 router.get('/health', (req, res) => res.json({ ok: true }));
 

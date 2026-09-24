@@ -100,8 +100,8 @@ export function More() {
               <span className="material-symbols-outlined">person</span>
             </div>
             <div>
-              <h3 className="font-body-md text-body-md font-semibold text-on-surface">{user?.name || 'Alex Mercer'}</h3>
-              <span className="font-label-xs text-label-xs text-outline">{user?.email || 'alex@smartbudget.io'}</span>
+              <h3 className="font-body-md text-body-md font-semibold text-on-surface">{user?.name || user?.email?.split('@')[0] || 'User'}</h3>
+              <span className="font-label-xs text-label-xs text-outline">{user?.email || ''}</span>
             </div>
           </div>
 
@@ -110,7 +110,7 @@ export function More() {
               <label className="font-label-xs text-label-xs uppercase text-outline">Display Name</label>
               <input
                 type="text"
-                value={user?.name || 'Alex Mercer'}
+                value={user?.name || user?.email?.split('@')[0] || 'User'}
                 readOnly
                 className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
               />

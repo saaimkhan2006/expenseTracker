@@ -10,43 +10,39 @@ type BudgetEnvelope = {
 };
 
 export function Budget() {
-  const { transactions } = useFinance();
+  const { budgets, createBudget } = useFinance();
   const [showModal, setShowModal] = useState(false);
   const [newCategory, setNewCategory] = useState('');
   const [newCap, setNewCap] = useState('5000');
+  const [error, setError] = useState('');
 
-  // Initial demo budget envelopes
-  const [envelopes, setEnvelopes] = useState<BudgetEnvelope[]>([
-    { id: 'b1', category: 'Food & Dining', spent: 6850, cap: 10000, icon: 'restaurant' },
-    { id: 'b2', category: 'Operations & Tech', spent: 4200, cap: 5000, icon: 'dns' },
-    { id: 'b3', category: 'Transport & Fuel', spent: 2400, cap: 4000, icon: 'directions_car' },
-    { id: 'b4', category: 'Utilities & Bills', spent: 3500, cap: 4000, icon: 'bolt' },
-    { id: 'b5', category: 'Subscriptions', spent: 1770, cap: 2000, icon: 'repeat' },
-    { id: 'b6', category: 'Shopping & Leisure', spent: 1430, cap: 5000, icon: 'shopping_bag' },
-  ]);
+  // Real envelopes: caps from the API, spend computed server-side from transactions.
+  const envelopes: BudgetEnvelope[] = budgets.map((b: any) => ({
+    id: b._id, category: b.category, spent: b.spent || 0, cap: b.cap, icon: 'account_balance_wallet',
+  }));
 
   const totalCap = envelopes.reduce((acc, e) => acc + e.cap, 0);
   const totalSpent = envelopes.reduce((acc, e) => acc + e.spent, 0);
+  const now = new Date();
+  const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  const daysElapsed = Math.max(1, Math.min(now.getDate(), daysInMonth));
+  const dailyAvg = Math.round(totalSpent / daysElapsed);
+  const dailyCap = Math.round(totalCap / daysInMonth);
   const utilizationPct = totalCap > 0 ? ((totalSpent / totalCap) * 100).toFixed(0) : '0';
   const remaining = totalCap - totalSpent;
 
-  const handleCreateBudget = (e: React.FormEvent) => {
+  const handleCreateBudget = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newCategory.trim() || !newCap) return;
-    const capNum = parseFloat(newCap);
-    setEnvelopes([
-      ...envelopes,
-      {
-        id: Date.now().toString(),
-        category: newCategory.trim(),
-        spent: 0,
-        cap: capNum,
-        icon: 'account_balance_wallet',
-      },
-    ]);
-    setNewCategory('');
-    setNewCap('5000');
-    setShowModal(false);
+    setError('');
+    try {
+      await createBudget(newCategory.trim(), parseFloat(newCap));
+      setNewCategory('');
+      setNewCap('5000');
+      setShowModal(false);
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Could not save budget. Try again.');
+    }
   };
 
   return (
@@ -111,7 +107,7 @@ export function Budget() {
               <span className="font-label-xs text-label-xs uppercase tracking-wider text-outline block mb-1">Current Daily Avg</span>
               <div className="flex items-baseline gap-1">
                 <span className="font-label-md text-label-md text-outline">₹</span>
-                <span className="font-headline-md text-headline-md font-bold text-on-surface">915</span>
+                <span className="font-headline-md text-headline-md font-bold text-on-surface">{dailyAvg.toLocaleString('en-IN')}</span>
                 <span className="font-label-xs text-label-xs text-outline">/day</span>
               </div>
               <span className="font-label-xs text-label-xs text-primary-fixed mt-1 block">Optimal Pace</span>
@@ -120,7 +116,7 @@ export function Budget() {
               <span className="font-label-xs text-label-xs uppercase tracking-wider text-outline block mb-1">Allowed Burn Cap</span>
               <div className="flex items-baseline gap-1">
                 <span className="font-label-md text-label-md text-outline">₹</span>
-                <span className="font-headline-md text-headline-md font-bold text-on-surface">1,250</span>
+                <span className="font-headline-md text-headline-md font-bold text-on-surface">{dailyCap.toLocaleString('en-IN')}</span>
                 <span className="font-label-xs text-label-xs text-outline">/day</span>
               </div>
               <span className="font-label-xs text-label-xs text-on-surface-variant mt-1 block">Safe Limit</span>
@@ -148,6 +144,11 @@ export function Budget() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+          {!envelopes.length && (
+            <p className="text-outline col-span-full text-center py-space-lg">
+              No budgets for this month yet. Create your first envelope above.
+            </p>
+          )}
           {envelopes.map((env) => {
             const pct = Math.min(100, Math.round((env.spent / env.cap) * 100));
             const isWarning = pct >= 80 && pct < 100;
@@ -207,6 +208,7 @@ export function Budget() {
             </div>
 
             <form onSubmit={handleCreateBudget} className="space-y-space-md">
+              {error && <p className="text-error font-semibold">{error}</p>}
               <div className="space-y-1">
                 <label className="font-label-xs text-label-xs uppercase text-outline">Category Name</label>
                 <input
