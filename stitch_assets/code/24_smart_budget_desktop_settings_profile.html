@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-low": "#191c1f", "on-tertiary-fixed-variant": "#920418", "secondary": "#adc6ff", "inverse-surface": "#e1e2e6", "on-primary-container": "#556d00", "on-primary-fixed": "#161e00", "on-tertiary-fixed": "#410005", "surface": "#111417", "on-primary-fixed-variant": "#3c4d00", "inverse-on-surface": "#2e3134", "error": "#ffb4ab", "on-secondary-container": "#e6ecff", "surface-container-high": "#272a2d", "on-tertiary-container": "#bd2c32", "tertiary-fixed": "#ffdad7", "on-background": "#e1e2e6", "tertiary-fixed-dim": "#ffb3af", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395", "on-primary": "#283500", "tertiary-container": "#ffdad7", "primary-fixed-dim": "#abd600", "secondary-fixed": "#d8e2ff", "primary-fixed": "#c3f400", "on-error": "#690005", "surface-dim": "#111417", "outline": "#8e9379", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001a42", "on-tertiary": "#68000d", "primary-container": "#c3f400", "surface-bright": "#37393d", "on-surface-variant": "#c4c9ac", "error-container": "#93000a", "on-surface": "#e1e2e6", "surface-tint": "#abd600", "surface-container-lowest": "#0b0e11", "tertiary": "#ffffff", "secondary-container": "#0566d9", "surface-variant": "#323538", "primary": "#ffffff", "on-secondary": "#002e6a", "background": "#111417", "surface-container": "#1d2023", "inverse-primary": "#506600", "surface-container-highest": "#323538", "outline-variant": "#444933" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "margin": "1.5rem", "space-lg": "1.5rem", "gutter": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "display-lg-mobile": [ "Geist" ], "label-lg": [ "JetBrains Mono" ], "display-xl": [ "Geist" ], "display-lg": [ "Geist" ], "display-xl-mobile": [ "Geist" ], "body-sm": [ "Geist" ], "body-lg": [ "Geist" ], "headline-md": [ "Geist" ], "label-xs": [ "JetBrains Mono" ], "label-md": [ "JetBrains Mono" ], "headline-lg": [ "Geist" ], "body-md": [ "Geist" ] }, "fontSize": { "display-lg-mobile": [ "2rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "label-lg": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" } ], "display-xl": [ "3.75rem", { "lineHeight": "4rem", "fontWeight": "600" } ], "display-lg": [ "3rem", { "lineHeight": "3.25rem", "fontWeight": "600" } ], "display-xl-mobile": [ "2.5rem", { "lineHeight": "2.75rem", "fontWeight": "600" } ], "body-sm": [ "0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" } ], "body-lg": [ "1.0625rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "headline-md": [ "1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" } ], "label-xs": [ "0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "600" } ], "label-md": [ "0.75rem", { "lineHeight": "1rem", "fontWeight": "500" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "500" } ], "body-md": [ "0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface border-r border-surface-variant flex flex-col justify-between z-50 select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between border-b border-surface-variant/40"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center"><div class="w-3 h-3 bg-primary-container rotate-45 rounded-[1px]"></div></div><div class="flex flex-col"><span class="font-label-md text-label-md tracking-widest uppercase text-on-surface font-semibold">Smart Budget</span><span class="font-label-xs text-label-xs tracking-wider text-outline uppercase">Terminal v2.4</span></div></div><div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-md space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Overview</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">space_dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="transactions" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Transactions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="calendar" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Calendar</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Money</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="budget" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Budget</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="analytics" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="money-owed" href="#"><span class="material-symbols-outlined text-[18px]">request_quote</span><span>Money Owed</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="accounts" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span>Accounts</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Plan</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="goals" href="#"><span class="material-symbols-outlined text-[18px]">flag</span><span>Goals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="subscriptions" href="#"><span class="material-symbols-outlined text-[18px]">repeat</span><span>Subscriptions</span></a></nav></div></div></div><div class="border-t border-surface-variant p-space-sm space-y-space-xs bg-surface-dim"><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-container-lowest/60 border border-surface-variant/40"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span></span><span class="font-label-xs text-label-xs text-on-surface-variant">Cloud synced</span></div><span class="font-label-xs text-label-xs text-outline">2m ago</span></div><div class="flex items-center justify-between pt-1 px-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Alex Mercer</span><span class="font-label-xs text-label-xs text-outline truncate max-w-[110px]">Pro Portfolio</span></div></div><a class="text-outline hover:text-on-surface transition-colors p-1" data-path="logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-variant/40 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-lowest border border-surface-variant"><span class="material-symbols-outlined text-outline text-[16px]">search</span><input class="bg-transparent text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none w-64" placeholder="Search transactions, accounts, rules..." type="text"/><span class="font-label-xs text-label-xs text-outline border border-surface-variant px-1 rounded">⌘K</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-xs text-label-xs text-on-surface-variant border border-surface-variant px-space-sm py-1 rounded bg-surface-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>PRIMARY LEDGER • USD</span></div><button class="text-outline hover:text-on-surface transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-primary-container"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen p-space-xl"><div class="flex flex-col w-full">
+<!-- Telemetry Bar / State Selector Demonstration Strip -->
+<div class="mb-space-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-outline">Network Protocol Monitor</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">NODE: IN-BLR-04</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-high p-0.5 rounded">
+<button class="px-space-sm py-0.5 rounded font-label-xs text-label-xs tracking-wider transition-colors bg-primary-container text-on-primary-container font-semibold" id="btn-state-synced" onclick="switchSyncState('synced')">STATE: SYNCED</button>
+<button class="px-space-sm py-0.5 rounded font-label-xs text-label-xs tracking-wider text-outline hover:text-on-surface transition-colors" id="btn-state-syncing" onclick="switchSyncState('syncing')">ACTIVE SYNC</button>
+<button class="px-space-sm py-0.5 rounded font-label-xs text-label-xs tracking-wider text-outline hover:text-on-surface transition-colors" id="btn-state-offline" onclick="switchSyncState('offline')">OFFLINE</button>
+</div>
+</div>
+<!-- Banner 1: Synced (Active Default) -->
+<div class="flex items-center justify-between p-space-md rounded bg-surface-container-low border-l-2 border-primary-container shadow-sm transition-all duration-200" id="banner-synced">
+<div class="flex items-center gap-space-md">
+<div class="w-7 h-7 rounded bg-primary-container/10 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold">✓ Synced</span>
+<span class="font-label-xs text-label-xs text-primary-fixed uppercase tracking-wider px-1.5 py-0.5 bg-primary-container/10 rounded">All 142 records reconciled</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Zero conflict ledger state. Last validated against TLS 1.3 upstream endpoint 14 seconds ago.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-xs text-label-xs text-outline font-mono">LATENCY: 18ms</span>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-xs text-label-xs transition-colors flex items-center gap-1" onclick="triggerManualSync()">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+<span>Re-verify</span>
+</button>
+</div>
+</div>
+<!-- Banner 2: Syncing (Hidden State) -->
+<div class="hidden items-center justify-between p-space-md rounded bg-surface-container-low border-l-2 border-secondary transition-all duration-200" id="banner-syncing">
+<div class="flex items-center gap-space-md">
+<div class="w-7 h-7 rounded bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px] animate-spin">sync</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold">↻ Syncing...</span>
+<span class="font-label-xs text-label-xs text-secondary uppercase tracking-wider px-1.5 py-0.5 bg-secondary/10 rounded">Ingesting bank feeds</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Pulling open banking telemetry: HDFC, ICICI &amp; Polygon.io index registers (4/6 pipelines clear).</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-24 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-2/3 animate-pulse"></div>
+</div>
+<span class="font-label-xs text-label-xs text-secondary font-mono">68%</span>
+</div>
+</div>
+<!-- Banner 3: Offline (Hidden State) -->
+<div class="hidden items-center justify-between p-space-md rounded bg-surface-container-low border-l-2 border-error transition-all duration-200" id="banner-offline">
+<div class="flex items-center gap-space-md">
+<div class="w-7 h-7 rounded bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[18px]">cloud_off</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-error font-semibold">● Offline</span>
+<span class="font-label-xs text-label-xs text-error uppercase tracking-wider px-1.5 py-0.5 bg-error/10 rounded">Local SQLite Cache Engaged</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Changes stored locally. Will sync automatically when back online. Full offline access active.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-xs text-label-xs text-outline font-mono">PENDING QUEUE: 3 ENTRIES</span>
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-xs text-label-xs font-mono">ISOLATED MODE</span>
+</div>
+</div>
+</div>
+<!-- Header Breadcrumb & Document Title -->
+<div class="mb-space-xl flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-xs text-label-xs tracking-widest uppercase text-outline">
+<a class="hover:text-primary-fixed transition-colors" href="#">Terminal</a>
+<span>/</span>
+<span class="text-primary-fixed">Settings</span>
+<span>/</span>
+<span>System Protocols</span>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Preferences, Security &amp; Data Management</h1>
+<p class="font-body-md text-body-md text-outline mt-1">Configure client-side telemetry, account security constraints, and deterministic ledger backup routines.</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-xs text-label-xs text-outline font-mono bg-surface-container px-space-sm py-1.5 rounded">CONFIG_REV: 0x9021</span>
+<button class="px-space-md py-2 rounded bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim font-label-sm text-label-sm font-semibold tracking-wider uppercase transition-all flex items-center gap-1.5 active:scale-95 shadow-sm" id="btn-save-status" onclick="simulateSaveAll()">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>Commit Changes</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 1. PROFILE HERO BANNER -->
+<section class="mb-space-xl bg-surface-container-low rounded p-space-lg shadow-sm relative overflow-hidden">
+<div class="absolute right-0 top-0 bottom-0 w-96 bg-gradient-to-l from-primary-container/[0.03] to-transparent pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg relative z-10">
+<!-- User ID Block -->
+<div class="flex items-center gap-space-lg">
+<div class="relative">
+<div class="w-20 h-20 rounded bg-surface-container-highest flex items-center justify-center text-primary-container overflow-hidden shadow-inner">
+<span class="material-symbols-outlined text-[42px]">person</span>
+</div>
+<span class="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded bg-primary-container text-on-primary-container font-label-xs text-label-xs font-bold tracking-tighter uppercase">PRO</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Alex Mercer</h2>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-primary-fixed font-label-xs text-label-xs tracking-wider uppercase font-semibold">PRO SUITE</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">UID #9902-AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant font-mono">alex.mercer@terminal.design</p>
+<div class="flex items-center gap-space-md mt-2 font-label-xs text-label-xs text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> Verified Master Key
+            </span>
+<span>•</span>
+<span>Registered: Oct 14, 2022 (Cohort #04)</span>
+</div>
+</div>
+</div>
+<!-- Quick Metrics Matrix -->
+<div class="grid grid-cols-3 gap-space-md w-full lg:w-auto bg-surface-container p-space-md rounded shadow-inner">
+<div class="flex flex-col pr-space-md">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Synced Accounts</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold font-mono">04</span>
+<span class="font-label-xs text-label-xs text-primary-fixed">Active</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline truncate mt-0.5">3 Banks, 1 Crypto</span>
+</div>
+<div class="flex flex-col px-space-md">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Ledger Entries</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold font-mono">38</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Nov Cycle</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline truncate mt-0.5">₹3.82L Cashflow</span>
+</div>
+<div class="flex flex-col pl-space-md">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Audit Rating</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-md text-headline-md text-primary-fixed font-semibold font-mono">99.4%</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary-fixed uppercase mt-0.5 tracking-tighter">Deterministic</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation Grid / Main Modules -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-xl">
+<!-- LEFT COLUMN: PREFERENCES & SECURITY (7 cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-xl">
+<!-- 2. PREFERENCES SECTION -->
+<div class="bg-surface-container-low rounded p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-lg pb-space-sm bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium">Regional &amp; Ledger Preferences</h3>
+</div>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-widest">Section 02</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Currency Toggle -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-xs text-label-xs uppercase tracking-wider text-outline">Primary Ledger Currency</label>
+<div class="grid grid-cols-3 gap-space-xs p-1 rounded bg-surface-container-lowest">
+<button class="py-2 rounded font-label-sm text-label-sm text-outline hover:text-on-surface text-center transition-colors font-mono" id="curr-usd" onclick="setCurrency('USD')">USD ($)</button>
+<button class="py-2 rounded font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold text-center transition-colors font-mono" id="curr-inr" onclick="setCurrency('INR')">INR (₹)</button>
+<button class="py-2 rounded font-label-sm text-label-sm text-outline hover:text-on-surface text-center transition-colors font-mono" id="curr-eur" onclick="setCurrency('EUR')">EUR (€)</button>
+</div>
+<span class="font-label-xs text-label-xs text-outline mt-1 font-mono">Base denominator for asset valuations: ₹ Indian Rupee</span>
+</div>
+<!-- Language Selection -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-xs text-label-xs uppercase tracking-wider text-outline">System Locale &amp; Syntax</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm px-space-md py-2.5 rounded focus:outline-none focus:bg-surface-container-high appearance-none font-mono cursor-pointer">
+<option selected="">English (UK / International Metric)</option>
+<option>English (US - GAAP Standard)</option>
+<option>English (India - Lakhs/Crores Format)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-2.5 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline mt-1 font-mono">Formats dates as DD/MM/YYYY with 24-hr timestamps</span>
+</div>
+<!-- Timezone -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-xs text-label-xs uppercase tracking-wider text-outline">Reconciliation Timezone</label>
+<div class="flex items-center justify-between px-space-md py-2.5 rounded bg-surface-container-lowest font-mono text-body-sm text-on-surface">
+<div class="flex items-center gap-space-xs truncate">
+<span class="material-symbols-outlined text-primary-fixed text-[16px]">schedule</span>
+<span class="truncate">Asia/Kolkata (IST • UTC +5:30)</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">AUTO-IP</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline mt-1 font-mono">Midnight ledger cutoff: 00:00:00 IST</span>
+</div>
+<!-- Financial Month Start -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-xs text-label-xs uppercase tracking-wider text-outline">Financial Month Start Cycle</label>
+<div class="flex items-center justify-between px-space-md py-2 rounded bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[16px]">calendar_month</span>
+<span class="font-body-sm text-body-sm text-on-surface font-mono">1st of Month</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-outline text-label-xs font-mono font-bold">-</button>
+<span class="px-2 font-label-xs text-label-xs font-mono text-primary-fixed font-bold">DAY 01</span>
+<button class="px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-outline text-label-xs font-mono font-bold">+</button>
+</div>
+</div>
+<span class="font-label-xs text-label-xs text-outline mt-1 font-mono">Budgets evaluate on a 30/31-day recurring window</span>
+</div>
+</div>
+</div>
+<!-- 3. SECURITY SECTION -->
+<div class="bg-surface-container-low rounded p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-lg pb-space-sm bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[16px]">shield</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium">Security Protocols &amp; Keys</h3>
+</div>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-widest">Section 03</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Master Password Row -->
+<div class="flex items-center justify-between p-space-md rounded bg-surface-container-lowest">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface">Client Master Password</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">Last modified 42 days ago • PBKDF2 600k rounds</span>
+</div>
+</div>
+<button class="px-space-md py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-xs text-label-xs font-semibold tracking-wider uppercase transition-colors" onclick="openChangePasswordModal()">
+              Change Password
+            </button>
+</div>
+<!-- Active Device Sessions -->
+<div class="flex flex-col gap-space-xs p-space-md rounded bg-surface-container-lowest">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-outline">Active Device Sessions</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container font-label-xs text-label-xs text-primary-fixed font-mono">2 ENROLLED</span>
+</div>
+<button class="text-error hover:underline font-label-xs text-label-xs uppercase tracking-wider font-semibold transition-colors" onclick="revokeOtherSessions()">
+                Revoke Other Sessions
+              </button>
+</div>
+<!-- Session 1: Current -->
+<div class="flex items-center justify-between py-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">laptop_mac</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">MacBook Pro 16" (M3 Max)</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-container/10 text-primary-fixed font-label-xs text-label-xs uppercase font-mono font-bold">CURRENT SESSION</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline font-mono">Bangalore, India • IP: 182.73.102.14 • Chrome Terminal Client</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+<!-- Session 2: Secondary Device -->
+<div class="flex items-center justify-between py-space-sm bg-surface-container/20 px-2 rounded" id="session-iphone">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px]">smartphone</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface">iPhone 15 Pro</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">iOS 17.5.1</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline font-mono">Bangalore, India • Last active: 38 mins ago</span>
+</div>
+</div>
+<button class="text-outline hover:text-error transition-colors p-1" onclick="revokeDevice('session-iphone')" title="Revoke Device">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- Biometrics & Auto-lock Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Biometric Toggle -->
+<div class="flex items-center justify-between p-space-md rounded bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-fixed text-[22px]">fingerprint</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Biometric Lock</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">Touch ID / Face ID Auth</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="toggle-biometric" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:border-surface-variant after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Auto-lock Timeout -->
+<div class="flex items-center justify-between p-space-md rounded bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px]">lock_clock</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Auto-Lock Timeout</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">Inactivity lockdown</span>
+</div>
+</div>
+<select class="bg-surface-container text-primary-fixed font-label-xs text-label-xs px-2.5 py-1.5 rounded focus:outline-none cursor-pointer font-mono font-bold">
+<option>1 MIN</option>
+<option selected="">5 MINS</option>
+<option>15 MINS</option>
+<option>30 MINS</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: DATA MANAGEMENT & NOTIFICATIONS / AUDIT (5 cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-xl">
+<!-- 4. DATA MANAGEMENT -->
+<div class="bg-surface-container-low rounded p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-lg pb-space-sm bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[16px]">database</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium">Data Storage &amp; Portability</h3>
+</div>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-widest">Section 04</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Export / Import Twin Cards -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Export -->
+<div class="flex flex-col justify-between p-space-md rounded bg-surface-container-lowest gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed">download</span>
+<span>Export Data</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline mt-1 font-mono">Full Ledger (CSV / JSON)</span>
+</div>
+<button class="w-full py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-xs text-label-xs uppercase font-semibold transition-colors flex items-center justify-center gap-1" onclick="downloadLedger()">
+<span>Export All</span>
+</button>
+</div>
+<!-- Import -->
+<div class="flex flex-col justify-between p-space-md rounded bg-surface-container-lowest gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px] text-secondary">upload_file</span>
+<span>Import Records</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline mt-1 font-mono">OFX, CSV, Bank statements</span>
+</div>
+<button class="w-full py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-xs text-label-xs uppercase font-semibold transition-colors flex items-center justify-center gap-1" onclick="triggerImportPrompt()">
+<span>Import OFX</span>
+</button>
+</div>
+</div>
+<!-- Automated Encrypted Backup -->
+<div class="p-space-md rounded bg-surface-container-lowest flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-fixed text-[18px]">lock_reset</span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Automated Encrypted Backup</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-label-xs text-label-xs font-mono">DAILY @ 03:00 UTC</span>
+</div>
+<p class="font-label-xs text-label-xs text-outline font-mono">Last snapshot: 14m ago (Hash: e3b0c44... SHA256). Stored in decentralized cold partition.</p>
+<div class="pt-1 flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">Snapshots retained: 30 days</span>
+<button class="px-space-md py-1 rounded bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim font-label-xs text-label-xs uppercase font-bold tracking-wider transition-all" onclick="createSnapshot()">
+                Create Snapshot
+              </button>
+</div>
+</div>
+<!-- DANGER ZONE -->
+<div class="p-space-md rounded bg-error-container/20 flex flex-col gap-space-xs mt-space-xs">
+<div class="flex items-center gap-space-xs text-error">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<span class="font-label-md text-label-md font-semibold uppercase tracking-wider">Danger Zone</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Permanent purge. All cryptographically signed registers, linked Open Banking tokens, and transaction archives will be erased irrevocably.</p>
+<div class="pt-space-xs flex justify-end">
+<button class="px-space-md py-1.5 rounded bg-surface-container text-error hover:bg-error hover:text-on-error font-label-xs text-label-xs uppercase font-bold tracking-wider transition-colors flex items-center gap-1.5" onclick="confirmPurgeData()">
+<span class="material-symbols-outlined text-[14px]">delete_forever</span>
+<span>Delete Account &amp; Purge Data</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. APP NOTIFICATIONS & LIVE TELEMETRY FEED -->
+<div class="bg-surface-container-low rounded p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md pb-space-sm bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[16px]">notifications_active</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium">Notification Feed Preview</h3>
+</div>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-widest font-mono">LIVE FEED</span>
+</div>
+<!-- 5 Exact Required Notification Categories -->
+<div class="flex flex-col gap-space-xs">
+<!-- Notification 1: Budget Warning (Amber Alert) -->
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-lowest hover:bg-surface-container transition-colors">
+<div class="w-2 h-2 rounded-full bg-amber-400 mt-1.5 shrink-0 shadow-sm shadow-amber-400/50"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-amber-400 font-semibold font-mono">Budget Warning</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">12m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5 truncate">Leisure &amp; Entertainment exceeded by ₹350</p>
+<span class="font-label-xs text-label-xs text-outline font-mono">Threshold: ₹12,000 / Spent: ₹12,350</span>
+</div>
+</div>
+<!-- Notification 2: Subscription Due (Subtle Notification) -->
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-lowest hover:bg-surface-container transition-colors">
+<div class="w-2 h-2 rounded-full bg-secondary mt-1.5 shrink-0"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-secondary font-semibold font-mono">Subscription Due</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">2h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5 truncate">Netflix 4K renewal in 4 days (₹649)</p>
+<span class="font-label-xs text-label-xs text-outline font-mono">Auto-debit from HDFC Priority Account</span>
+</div>
+</div>
+<!-- Notification 3: Loan Repayment (Electric Lime Badge) -->
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-lowest hover:bg-surface-container transition-colors">
+<div class="w-2 h-2 rounded-full bg-primary-container mt-1.5 shrink-0 shadow-sm shadow-primary-container/60"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-primary-fixed font-semibold font-mono">Loan Repayment</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">Yesterday</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5 truncate">Rahul Kumar repaid ₹1,000 via Cash</p>
+<span class="font-label-xs text-label-xs text-outline font-mono">Ledger ref: #REC-88319 • Closed</span>
+</div>
+</div>
+<!-- Notification 4: Goal Milestone (Lime Badge) -->
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-lowest hover:bg-surface-container transition-colors">
+<div class="w-2 h-2 rounded-full bg-primary-container mt-1.5 shrink-0"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-primary-fixed font-semibold font-mono">Goal Milestone</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">Nov 18</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5 truncate">Laptop target reached 44% milestone</p>
+<div class="w-full bg-surface-container h-1 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary-container h-full w-[44%]"></div>
+</div>
+</div>
+</div>
+<!-- Notification 5: Financial Insight (Terminal Blue Badge) -->
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-lowest hover:bg-surface-container transition-colors">
+<div class="w-2 h-2 rounded-full bg-secondary-container mt-1.5 shrink-0"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-secondary-fixed font-semibold font-mono">Financial Insight</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">Nov 16</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5 truncate">Spending 8.4% lower than last month</p>
+<span class="font-label-xs text-label-xs text-outline font-mono">Estimated month-end surplus: +₹24,800</span>
+</div>
+</div>
+</div>
+<!-- Notification Channels Config -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between font-label-xs text-label-xs text-outline font-mono">
+<span>DISPATCH: IN-APP + ENCRYPTED PUSH</span>
+<button class="text-primary-fixed hover:underline uppercase">Manage Delivery</button>
+</div>
+</div>
+<!-- App Metadata Footer Box -->
+<div class="p-space-md rounded bg-surface-container-low flex flex-col gap-space-xs shadow-sm font-mono">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span class="font-label-xs text-label-xs font-semibold uppercase tracking-wider text-on-surface">Smart Budget Terminal</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-primary-fixed font-bold">v2.4.9</span>
+</div>
+<div class="flex items-center justify-between text-outline text-label-xs">
+<span>BUILD: 9021-ARM64-STABLE</span>
+<span>AES-256 GCM VERIFIED</span>
+</div>
+<div class="flex items-center justify-between text-outline text-label-xs pt-1">
+<span>THEME: DARK TERMINAL PRECISION (LOCKED)</span>
+<span class="text-primary-fixed">● KERNEL READY</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Client-side Script -->
+<script>
+    function switchSyncState(state) {
+      const bannerSynced = document.getElementById('banner-synced');
+      const bannerSyncing = document.getElementById('banner-syncing');
+      const bannerOffline = document.getElementById('banner-offline');
+
+      const btnSynced = document.getElementById('btn-state-synced');
+      const btnSyncing = document.getElementById('btn-state-syncing');
+      const btnOffline = document.getElementById('btn-state-offline');
+
+      // Hide all banners
+      bannerSynced.classList.add('hidden');
+      bannerSynced.classList.remove('flex');
+      bannerSyncing.classList.add('hidden');
+      bannerSyncing.classList.remove('flex');
+      bannerOffline.classList.add('hidden');
+      bannerOffline.classList.remove('flex');
+
+      // Reset button styles
+      [btnSynced, btnSyncing, btnOffline].forEach(b => {
+        b.className = "px-space-sm py-0.5 rounded font-label-xs text-label-xs tracking-wider text-outline hover:text-on-surface transition-colors";
+      });
+
+      if (state === 'synced') {
+        bannerSynced.classList.remove('hidden');
+        bannerSynced.classList.add('flex');
+        btnSynced.className = "px-space-sm py-0.5 rounded font-label-xs text-label-xs tracking-wider transition-colors bg-primary-container text-on-primary-container font-semibold";
+      } else if (state === 'syncing') {
+        bannerSyncing.classList.remove('hidden');
+        bannerSyncing.classList.add('flex');
+        btnSyncing.className = "px-space-sm py-0.5 rounded font-label-xs text-label-xs tracking-wider transition-colors bg-secondary text-on-secondary font-semibold";
+      } else if (state === 'offline') {
+        bannerOffline.classList.remove('hidden');
+        bannerOffline.classList.add('flex');
+        btnOffline.className = "px-space-sm py-0.5 rounded font-label-xs text-label-xs tracking-wider transition-colors bg-error text-on-error font-semibold";
+      }
+    }
+
+    function triggerManualSync() {
+      switchSyncState('syncing');
+      setTimeout(() => {
+        switchSyncState('synced');
+      }, 1600);
+    }
+
+    function setCurrency(curr) {
+      const usdBtn = document.getElementById('curr-usd');
+      const inrBtn = document.getElementById('curr-inr');
+      const eurBtn = document.getElementById('curr-eur');
+
+      [usdBtn, inrBtn, eurBtn].forEach(b => {
+        b.className = "py-2 rounded font-label-sm text-label-sm text-outline hover:text-on-surface text-center transition-colors font-mono";
+      });
+
+      if (curr === 'USD') {
+        usdBtn.className = "py-2 rounded font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold text-center transition-colors font-mono";
+      } else if (curr === 'INR') {
+        inrBtn.className = "py-2 rounded font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold text-center transition-colors font-mono";
+      } else if (curr === 'EUR') {
+        eurBtn.className = "py-2 rounded font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold text-center transition-colors font-mono";
+      }
+    }
+
+    function revokeOtherSessions() {
+      const el = document.getElementById('session-iphone');
+      if (el) {
+        el.style.opacity = '0.3';
+        setTimeout(() => {
+          el.remove();
+        }, 300);
+      }
+    }
+
+    function revokeDevice(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+
+    function simulateSaveAll() {
+      const btn = document.getElementById('btn-save-status');
+      const prevHtml = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span><span>Persisting...</span>';
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">done</span><span>Committed</span>';
+        setTimeout(() => {
+          btn.innerHTML = prevHtml;
+        }, 1800);
+      }, 600);
+    }
+
+    function openChangePasswordModal() {
+      alert('Master Password Reset Routine: Challenge sent to verified device.');
+    }
+
+    function downloadLedger() {
+      alert('Generating deterministic encrypted CSV & JSON archive (SHA256 verified)... Download initialized.');
+    }
+
+    function triggerImportPrompt() {
+      alert('Opening ingestion parser. Supported formats: OFX 2.0, QIF, CSV (RFC 4180).');
+    }
+
+    function createSnapshot() {
+      alert('Manual snapshot created successfully: SHA256 e3b0c44298fc1c149afbf4c8996fb924');
+    }
+
+    function confirmPurgeData() {
+      const ok = confirm('CRITICAL WARNING: This action will permanently erase all local and cloud ledger accounts, categories, and authentication keys. Are you sure you wish to proceed?');
+      if (ok) {
+        alert('Data purge protocol initiated. Logging out session...');
+      }
+    }
+  </script>
+</div></main></div></body></html>

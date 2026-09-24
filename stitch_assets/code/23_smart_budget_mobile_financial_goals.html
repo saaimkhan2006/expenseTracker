@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#111417;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-bright": "#37393d", "on-secondary-fixed-variant": "#004395", "inverse-primary": "#506600", "tertiary": "#ffffff", "on-error": "#690005", "inverse-surface": "#e1e2e6", "on-tertiary-container": "#bd2c32", "secondary-fixed": "#d8e2ff", "background": "#111417", "surface-container": "#1d2023", "outline-variant": "#444933", "surface-dim": "#111417", "secondary": "#adc6ff", "secondary-fixed-dim": "#adc6ff", "tertiary-fixed-dim": "#ffb3af", "on-error-container": "#ffdad6", "primary": "#ffffff", "on-surface": "#e1e2e6", "on-secondary": "#002e6a", "surface": "#111417", "on-primary": "#283500", "on-primary-container": "#556d00", "tertiary-container": "#ffdad7", "on-tertiary-fixed-variant": "#920418", "secondary-container": "#0566d9", "on-secondary-container": "#e6ecff", "surface-tint": "#abd600", "on-primary-fixed": "#161e00", "surface-container-low": "#191c1f", "error-container": "#93000a", "surface-container-lowest": "#0b0e11", "outline": "#8e9379", "on-tertiary": "#68000d", "primary-fixed-dim": "#abd600", "inverse-on-surface": "#2e3134", "primary-fixed": "#c3f400", "surface-container-high": "#272a2d", "error": "#ffb4ab", "on-tertiary-fixed": "#410005", "surface-container-highest": "#323538", "surface-variant": "#323538", "on-primary-fixed-variant": "#3c4d00", "tertiary-fixed": "#ffdad7", "primary-container": "#c3f400", "on-background": "#e1e2e6", "on-secondary-fixed": "#001a42", "on-surface-variant": "#c4c9ac" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-md": "1rem", "space-xl": "2.5rem", "gutter": "1.25rem", "space-lg": "1.5rem", "margin": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, fontFamily: { "display-xl": ["Geist"], "body-sm": ["Geist"], "label-md": ["JetBrains Mono"], "label-lg": ["JetBrains Mono"], "display-lg-mobile": ["Geist"], "label-xs": ["JetBrains Mono"], "display-lg": ["Geist"], "headline-lg": ["Geist"], "body-lg": ["Geist"], "headline-md": ["Geist"], "body-md": ["Geist"], "display-xl-mobile": ["Geist"] }, fontSize: { "display-xl": ["3.75rem", { "lineHeight": "4rem", "fontWeight": "600" }], "body-sm": ["0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" }], "label-md": ["0.75rem", { "lineHeight": "1rem", "fontWeight": "500" }], "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" }], "display-lg-mobile": ["2rem", { "lineHeight": "2.25rem", "fontWeight": "600" }], "label-xs": ["0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "600" }], "display-lg": ["3rem", { "lineHeight": "3.25rem", "fontWeight": "600" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "fontWeight": "500" }], "body-lg": ["1.0625rem", { "lineHeight": "1.625rem", "fontWeight": "400" }], "headline-md": ["1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" }], "body-md": ["0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "display-xl-mobile": ["2.5rem", { "lineHeight": "2.75rem", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #ccff00
+- Font: geist
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XSfDvsRw7Qe-mVxTX0uj5lCSK7WrmHHmKh7mP2x7uJeErlIr5-dxWqXrYcyCEjioyXFUCIX26P7HHTzEVx81kN9FrrX7jsPlDDzAXDKCEKfCwvWpv1YB84sZj0Fx1CYlCgJxBE549gzWvJ6hc6Kfkiy5FvsEbuVCu8l0h_rRKORICdUK-N_VaSkdYujBJtdCEvt_qGGxTtdcMrVz79P5vg6lioiT6_Dq0zKsBp-kltLsv8-Uq4wE46MH-e"/><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-primary-container inline-block animate-pulse"></span><h1 class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface">Plan</h1></div></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
+<!-- Ambient Micro Header Tracker -->
+<div class="flex items-center justify-between pt-space-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-primary-container">terminal</span>
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">TARGET LEDGER // PROTOCOL v4</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-sm bg-surface-container-high">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-xs text-label-xs text-primary-container">SYS.SYNC 100%</span>
+</div>
+</div>
+<!-- SECTION 1: Financial Goals Summary (Unbounded Editorial Telemetry) -->
+<section class="flex flex-col space-y-space-md">
+<div class="flex items-baseline justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">AGGREGATE ALLOCATION</span>
+<span class="font-label-xs text-label-xs text-primary-container uppercase tracking-wider">52.0% FUNDED</span>
+</div>
+<div class="flex flex-col space-y-space-xs">
+<div class="flex items-baseline space-x-2">
+<span class="font-display-xl-mobile text-display-xl-mobile text-primary tracking-tight font-medium">₹2,60,000</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant font-normal">/ ₹5,00,000</span>
+</div>
+<!-- Precision Multi-Segment Bar -->
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container" style="width: 52%;"></div>
+<div class="h-full bg-secondary-container" style="width: 20%;"></div>
+</div>
+</div>
+<!-- Telemetry Strip -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col space-y-1">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">COMMITMENT RATE</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">bolt</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">₹22,500<span class="text-on-surface-variant font-normal">/mo</span></span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col space-y-1">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">EST. MATURITY</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">event_upcoming</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">OCT 2026</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Primary Goal Card - LAPTOP -->
+<section class="flex flex-col rounded-xl bg-surface-container p-space-lg space-y-space-md shadow-md relative overflow-hidden">
+<!-- Subtle Ambient Corner Flare -->
+<div class="absolute -right-12 -top-12 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">laptop_mac</span>
+</div>
+<div>
+<span class="font-label-xs text-label-xs text-on-surface-variant block uppercase">CAPITAL TARGET</span>
+<h2 class="font-headline-md text-headline-md font-semibold text-primary tracking-tight">LAPTOP</h2>
+</div>
+</div>
+<span class="font-label-xs text-label-xs uppercase px-2.5 py-1 rounded bg-primary-container/15 text-primary-container font-semibold tracking-wider">
+        PRIORITY 1
+      </span>
+</div>
+<!-- Big Numbers -->
+<div class="flex flex-col space-y-1">
+<div class="flex items-baseline space-x-1.5">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold tracking-tight">₹35,000</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">/ ₹80,000</span>
+</div>
+<div class="flex items-center justify-between text-label-xs font-label-xs pt-1">
+<span class="text-primary-container font-semibold">44% COMPLETED</span>
+<span class="text-error bg-error-container/30 px-2 py-0.5 rounded text-[11px] font-medium tracking-wide">₹45,000 REMAINING</span>
+</div>
+</div>
+<!-- Precision Progress Gauge -->
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full transition-all duration-500 ease-out" style="width: 44%;"></div>
+</div>
+<!-- Data Matrix Breakdown -->
+<div class="flex flex-col space-y-2 pt-space-xs text-body-sm font-body-sm">
+<div class="flex items-center justify-between py-1.5 border-b border-surface-container-high/40">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">event</span> Target Deadline
+        </span>
+<span class="font-label-md text-label-md text-on-surface font-medium">June 2027</span>
+</div>
+<div class="flex items-center justify-between py-1.5 border-b border-surface-container-high/40">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">savings</span> Required Monthly
+        </span>
+<span class="font-label-md text-label-md text-primary-container font-semibold">₹5,000 / mo</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">account_balance</span> Linked Vault
+        </span>
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1 font-medium">
+          HDFC Bank Vault <span class="material-symbols-outlined text-[14px] text-on-surface-variant">lock</span>
+</span>
+</div>
+</div>
+<!-- Allocation Trigger Button -->
+<button class="w-full h-12 bg-surface-container-high hover:bg-surface-bright active:scale-[0.99] transition-all rounded-lg flex items-center justify-center space-x-2 text-primary font-medium text-body-md shadow-sm" type="button">
+<span class="material-symbols-outlined text-primary-container text-[20px]">add_circle</span>
+<span>+ Allocate Funds</span>
+</button>
+</section>
+<!-- SECTION 3: 'CREATE GOAL' Form Panel -->
+<section class="flex flex-col rounded-xl bg-surface-container-low p-space-lg space-y-space-md shadow-md relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[20px] text-primary-container">add_task</span>
+<h3 class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface">CREATE NEW CAPITAL GOAL</h3>
+</div>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">STEP 1/2</span>
+</div>
+<form class="flex flex-col space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Input: Goal Name -->
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Goal Identifier / Name</label>
+<div class="flex items-center bg-surface-container rounded-lg px-space-md py-3 focus-within:ring-1 focus-within:ring-primary-container transition-all">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant mr-2">edit_note</span>
+<input class="bg-transparent border-0 outline-none w-full text-primary font-body-md placeholder:text-on-surface-variant/40" placeholder="e.g. Dream Vehicle" type="text" value="Workspace Desk Setup"/>
+</div>
+</div>
+<!-- Numeric Target & Initial Side-by-Side -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Target Capital</label>
+<div class="flex items-center bg-surface-container rounded-lg px-3 py-3 focus-within:ring-1 focus-within:ring-primary-container transition-all">
+<span class="font-label-md text-label-md text-on-surface-variant mr-1">₹</span>
+<input class="bg-transparent border-0 outline-none w-full text-primary font-label-lg font-semibold tabular-nums" inputmode="numeric" type="text" value="50,000"/>
+</div>
+</div>
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Initial Deposit</label>
+<div class="flex items-center bg-surface-container rounded-lg px-3 py-3 focus-within:ring-1 focus-within:ring-primary-container transition-all">
+<span class="font-label-md text-label-md text-on-surface-variant mr-1">₹</span>
+<input class="bg-transparent border-0 outline-none w-full text-primary-container font-label-lg font-semibold tabular-nums" inputmode="numeric" type="text" value="10,000"/>
+</div>
+</div>
+</div>
+<!-- Date & Account Pickers -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Target Date</label>
+<div class="flex items-center justify-between bg-surface-container rounded-lg px-3 py-3 cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate">March 2025</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">calendar_month</span>
+</div>
+</div>
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Source Vault</label>
+<div class="flex items-center justify-between bg-surface-container rounded-lg px-3 py-3 cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate">HDFC (••9042)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Selectable Icon Tags Grid -->
+<div class="flex flex-col space-y-2 pt-space-xs">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Visual Token Icon</label>
+<div class="grid grid-cols-6 gap-2" id="icon-selector-grid">
+<button aria-label="Laptop" class="h-11 rounded-lg bg-surface-container flex flex-col items-center justify-center hover:bg-surface-container-high transition-all active:scale-95 text-[18px] ring-1 ring-primary-container bg-surface-container-high" type="button">
+<span>💻</span>
+</button>
+<button aria-label="Trip" class="h-11 rounded-lg bg-surface-container flex flex-col items-center justify-center hover:bg-surface-container-high transition-all active:scale-95 text-[18px]" type="button">
+<span>🏖</span>
+</button>
+<button aria-label="Shield" class="h-11 rounded-lg bg-surface-container flex flex-col items-center justify-center hover:bg-surface-container-high transition-all active:scale-95 text-[18px]" type="button">
+<span>🛡</span>
+</button>
+<button aria-label="Auto" class="h-11 rounded-lg bg-surface-container flex flex-col items-center justify-center hover:bg-surface-container-high transition-all active:scale-95 text-[18px]" type="button">
+<span>🚗</span>
+</button>
+<button aria-label="House" class="h-11 rounded-lg bg-surface-container flex flex-col items-center justify-center hover:bg-surface-container-high transition-all active:scale-95 text-[18px]" type="button">
+<span>🏠</span>
+</button>
+<button aria-label="Custom" class="h-11 rounded-lg bg-surface-container flex flex-col items-center justify-center hover:bg-surface-container-high transition-all active:scale-95 text-[18px]" type="button">
+<span>💎</span>
+</button>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full h-13 mt-space-sm bg-primary-container text-on-primary-fixed hover:bg-primary-fixed transition-all rounded-lg font-headline-md text-[1rem] font-bold flex items-center justify-center gap-2 active:scale-[0.98] shadow-[0_4px_16px_rgba(195,244,0,0.25)]" type="submit">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>Create Capital Vault</span>
+</button>
+</form>
+</section>
+<!-- SECTION 4: Other Active Goals Matrix -->
+<section class="flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">account_balance_wallet</span>
+<h3 class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface">ACTIVE VAULTS</h3>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant">2 RUNNING</span>
+</div>
+<div class="flex flex-col space-y-space-sm">
+<!-- Goal Row 1: Emergency Fund -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col space-y-space-sm shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-lg">
+              🛡
+            </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-primary">Emergency Fund</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Target: ₹3,00,000</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-lg text-label-lg font-bold text-primary tabular-nums">₹1,80,000</span>
+<span class="font-label-xs text-label-xs text-primary-container font-semibold">60.0% FUNDED</span>
+</div>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 60%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-xs font-label-xs text-on-surface-variant pt-0.5">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">autorenew</span> Auto-Debit: ₹12,500/mo
+          </span>
+<span class="text-on-surface">ETA: Dec 2024</span>
+</div>
+</div>
+<!-- Goal Row 2: Japan Autumn Trip -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col space-y-space-sm shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-lg">
+              🏖
+            </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-primary">Japan Autumn Trip</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Target: ₹1,20,000</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-lg text-label-lg font-bold text-primary tabular-nums">₹45,000</span>
+<span class="font-label-xs text-label-xs text-secondary font-semibold">37.5% FUNDED</span>
+</div>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 37.5%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-xs font-label-xs text-on-surface-variant pt-0.5">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">savings</span> Monthly: ₹5,000/mo
+          </span>
+<span class="text-on-surface">ETA: Sep 2025</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive icon selector script -->
+<script>
+    document.querySelectorAll('#icon-selector-grid button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('#icon-selector-grid button').forEach(btn => {
+          btn.classList.remove('ring-1', 'ring-primary-container', 'bg-surface-container-high');
+        });
+        button.classList.add('ring-1', 'ring-primary-container', 'bg-surface-container-high');
+      });
+    });
+  </script>
+</div></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]" data-active-classes="text-primary-container"><div class="flex items-center justify-between h-16 px-space-md max-w-md mx-auto relative"><a class="flex flex-col items-center justify-center min-w-[48px] h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-xs text-label-xs uppercase tracking-wider">HOME</span></a><a class="flex flex-col items-center justify-center min-w-[48px] h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="activity" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><span class="font-label-xs text-label-xs uppercase tracking-wider">ACTIVITY</span></a><div class="flex items-center justify-center -mt-5"><a class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_4px_16px_rgba(195,244,0,0.35)] transition-transform active:scale-95" data-path="add-transaction" href="#"><span class="material-symbols-outlined text-[26px] font-bold text-on-primary">add</span></a></div><a aria-current="page" class="flex flex-col items-center justify-center min-w-[48px] h-11 gap-0.5 transition-colors text-primary-container" data-path="plan" href="#"><span class="material-symbols-outlined text-[20px]">pie_chart</span><span class="font-label-xs text-label-xs uppercase tracking-wider">PLAN</span></a><a class="flex flex-col items-center justify-center min-w-[48px] h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="font-label-xs text-label-xs uppercase tracking-wider">PROFILE</span></a></div></nav></body></html>

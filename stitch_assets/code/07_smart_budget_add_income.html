@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-low": "#191c1f", "on-tertiary-fixed-variant": "#920418", "secondary": "#adc6ff", "inverse-surface": "#e1e2e6", "on-primary-container": "#556d00", "on-primary-fixed": "#161e00", "on-tertiary-fixed": "#410005", "surface": "#111417", "on-primary-fixed-variant": "#3c4d00", "inverse-on-surface": "#2e3134", "error": "#ffb4ab", "on-secondary-container": "#e6ecff", "surface-container-high": "#272a2d", "on-tertiary-container": "#bd2c32", "tertiary-fixed": "#ffdad7", "on-background": "#e1e2e6", "tertiary-fixed-dim": "#ffb3af", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395", "on-primary": "#283500", "tertiary-container": "#ffdad7", "primary-fixed-dim": "#abd600", "secondary-fixed": "#d8e2ff", "primary-fixed": "#c3f400", "on-error": "#690005", "surface-dim": "#111417", "outline": "#8e9379", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001a42", "on-tertiary": "#68000d", "primary-container": "#c3f400", "surface-bright": "#37393d", "on-surface-variant": "#c4c9ac", "error-container": "#93000a", "on-surface": "#e1e2e6", "surface-tint": "#abd600", "surface-container-lowest": "#0b0e11", "tertiary": "#ffffff", "secondary-container": "#0566d9", "surface-variant": "#323538", "primary": "#ffffff", "on-secondary": "#002e6a", "background": "#111417", "surface-container": "#1d2023", "inverse-primary": "#506600", "surface-container-highest": "#323538", "outline-variant": "#444933" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xl": "2.5rem", "margin": "1.5rem", "space-lg": "1.5rem", "gutter": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-sm": "0.5rem" }, fontFamily: { "display-lg-mobile": ["Geist"], "label-lg": ["JetBrains Mono"], "display-xl": ["Geist"], "display-lg": ["Geist"], "display-xl-mobile": ["Geist"], "body-sm": ["Geist"], "body-lg": ["Geist"], "headline-md": ["Geist"], "label-xs": ["JetBrains Mono"], "label-md": ["JetBrains Mono"], "headline-lg": ["Geist"], "body-md": ["Geist"] }, fontSize: { "display-lg-mobile": ["2rem", { lineHeight: "2.25rem", fontWeight: "600" }], "label-lg": ["0.875rem", { lineHeight: "1.25rem", fontWeight: "500" }], "display-xl": ["3.75rem", { lineHeight: "4rem", fontWeight: "600" }], "display-lg": ["3rem", { lineHeight: "3.25rem", fontWeight: "600" }], "display-xl-mobile": ["2.5rem", { lineHeight: "2.75rem", fontWeight: "600" }], "body-sm": ["0.8125rem", { lineHeight: "1.25rem", fontWeight: "400" }], "body-lg": ["1.0625rem", { lineHeight: "1.625rem", fontWeight: "400" }], "headline-md": ["1.375rem", { lineHeight: "1.75rem", fontWeight: "500" }], "label-xs": ["0.6875rem", { lineHeight: "0.875rem", fontWeight: "600" }], "label-md": ["0.75rem", { lineHeight: "1rem", fontWeight: "500" }], "headline-lg": ["1.75rem", { lineHeight: "2.25rem", fontWeight: "500" }], "body-md": ["0.9375rem", { lineHeight: "1.5rem", fontWeight: "400" }] } } } };</script><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.12)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div><h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Add Transaction</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-14 pb-28 bg-surface px-margin"><div class="flex flex-col w-full pb-6 space-y-5 select-none" id="add-income-root">
+<!-- Contextual Sub-Nav Bar -->
+<div class="flex items-center justify-between py-1">
+<button aria-label="Dismiss and return" class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface hover:text-primary-fixed active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<div class="flex items-center space-x-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface font-semibold">New Inflow Terminal</span>
+</div>
+<!-- Recurring Inflow Switcher -->
+<button aria-checked="false" class="flex items-center space-x-2 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" id="recurring-toggle" role="switch" type="button">
+<span class="font-label-xs text-label-xs uppercase tracking-wider">Recurring</span>
+<div class="w-7 h-4 rounded-full bg-surface-variant relative transition-colors duration-200" id="recurring-track">
+<div class="w-3 h-3 rounded-full bg-on-surface-variant absolute top-0.5 left-0.5 transition-transform duration-200" id="recurring-thumb"></div>
+</div>
+</button>
+</div>
+<!-- Hero Telemetry Display: Amount Focus Area -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-5 flex flex-col justify-between shadow-2xl">
+<div class="absolute -right-8 -bottom-8 w-36 h-36 rounded-full bg-primary-fixed/5 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center space-x-2">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">Inflow Telemetry</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary-fixed font-label-xs text-[10px] tracking-tight font-mono font-medium">CREDIT</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">INR // LIVE</span>
+</div>
+<!-- Core Interactive Amount Counter -->
+<div class="flex items-baseline space-x-2.5 my-1">
+<span class="font-display-xl-mobile text-display-xl-mobile text-primary-fixed select-none font-bold leading-none">+</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface-variant select-none font-normal">₹</span>
+<input aria-label="Amount in rupees" class="w-full bg-transparent font-display-xl-mobile text-display-xl-mobile text-on-surface tracking-tight outline-none cursor-pointer focus:ring-0 p-0 m-0 select-all font-semibold" id="amount-input" readonly="" type="text" value="8,000"/>
+</div>
+<!-- Real-time Quick Multipliers / Increments -->
+<div class="grid grid-cols-4 gap-2 pt-3 mt-1">
+<button class="multiplier-btn py-1.5 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-95 text-on-surface font-label-xs text-label-xs font-mono transition-all text-center" data-delta="1000" type="button">
+        +1k
+      </button>
+<button class="multiplier-btn py-1.5 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-95 text-on-surface font-label-xs text-label-xs font-mono transition-all text-center" data-delta="5000" type="button">
+        +5k
+      </button>
+<button class="multiplier-btn py-1.5 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-95 text-on-surface font-label-xs text-label-xs font-mono transition-all text-center" data-delta="10000" type="button">
+        +10k
+      </button>
+<button class="multiplier-btn py-1.5 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-95 text-on-surface font-label-xs text-label-xs font-mono transition-all text-center" data-delta="25000" type="button">
+        +25k
+      </button>
+</div>
+</div>
+<!-- Source Sector Matrix -->
+<div class="flex flex-col space-y-2.5">
+<div class="flex items-center justify-between px-0.5">
+<label class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">Allocated Source</label>
+<span class="font-label-xs text-label-xs text-primary-fixed uppercase font-mono tracking-wider" id="active-source-indicator">FREELANCING</span>
+</div>
+<div aria-label="Income Source" class="grid grid-cols-3 gap-2" role="radiogroup">
+<!-- Option: Salary -->
+<button aria-checked="false" class="source-tile group relative flex flex-col items-start p-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-all active:scale-[0.98]" data-category="Salary" role="radio" type="button">
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-on-surface mb-2">
+<span class="material-symbols-outlined text-[17px]">badge</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Salary</span>
+<span class="font-label-xs text-[10px] text-on-surface-variant font-mono mt-0.5">Payroll</span>
+</button>
+<!-- Option: Freelancing (Active) -->
+<button aria-checked="true" class="source-tile group relative flex flex-col items-start p-3 rounded-lg bg-primary-fixed text-on-primary-fixed transition-all active:scale-[0.98] shadow-md shadow-primary-fixed/10" data-category="Freelancing" role="radio" type="button">
+<div class="w-full flex items-center justify-between mb-2">
+<div class="w-7 h-7 rounded-md bg-on-primary-fixed flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[17px]">terminal</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-primary-fixed font-bold leading-none">check_circle</span>
+</div>
+<span class="font-body-sm text-body-sm font-bold text-on-primary-fixed leading-tight">Freelancing</span>
+<span class="font-label-xs text-[10px] text-on-primary-fixed-variant font-mono mt-0.5">Retainer/Cont.</span>
+</button>
+<!-- Option: Business -->
+<button aria-checked="false" class="source-tile group relative flex flex-col items-start p-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-all active:scale-[0.98]" data-category="Business" role="radio" type="button">
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-on-surface mb-2">
+<span class="material-symbols-outlined text-[17px]">storefront</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Business</span>
+<span class="font-label-xs text-[10px] text-on-surface-variant font-mono mt-0.5">Ventures</span>
+</button>
+<!-- Option: Scholarship -->
+<button aria-checked="false" class="source-tile group relative flex flex-col items-start p-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-all active:scale-[0.98]" data-category="Scholarship" role="radio" type="button">
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-on-surface mb-2">
+<span class="material-symbols-outlined text-[17px]">school</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Grant</span>
+<span class="font-label-xs text-[10px] text-on-surface-variant font-mono mt-0.5">Academic</span>
+</button>
+<!-- Option: Gift -->
+<button aria-checked="false" class="source-tile group relative flex flex-col items-start p-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-all active:scale-[0.98]" data-category="Gift" role="radio" type="button">
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-on-surface mb-2">
+<span class="material-symbols-outlined text-[17px]">redeem</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Gift</span>
+<span class="font-label-xs text-[10px] text-on-surface-variant font-mono mt-0.5">Family</span>
+</button>
+<!-- Option: Other -->
+<button aria-checked="false" class="source-tile group relative flex flex-col items-start p-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-all active:scale-[0.98]" data-category="Other" role="radio" type="button">
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-on-surface mb-2">
+<span class="material-symbols-outlined text-[17px]">grid_view</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Other</span>
+<span class="font-label-xs text-[10px] text-on-surface-variant font-mono mt-0.5">Misc</span>
+</button>
+</div>
+</div>
+<!-- Destination Account Selector -->
+<div class="flex flex-col space-y-2.5">
+<div class="flex items-center justify-between px-0.5">
+<label class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">Deposited Into Account</label>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">PRIMARY VAULT</span>
+</div>
+<div aria-label="Account Destination" class="grid grid-cols-3 gap-2" role="radiogroup">
+<!-- HDFC Bank (Active) -->
+<button aria-checked="true" class="account-pill flex items-center justify-between p-2.5 rounded-lg bg-surface-container-highest text-on-surface transition-all active:scale-[0.98]" data-account="HDFC Bank" role="radio" type="button">
+<div class="flex items-center space-x-2 truncate">
+<span class="w-2 h-2 rounded-full bg-primary-fixed shrink-0"></span>
+<div class="flex flex-col text-left truncate">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">HDFC Bank</span>
+<span class="font-label-xs text-[10px] text-on-surface-variant font-mono leading-none">..9042</span>
+</div>
+</div>
+</button>
+<!-- Cash -->
+<button aria-checked="false" class="account-pill flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all active:scale-[0.98]" data-account="Cash" role="radio" type="button">
+<div class="flex items-center space-x-2 truncate">
+<span class="w-2 h-2 rounded-full bg-surface-variant shrink-0"></span>
+<div class="flex flex-col text-left truncate">
+<span class="font-body-sm text-body-sm font-medium text-on-surface truncate">Cash</span>
+<span class="font-label-xs text-[10px] text-on-surface-variant font-mono leading-none">Physical</span>
+</div>
+</div>
+</button>
+<!-- UPI -->
+<button aria-checked="false" class="account-pill flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all active:scale-[0.98]" data-account="UPI" role="radio" type="button">
+<div class="flex items-center space-x-2 truncate">
+<span class="w-2 h-2 rounded-full bg-surface-variant shrink-0"></span>
+<div class="flex flex-col text-left truncate">
+<span class="font-body-sm text-body-sm font-medium text-on-surface truncate">UPI</span>
+<span class="font-label-xs text-[10px] text-on-surface-variant font-mono leading-none">Instant</span>
+</div>
+</div>
+</button>
+</div>
+</div>
+<!-- Transaction Metadata Form Block -->
+<div class="rounded-xl bg-surface-container-lowest p-3.5 space-y-3">
+<!-- Timestamp Row -->
+<div class="flex items-center justify-between bg-surface-container-low p-2.5 rounded-lg">
+<div class="flex items-center space-x-2.5">
+<span class="material-symbols-outlined text-[19px] text-on-surface-variant">schedule</span>
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Timestamp</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="font-label-xs text-label-xs font-mono font-medium text-on-surface">Today, 02:30 PM</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Description Input Row -->
+<div class="flex flex-col space-y-1 bg-surface-container-low p-2.5 rounded-lg">
+<label class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant flex items-center space-x-1.5" for="desc-field">
+<span class="material-symbols-outlined text-[16px]">notes</span>
+<span>Memo / Reference</span>
+</label>
+<input class="bg-transparent font-body-md text-body-md text-on-surface outline-none placeholder:text-on-surface-variant/40 pt-0.5" id="desc-field" placeholder="Optional context..." type="text" value="Sprint design retainer / Acrolink"/>
+</div>
+<!-- TDS / Tax Adjustment Toggle Segment -->
+<div class="flex items-center justify-between px-1 py-1">
+<div class="flex items-center space-x-2">
+<button aria-checked="false" class="w-4 h-4 rounded bg-surface-container-high flex items-center justify-center transition-colors" id="tds-checkbox" role="checkbox" type="button">
+<span class="material-symbols-outlined text-[13px] text-on-primary-fixed hidden font-bold" id="tds-check-icon">check</span>
+</button>
+<span class="font-label-xs text-label-xs text-on-surface-variant tracking-wide">TDS Deducted (10% standard withholding)</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface font-mono" id="tds-net-val">Net: ₹8,000</span>
+</div>
+</div>
+<!-- Primary Confirmation Action Trigger -->
+<div class="pt-1">
+<button class="w-full py-4 px-4 rounded-xl bg-primary-fixed text-on-primary-fixed font-headline-md text-headline-md tracking-tight font-semibold flex items-center justify-between active:scale-[0.99] transition-transform shadow-lg shadow-primary-fixed/20 hover:brightness-105" id="submit-btn" type="button">
+<span class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[24px]">add_circle</span>
+<span>Add Income</span>
+</span>
+<span class="font-mono text-headline-md font-bold" id="cta-amount-display">₹8,000</span>
+</button>
+</div>
+</div>
+<script>
+  (function initAddIncomeFlow() {
+    let rawAmount = 8000;
+    let isTdsChecked = false;
+    let isRecurring = false;
+
+    const amountInput = document.getElementById('amount-input');
+    const ctaAmount = document.getElementById('cta-amount-display');
+    const tdsNetVal = document.getElementById('tds-net-val');
+    const tdsCheckbox = document.getElementById('tds-checkbox');
+    const tdsCheckIcon = document.getElementById('tds-check-icon');
+    const recurringToggle = document.getElementById('recurring-toggle');
+    const recurringTrack = document.getElementById('recurring-track');
+    const recurringThumb = document.getElementById('recurring-thumb');
+    const activeSourceIndicator = document.getElementById('active-source-indicator');
+
+    function renderAmounts() {
+      const formatted = rawAmount.toLocaleString('en-IN');
+      amountInput.value = formatted;
+      ctaAmount.textContent = '₹' + formatted;
+
+      if (isTdsChecked) {
+        const net = Math.round(rawAmount * 0.9);
+        tdsNetVal.textContent = 'Net: ₹' + net.toLocaleString('en-IN');
+      } else {
+        tdsNetVal.textContent = 'Net: ₹' + formatted;
+      }
+    }
+
+    // Quick multiplier increments
+    document.querySelectorAll('.multiplier-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const delta = parseInt(btn.getAttribute('data-delta'), 10) || 0;
+        rawAmount += delta;
+        renderAmounts();
+      });
+    });
+
+    // Income Source Selector
+    document.querySelectorAll('.source-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        document.querySelectorAll('.source-tile').forEach(t => {
+          t.setAttribute('aria-checked', 'false');
+          t.className = 'source-tile group relative flex flex-col items-start p-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-all active:scale-[0.98]';
+          const iconBox = t.querySelector('div:first-child');
+          if (iconBox) {
+            iconBox.className = 'w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-on-surface mb-2';
+          }
+          const checkIcon = t.querySelector('.material-symbols-outlined.font-bold');
+          if (checkIcon) checkIcon.remove();
+          const categoryText = t.querySelector('span:nth-of-type(1)');
+          if (categoryText) categoryText.className = 'font-body-sm text-body-sm font-medium text-on-surface leading-tight';
+          const subText = t.querySelector('span:nth-of-type(2)');
+          if (subText) subText.className = 'font-label-xs text-[10px] text-on-surface-variant font-mono mt-0.5';
+        });
+
+        // Activate clicked tile
+        tile.setAttribute('aria-checked', 'true');
+        tile.className = 'source-tile group relative flex flex-col items-start p-3 rounded-lg bg-primary-fixed text-on-primary-fixed transition-all active:scale-[0.98] shadow-md shadow-primary-fixed/10';
+        
+        const firstRow = tile.querySelector('div');
+        if (firstRow) {
+          firstRow.className = 'w-full flex items-center justify-between mb-2';
+          firstRow.innerHTML = `
+            <div class="w-7 h-7 rounded-md bg-on-primary-fixed flex items-center justify-center text-primary-fixed">
+              <span class="material-symbols-outlined text-[17px]">terminal</span>
+            </div>
+            <span class="material-symbols-outlined text-[18px] text-on-primary-fixed font-bold leading-none">check_circle</span>
+          `;
+        }
+        
+        const cat = tile.getAttribute('data-category');
+        if (activeSourceIndicator && cat) {
+          activeSourceIndicator.textContent = cat.toUpperCase();
+        }
+      });
+    });
+
+    // Destination Account Selector
+    document.querySelectorAll('.account-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.account-pill').forEach(p => {
+          p.setAttribute('aria-checked', 'false');
+          p.className = 'account-pill flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all active:scale-[0.98]';
+          const dot = p.querySelector('.rounded-full');
+          if (dot) dot.className = 'w-2 h-2 rounded-full bg-surface-variant shrink-0';
+          const name = p.querySelector('.text-on-surface');
+          if (name) name.className = 'font-body-sm text-body-sm font-medium text-on-surface truncate';
+        });
+
+        pill.setAttribute('aria-checked', 'true');
+        pill.className = 'account-pill flex items-center justify-between p-2.5 rounded-lg bg-surface-container-highest text-on-surface transition-all active:scale-[0.98]';
+        const activeDot = pill.querySelector('.rounded-full');
+        if (activeDot) activeDot.className = 'w-2 h-2 rounded-full bg-primary-fixed shrink-0';
+      });
+    });
+
+    // TDS Withholding Toggle
+    tdsCheckbox.addEventListener('click', () => {
+      isTdsChecked = !isTdsChecked;
+      tdsCheckbox.setAttribute('aria-checked', isTdsChecked ? 'true' : 'false');
+      if (isTdsChecked) {
+        tdsCheckbox.classList.remove('bg-surface-container-high');
+        tdsCheckbox.classList.add('bg-primary-fixed');
+        tdsCheckIcon.classList.remove('hidden');
+      } else {
+        tdsCheckbox.classList.remove('bg-primary-fixed');
+        tdsCheckbox.classList.add('bg-surface-container-high');
+        tdsCheckIcon.classList.add('hidden');
+      }
+      renderAmounts();
+    });
+
+    // Recurring Inflow Switcher
+    recurringToggle.addEventListener('click', () => {
+      isRecurring = !isRecurring;
+      recurringToggle.setAttribute('aria-checked', isRecurring ? 'true' : 'false');
+      if (isRecurring) {
+        recurringTrack.classList.remove('bg-surface-variant');
+        recurringTrack.classList.add('bg-primary-fixed');
+        recurringThumb.classList.remove('bg-on-surface-variant', 'left-0.5');
+        recurringThumb.classList.add('bg-on-primary-fixed', 'left-3.5');
+      } else {
+        recurringTrack.classList.remove('bg-primary-fixed');
+        recurringTrack.classList.add('bg-surface-variant');
+        recurringThumb.classList.remove('bg-on-primary-fixed', 'left-3.5');
+        recurringThumb.classList.add('bg-on-surface-variant', 'left-0.5');
+      }
+    });
+
+    // Submit Action Micro-Delight
+    document.getElementById('submit-btn').addEventListener('click', function() {
+      this.classList.add('scale-95');
+      setTimeout(() => {
+        this.classList.remove('scale-95');
+      }, 150);
+    });
+
+    renderAmounts();
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-low/95 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.25)]" data-active-classes="text-primary-fixed"><div class="h-[72px] px-space-sm flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="home" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-primary-fixed transition-colors hover:text-primary-fixed" data-path="activity" href="#"><span class="material-symbols-outlined text-[24px]">receipt_long</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1 font-semibold">Activity</span></a><div class="flex items-center justify-center"><a aria-current="page" aria-label="Add Transaction" class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shadow-[0_2px_10px_rgba(195,244,0,0.25)] active:scale-95 transition-transform text-primary-fixed" data-path="add-transaction" href="#"><span class="material-symbols-outlined text-[26px] font-bold">add</span></a></div><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="plan" href="#"><span class="material-symbols-outlined text-[24px]">pie_chart</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Plan</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="profile" href="#"><span class="material-symbols-outlined text-[24px]">account_balance_wallet</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Profile</span></a></div></nav></body></html>

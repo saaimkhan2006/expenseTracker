@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-low": "#191c1f", "on-tertiary-fixed-variant": "#920418", "secondary": "#adc6ff", "inverse-surface": "#e1e2e6", "on-primary-container": "#556d00", "on-primary-fixed": "#161e00", "on-tertiary-fixed": "#410005", "surface": "#111417", "on-primary-fixed-variant": "#3c4d00", "inverse-on-surface": "#2e3134", "error": "#ffb4ab", "on-secondary-container": "#e6ecff", "surface-container-high": "#272a2d", "on-tertiary-container": "#bd2c32", "tertiary-fixed": "#ffdad7", "on-background": "#e1e2e6", "tertiary-fixed-dim": "#ffb3af", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395", "on-primary": "#283500", "tertiary-container": "#ffdad7", "primary-fixed-dim": "#abd600", "secondary-fixed": "#d8e2ff", "primary-fixed": "#c3f400", "on-error": "#690005", "surface-dim": "#111417", "outline": "#8e9379", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001a42", "on-tertiary": "#68000d", "primary-container": "#c3f400", "surface-bright": "#37393d", "on-surface-variant": "#c4c9ac", "error-container": "#93000a", "on-surface": "#e1e2e6", "surface-tint": "#abd600", "surface-container-lowest": "#0b0e11", "tertiary": "#ffffff", "secondary-container": "#0566d9", "surface-variant": "#323538", "primary": "#ffffff", "on-secondary": "#002e6a", "background": "#111417", "surface-container": "#1d2023", "inverse-primary": "#506600", "surface-container-highest": "#323538", "outline-variant": "#444933" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xl": "2.5rem", "margin": "1.5rem", "space-lg": "1.5rem", "gutter": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-sm": "0.5rem" }, fontFamily: { "display-lg-mobile": ["Geist"], "label-lg": ["JetBrains Mono"], "display-xl": ["Geist"], "display-lg": ["Geist"], "display-xl-mobile": ["Geist"], "body-sm": ["Geist"], "body-lg": ["Geist"], "headline-md": ["Geist"], "label-xs": ["JetBrains Mono"], "label-md": ["JetBrains Mono"], "headline-lg": ["Geist"], "body-md": ["Geist"] }, fontSize: { "display-lg-mobile": ["2rem", { lineHeight: "2.25rem", fontWeight: "600" }], "label-lg": ["0.875rem", { lineHeight: "1.25rem", fontWeight: "500" }], "display-xl": ["3.75rem", { lineHeight: "4rem", fontWeight: "600" }], "display-lg": ["3rem", { lineHeight: "3.25rem", fontWeight: "600" }], "display-xl-mobile": ["2.5rem", { lineHeight: "2.75rem", fontWeight: "600" }], "body-sm": ["0.8125rem", { lineHeight: "1.25rem", fontWeight: "400" }], "body-lg": ["1.0625rem", { lineHeight: "1.625rem", fontWeight: "400" }], "headline-md": ["1.375rem", { lineHeight: "1.75rem", fontWeight: "500" }], "label-xs": ["0.6875rem", { lineHeight: "0.875rem", fontWeight: "600" }], "label-md": ["0.75rem", { lineHeight: "1rem", fontWeight: "500" }], "headline-lg": ["1.75rem", { lineHeight: "2.25rem", fontWeight: "500" }], "body-md": ["0.9375rem", { lineHeight: "1.5rem", fontWeight: "400" }] } } } };</script><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.12)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div><h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Home</h1></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-14 pb-28 bg-surface px-margin"><div class="flex flex-col w-full space-y-space-md">
+<div class="flex items-center justify-between py-space-xs">
+<div>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider block">Terminal Control</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Profile &amp; Settings</h2>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary-fixed" id="sync-top-badge">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="font-label-xs text-label-xs tracking-wider uppercase">Synced • 2m ago</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<div class="w-16 h-16 rounded-full p-0.5 bg-primary-fixed shadow-sm">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Intense high-definition studio portrait of Alex Mercer in a minimal charcoal designer turtleneck against a deep matte black backdrop with crisp directional neon lime rim lighting and razor-sharp modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8bIkH06pFpbcowO6i8IADQB3KWjJjcK6NOMQv107x_dnpkH_UDZQYc73WfTWRHFvffZw81nsnRglSgovC6wJf7QcKSdcY9A74v-_55QmRZ_VDjMbgfihosPDhc9G7z2_zVxKEYis3v7B0hAsP18OQ0aInkuIXVG_5pTfjcZUUwibkOqoy1-eL-irEVX9AH6LFdogn2WdDbyeXgEaQYzCBenTwdFHo0nGaHHj2qPpVbnJ3lOKfbCIUbQ"/>
+</div>
+</div>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="w-2 h-2 rounded-full bg-on-primary"></span>
+</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight truncate">Alex Mercer</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">alex.mercer@terminal.design</p>
+<div class="mt-1 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-highest text-primary-fixed">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+<span class="font-label-xs text-label-xs uppercase tracking-wider font-semibold">Pro Suite • Level 4</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Total Net Worth</span>
+<span class="material-symbols-outlined text-[16px] text-primary-fixed">trending_up</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-1">₹72,500</span>
+<span class="font-label-xs text-label-xs text-primary-fixed">+8.4% this cycle</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Liquid Reserves</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">account_balance</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-1">₹24,850</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Instant clearing</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm transition-all duration-300" id="telemetry-card">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-fixed shrink-0" id="sync-icon-box">
+<span class="material-symbols-outlined text-[18px]" id="sync-icon">cloud_done</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-medium" id="sync-status-title">Synced • Cloud Vault Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="sync-status-desc">All transaction registers verified. Latency: 42ms.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono" id="sync-telemetry-meta">Cache: 0 items queued</span>
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest font-label-xs text-label-xs transition-colors active:scale-95 flex items-center gap-1" id="toggle-sync-btn">
+<span class="material-symbols-outlined text-[14px]">sync_alt</span>
+<span>Simulate Offline</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">Active Telemetry Alerts</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary-fixed font-label-xs text-label-xs font-semibold">5 New</span>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="bg-surface-container p-space-sm rounded-xl flex items-start gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-error font-semibold uppercase tracking-wider">Budget Alert</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">12m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">Leisure &amp; Entertainment exceeded cap by <span class="font-label-sm text-label-sm font-semibold text-error">₹350</span></p>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-xl flex items-start gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface shrink-0">
+<span class="material-symbols-outlined text-[18px]">event_repeat</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-semibold uppercase tracking-wider">Subscription Due</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">Netflix <span class="font-label-sm text-label-sm font-medium">₹649</span> auto-renews in 4 days</p>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-xl flex items-start gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-primary-fixed font-semibold uppercase tracking-wider">Loan Repayment</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">3h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">Rahul Kumar recorded <span class="font-label-sm text-label-sm font-semibold text-primary-fixed">₹1,000</span> partial payment</p>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-xl flex items-start gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-[18px]">ads_click</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-primary-fixed font-semibold uppercase tracking-wider">Goal Milestone</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">5h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">Laptop Vault hit <span class="font-label-sm text-label-sm font-semibold text-primary-fixed">44% completion</span></p>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-xl flex items-start gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[18px]">insights</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-secondary font-semibold uppercase tracking-wider">Financial Insight</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">1d ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">You spent <span class="font-label-sm text-label-sm font-medium text-secondary">18% less</span> on Dining Out this week</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col space-y-space-sm">
+<div class="px-1 pt-space-xs">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant font-semibold">Settings &amp; Engine Config</span>
+</div>
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<button class="w-full p-space-md flex items-center justify-between text-left hover:bg-surface-container-high transition-colors" onclick="toggleAccordion('pref-group', 'pref-chevron')">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-medium">Preferences</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Currency, language, billing dates</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] transition-transform duration-200 rotate-180" id="pref-chevron">expand_more</span>
+</button>
+<div class="flex flex-col divide-y divide-surface-container-high px-space-md pb-space-sm" id="pref-group">
+<div class="py-space-sm flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">Base Currency</span>
+<span class="font-label-sm text-label-sm text-primary-fixed font-mono bg-surface-container-lowest px-2 py-0.5 rounded">INR (₹)</span>
+</div>
+<div class="py-space-sm flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">Display Language</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">English (Global)</span>
+</div>
+<div class="py-space-sm flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">Operating Timezone</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">IST (UTC +5:30)</span>
+</div>
+<div class="py-space-sm flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface">Cycle Start Day</span>
+<span class="font-label-sm text-label-sm text-on-surface font-mono">1st of Month</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<button class="w-full p-space-md flex items-center justify-between text-left hover:bg-surface-container-high transition-colors" onclick="toggleAccordion('sec-group', 'sec-chevron')">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">security</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-medium">Security &amp; Terminal Keys</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Biometrics, devices, cryptographic auth</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] transition-transform duration-200" id="sec-chevron">expand_more</span>
+</button>
+<div class="hidden flex flex-col px-space-md pb-space-sm space-y-space-sm" id="sec-group">
+<div class="pt-space-xs flex items-center justify-between">
+<div>
+<div class="font-body-md text-body-md text-on-surface">Biometric Authentication</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">FaceID / TouchID for ledger unlock</div>
+</div>
+<button class="w-11 h-6 rounded-full bg-primary-fixed transition-colors relative flex items-center px-0.5" id="biometric-toggle" onclick="toggleBiometrics()">
+<div class="w-5 h-5 rounded-full bg-on-primary-fixed transition-transform transform translate-x-5" id="biometric-knob"></div>
+</button>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<div>
+<div class="font-body-md text-body-md text-on-surface">Active Sessions</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">2 authenticated terminals</div>
+</div>
+<span class="font-label-xs text-label-xs text-primary-fixed font-mono bg-surface-container-lowest px-2 py-1 rounded">REVOKE ALL</span>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<div class="font-body-md text-body-md text-on-surface">Root Passkey</div>
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface">Rotate Key →</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<button class="w-full p-space-md flex items-center justify-between text-left hover:bg-surface-container-high transition-colors" onclick="toggleAccordion('data-group', 'data-chevron')">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">dataset</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-medium">Data Governance</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vault backups, export schemas, wipe</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] transition-transform duration-200" id="data-chevron">expand_more</span>
+</button>
+<div class="hidden flex flex-col px-space-md pb-space-sm space-y-space-sm" id="data-group">
+<div class="pt-space-xs flex items-center justify-between">
+<div>
+<div class="font-body-md text-body-md text-on-surface">Export Structured Ledger</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">CSV or raw JSON format</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container-highest font-label-xs text-label-xs text-on-surface hover:text-primary-fixed">.CSV</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-highest font-label-xs text-label-xs text-on-surface hover:text-primary-fixed">.JSON</button>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<div>
+<div class="font-body-md text-body-md text-on-surface">End-to-End Cloud Backup</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Last saved 14m ago</div>
+</div>
+<button class="font-label-xs text-label-xs text-primary-fixed font-mono bg-surface-container-lowest px-2.5 py-1 rounded">BACKUP NOW</button>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<div>
+<div class="font-body-md text-body-md text-error font-medium">Delete Terminal Data</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Irreversible purge of local keys</div>
+</div>
+<button class="font-label-xs text-label-xs text-error font-mono bg-surface-container-lowest px-2.5 py-1 rounded">PURGE</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<div class="p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-on-surface font-medium">Smart Budget Engine</h4>
+<p class="font-label-xs text-label-xs text-on-surface-variant font-mono">Build v2.4.12 • Channel Stable</p>
+</div>
+</div>
+<span class="font-label-xs text-label-xs text-primary-fixed font-mono">PRO</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm flex flex-col items-center justify-center text-center pb-2">
+<button class="w-full py-3 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-md text-body-md font-semibold flex items-center justify-center gap-2 active:scale-98 transition-transform">
+<span class="material-symbols-outlined text-[18px] text-error">logout</span>
+<span>Log Out Terminal Session</span>
+</button>
+<span class="font-label-xs text-label-xs text-on-surface-variant mt-space-sm uppercase tracking-widest">End of Telemetry Console</span>
+</div>
+</div>
+<script>
+  let isOffline = false;
+  let biometricActive = true;
+
+  function toggleAccordion(contentId, chevronId) {
+    const el = document.getElementById(contentId);
+    const chevron = document.getElementById(chevronId);
+    if (!el || !chevron) return;
+    
+    if (el.classList.contains('hidden')) {
+      el.classList.remove('hidden');
+      chevron.classList.add('rotate-180');
+    } else {
+      el.classList.add('hidden');
+      chevron.classList.remove('rotate-180');
+    }
+  }
+
+  function toggleBiometrics() {
+    biometricActive = !biometricActive;
+    const btn = document.getElementById('biometric-toggle');
+    const knob = document.getElementById('biometric-knob');
+    if (!btn || !knob) return;
+
+    if (biometricActive) {
+      btn.className = "w-11 h-6 rounded-full bg-primary-fixed transition-colors relative flex items-center px-0.5";
+      knob.className = "w-5 h-5 rounded-full bg-on-primary-fixed transition-transform transform translate-x-5";
+    } else {
+      btn.className = "w-11 h-6 rounded-full bg-surface-container-highest transition-colors relative flex items-center px-0.5";
+      knob.className = "w-5 h-5 rounded-full bg-on-surface-variant transition-transform transform translate-x-0";
+    }
+  }
+
+  const toggleBtn = document.getElementById('toggle-sync-btn');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      isOffline = !isOffline;
+      const topBadge = document.getElementById('sync-top-badge');
+      const iconBox = document.getElementById('sync-icon-box');
+      const icon = document.getElementById('sync-icon');
+      const title = document.getElementById('sync-status-title');
+      const desc = document.getElementById('sync-status-desc');
+      const meta = document.getElementById('sync-telemetry-meta');
+
+      if (isOffline) {
+        topBadge.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-error";
+        topBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span><span class="font-label-xs text-label-xs tracking-wider uppercase">Offline &bull; Queued</span>';
+        
+        iconBox.className = "w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-error shrink-0";
+        icon.innerText = "cloud_off";
+        
+        title.innerText = "Offline &bull; Changes Cached Locally";
+        desc.innerText = "Changes will sync automatically when connection restores.";
+        meta.innerText = "Offline Cache: 3 pending txns";
+        toggleBtn.innerHTML = '<span class="material-symbols-outlined text-[14px]">cloud_sync</span><span>Simulate Online</span>';
+      } else {
+        topBadge.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary-fixed";
+        topBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span><span class="font-label-xs text-label-xs tracking-wider uppercase">Synced &bull; Just now</span>';
+        
+        iconBox.className = "w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-fixed shrink-0";
+        icon.innerText = "cloud_done";
+        
+        title.innerText = "Synced &bull; Cloud Vault Active";
+        desc.innerText = "All transaction registers verified. Latency: 38ms.";
+        meta.innerText = "Cache: 0 items queued";
+        toggleBtn.innerHTML = '<span class="material-symbols-outlined text-[14px]">sync_alt</span><span>Simulate Offline</span>';
+      }
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-low/95 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.25)]" data-active-classes="text-primary-fixed"><div class="h-[72px] px-space-sm flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="home" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="activity" href="#"><span class="material-symbols-outlined text-[24px]">receipt_long</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Activity</span></a><div class="flex items-center justify-center"><a class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed shadow-[0_2px_10px_rgba(195,244,0,0.25)] active:scale-95 transition-transform" data-path="add-transaction" href="#"><span class="material-symbols-outlined text-[26px] font-bold">add</span></a></div><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="plan" href="#"><span class="material-symbols-outlined text-[24px]">pie_chart</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Plan</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="profile" href="#"><span class="material-symbols-outlined text-[24px]">account_balance_wallet</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Profile</span></a></div></nav></body></html>

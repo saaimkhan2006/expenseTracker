@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-low": "#191c1f", "on-tertiary-fixed-variant": "#920418", "secondary": "#adc6ff", "inverse-surface": "#e1e2e6", "on-primary-container": "#556d00", "on-primary-fixed": "#161e00", "on-tertiary-fixed": "#410005", "surface": "#111417", "on-primary-fixed-variant": "#3c4d00", "inverse-on-surface": "#2e3134", "error": "#ffb4ab", "on-secondary-container": "#e6ecff", "surface-container-high": "#272a2d", "on-tertiary-container": "#bd2c32", "tertiary-fixed": "#ffdad7", "on-background": "#e1e2e6", "tertiary-fixed-dim": "#ffb3af", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395", "on-primary": "#283500", "tertiary-container": "#ffdad7", "primary-fixed-dim": "#abd600", "secondary-fixed": "#d8e2ff", "primary-fixed": "#c3f400", "on-error": "#690005", "surface-dim": "#111417", "outline": "#8e9379", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001a42", "on-tertiary": "#68000d", "primary-container": "#c3f400", "surface-bright": "#37393d", "on-surface-variant": "#c4c9ac", "error-container": "#93000a", "on-surface": "#e1e2e6", "surface-tint": "#abd600", "surface-container-lowest": "#0b0e11", "tertiary": "#ffffff", "secondary-container": "#0566d9", "surface-variant": "#323538", "primary": "#ffffff", "on-secondary": "#002e6a", "background": "#111417", "surface-container": "#1d2023", "inverse-primary": "#506600", "surface-container-highest": "#323538", "outline-variant": "#444933" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xl": "2.5rem", "margin": "1.5rem", "space-lg": "1.5rem", "gutter": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-sm": "0.5rem" }, fontFamily: { "display-lg-mobile": ["Geist"], "label-lg": ["JetBrains Mono"], "display-xl": ["Geist"], "display-lg": ["Geist"], "display-xl-mobile": ["Geist"], "body-sm": ["Geist"], "body-lg": ["Geist"], "headline-md": ["Geist"], "label-xs": ["JetBrains Mono"], "label-md": ["JetBrains Mono"], "headline-lg": ["Geist"], "body-md": ["Geist"] }, fontSize: { "display-lg-mobile": ["2rem", { lineHeight: "2.25rem", fontWeight: "600" }], "label-lg": ["0.875rem", { lineHeight: "1.25rem", fontWeight: "500" }], "display-xl": ["3.75rem", { lineHeight: "4rem", fontWeight: "600" }], "display-lg": ["3rem", { lineHeight: "3.25rem", fontWeight: "600" }], "display-xl-mobile": ["2.5rem", { lineHeight: "2.75rem", fontWeight: "600" }], "body-sm": ["0.8125rem", { lineHeight: "1.25rem", fontWeight: "400" }], "body-lg": ["1.0625rem", { lineHeight: "1.625rem", fontWeight: "400" }], "headline-md": ["1.375rem", { lineHeight: "1.75rem", fontWeight: "500" }], "label-xs": ["0.6875rem", { lineHeight: "0.875rem", fontWeight: "600" }], "label-md": ["0.75rem", { lineHeight: "1rem", fontWeight: "500" }], "headline-lg": ["1.75rem", { lineHeight: "2.25rem", fontWeight: "500" }], "body-md": ["0.9375rem", { lineHeight: "1.5rem", fontWeight: "400" }] } } } };</script><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.12)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></div><h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Home</h1></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-14 pb-28 bg-surface px-margin"><div class="flex flex-col w-full pb-4 space-y-space-md">
+<!-- 1. Header Bar / Greeting -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs tracking-widest text-on-surface-variant uppercase">GOOD EVENING</span>
+<span class="font-headline-md text-headline-md text-on-surface font-medium mt-0.5">Your money, at a glance.</span>
+</div>
+<div class="relative p-space-xs rounded-full bg-surface-container-high flex items-center justify-center cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px] text-on-surface">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-fixed ring-2 ring-surface"></span>
+</div>
+</div>
+<!-- 2. Primary Hero Balance -->
+<div class="pt-space-xs pb-space-xs flex flex-col">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="font-label-xs text-label-xs tracking-widest text-on-surface-variant uppercase font-semibold">AVAILABLE BALANCE</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-xl-mobile text-display-xl-mobile font-bold tracking-tight text-on-surface">₹24,850</span>
+<span class="text-primary-fixed font-label-md text-label-md font-semibold">.00</span>
+</div>
+<div class="mt-space-xs flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed/10 text-primary-fixed font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>
+        +8.4% vs last month
+      </span>
+<span class="font-label-xs text-label-xs text-on-surface-variant tracking-tight">Updated 4m ago</span>
+</div>
+</div>
+<!-- 3. Monthly Summary Metrics (2x2 Clean Minimal Matrix) -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="grid grid-cols-2 gap-space-md">
+<!-- Income -->
+<div class="flex flex-col space-y-1">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Income</span>
+<span class="font-label-lg text-label-lg font-semibold text-primary-fixed">+₹45,000</span>
+</div>
+<!-- Spent -->
+<div class="flex flex-col space-y-1">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Spent</span>
+<span class="font-label-lg text-label-lg font-semibold text-error">−₹20,150</span>
+</div>
+<!-- Saved -->
+<div class="flex flex-col space-y-1 pt-space-xs">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Saved</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">₹24,850</span>
+</div>
+<!-- Savings Rate -->
+<div class="flex flex-col space-y-1 pt-space-xs">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Savings Rate</span>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-semibold text-primary-fixed">55.2%</span>
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed rounded-full" style="width: 55.2%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Smart Financial Insight -->
+<div class="bg-secondary-container/20 rounded-xl p-space-md flex items-start gap-space-sm relative overflow-hidden">
+<div class="p-1.5 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="font-label-xs text-label-xs font-semibold text-secondary uppercase tracking-wider">Smart Insight</span>
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+<span class="font-label-xs text-label-xs text-secondary/70">Pacing</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+        You have spent <span class="font-semibold text-primary-fixed">18% less</span> on Dining Out this week compared to your 30-day average. You're on track to save an extra <span class="font-semibold text-on-surface">₹3,400</span>.
+      </p>
+</div>
+</div>
+<!-- 5. Spending Progress & Budget Pace -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col space-y-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs tracking-wider uppercase text-on-surface-variant font-semibold">Monthly Budget Pace</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Day 19 of 30</span>
+</div>
+<!-- Gauge Metric -->
+<div class="flex items-baseline justify-between pt-0.5">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">₹20,150</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ ₹32,000 cap</span>
+</div>
+<span class="font-label-xs text-label-xs font-semibold px-2 py-0.5 rounded bg-surface-container-high text-on-surface">63% Spent</span>
+</div>
+<!-- Main Progress Track -->
+<div class="relative w-full h-2.5 bg-surface-container-highest rounded-full overflow-hidden">
+<!-- 63% Budget Fill -->
+<div class="absolute left-0 top-0 bottom-0 bg-primary-fixed rounded-full transition-all duration-500" style="width: 63%;"></div>
+<!-- Day 19 of 30 benchmark marker (63.3%) -->
+<div class="absolute top-0 bottom-0 w-0.5 bg-on-surface/40 z-10" style="left: 63.3%;"></div>
+</div>
+<!-- Category Micro-pills -->
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs">
+<div class="bg-surface-container-high p-2 rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant truncate">Groceries</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-label-xs text-label-xs font-semibold text-on-surface">72%</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+</div>
+</div>
+<div class="bg-surface-container-high p-2 rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant truncate">Tech &amp; Tools</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-label-xs text-label-xs font-semibold text-on-surface">45%</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+</div>
+<div class="bg-error-container/20 p-2 rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-error truncate">Utilities</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-label-xs text-label-xs font-semibold text-error">88%</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- 6. Recent Activity / Transactions -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col shadow-sm">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-xs text-label-xs font-semibold uppercase tracking-wider text-on-surface-variant">Recent Activity</span>
+<button class="font-label-xs text-label-xs font-semibold text-primary-fixed hover:underline flex items-center gap-0.5">
+        View all
+        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+<div class="flex flex-col divide-y divide-surface-container-high/40">
+<!-- TX 1 -->
+<div class="py-space-sm flex items-center justify-between cursor-pointer hover:bg-surface-container-high/20 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-medium text-on-surface truncate">Zepto Supermarket</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Groceries • Today, 4:15 PM</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-error shrink-0 ml-2">-₹1,240</span>
+</div>
+<!-- TX 2 -->
+<div class="py-space-sm flex items-center justify-between cursor-pointer hover:bg-surface-container-high/20 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed/10 flex items-center justify-center shrink-0 text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-medium text-on-surface truncate">Freelance Payment - Acrolith</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Income • Yesterday</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-primary-fixed shrink-0 ml-2">+₹22,500</span>
+</div>
+<!-- TX 3 -->
+<div class="py-space-sm flex items-center justify-between cursor-pointer hover:bg-surface-container-high/20 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">music_note</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-medium text-on-surface truncate">Spotify Family</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Subscriptions • Oct 18</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface shrink-0 ml-2">-₹179</span>
+</div>
+<!-- TX 4 -->
+<div class="pt-space-sm flex items-center justify-between cursor-pointer hover:bg-surface-container-high/20 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">local_cafe</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md font-medium text-on-surface truncate">Blue Tokai Coffee</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Dining • Oct 17</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface shrink-0 ml-2">-₹340</span>
+</div>
+</div>
+</div>
+<!-- 7. Financial Goals Snapshot -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col space-y-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs font-semibold uppercase tracking-wider text-on-surface-variant">Financial Goals</span>
+<span class="font-label-xs text-label-xs text-primary-fixed font-semibold cursor-pointer">+ New Goal</span>
+</div>
+<!-- Goal 1: Emergency Fund -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary-fixed/10 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[15px]">shield</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Emergency Fund</span>
+</div>
+<span class="font-label-xs text-label-xs font-semibold text-primary-fixed">60%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed rounded-full" style="width: 60%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-xs text-label-xs text-on-surface-variant">
+<span>₹1,80,000 saved</span>
+<span>₹3,00,000 target</span>
+</div>
+</div>
+<!-- Goal 2: Japan Autumn Trip -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[15px]">flight_takeoff</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Japan Autumn Trip</span>
+</div>
+<span class="font-label-xs text-label-xs font-semibold text-secondary">37.5%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 37.5%;"></div>
+</div>
+<div class="flex justify-between items-center font-label-xs text-label-xs text-on-surface-variant">
+<span>₹45,000 saved</span>
+<span>₹1,20,000 target</span>
+</div>
+</div>
+</div>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-low/95 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.25)]" data-active-classes="text-primary-fixed"><div class="h-[72px] px-space-sm flex items-center justify-around"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-colors text-primary-fixed" data-path="home" href="#"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="activity" href="#"><span class="material-symbols-outlined text-[24px]">receipt_long</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Activity</span></a><div class="flex items-center justify-center"><a class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed shadow-[0_2px_10px_rgba(195,244,0,0.25)] active:scale-95 transition-transform" data-path="add-transaction" href="#"><span class="material-symbols-outlined text-[26px] font-bold">add</span></a></div><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="plan" href="#"><span class="material-symbols-outlined text-[24px]">pie_chart</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Plan</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="profile" href="#"><span class="material-symbols-outlined text-[24px]">account_balance_wallet</span><span class="font-label-xs text-label-xs tracking-wider uppercase mt-1">Profile</span></a></div></nav></body></html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-low": "#191c1f", "on-tertiary-fixed-variant": "#920418", "secondary": "#adc6ff", "inverse-surface": "#e1e2e6", "on-primary-container": "#556d00", "on-primary-fixed": "#161e00", "on-tertiary-fixed": "#410005", "surface": "#111417", "on-primary-fixed-variant": "#3c4d00", "inverse-on-surface": "#2e3134", "error": "#ffb4ab", "on-secondary-container": "#e6ecff", "surface-container-high": "#272a2d", "on-tertiary-container": "#bd2c32", "tertiary-fixed": "#ffdad7", "on-background": "#e1e2e6", "tertiary-fixed-dim": "#ffb3af", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395", "on-primary": "#283500", "tertiary-container": "#ffdad7", "primary-fixed-dim": "#abd600", "secondary-fixed": "#d8e2ff", "primary-fixed": "#c3f400", "on-error": "#690005", "surface-dim": "#111417", "outline": "#8e9379", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001a42", "on-tertiary": "#68000d", "primary-container": "#c3f400", "surface-bright": "#37393d", "on-surface-variant": "#c4c9ac", "error-container": "#93000a", "on-surface": "#e1e2e6", "surface-tint": "#abd600", "surface-container-lowest": "#0b0e11", "tertiary": "#ffffff", "secondary-container": "#0566d9", "surface-variant": "#323538", "primary": "#ffffff", "on-secondary": "#002e6a", "background": "#111417", "surface-container": "#1d2023", "inverse-primary": "#506600", "surface-container-highest": "#323538", "outline-variant": "#444933" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "margin": "1.5rem", "space-lg": "1.5rem", "gutter": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "display-lg-mobile": [ "Geist" ], "label-lg": [ "JetBrains Mono" ], "display-xl": [ "Geist" ], "display-lg": [ "Geist" ], "display-xl-mobile": [ "Geist" ], "body-sm": [ "Geist" ], "body-lg": [ "Geist" ], "headline-md": [ "Geist" ], "label-xs": [ "JetBrains Mono" ], "label-md": [ "JetBrains Mono" ], "headline-lg": [ "Geist" ], "body-md": [ "Geist" ] }, "fontSize": { "display-lg-mobile": [ "2rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "label-lg": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" } ], "display-xl": [ "3.75rem", { "lineHeight": "4rem", "fontWeight": "600" } ], "display-lg": [ "3rem", { "lineHeight": "3.25rem", "fontWeight": "600" } ], "display-xl-mobile": [ "2.5rem", { "lineHeight": "2.75rem", "fontWeight": "600" } ], "body-sm": [ "0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" } ], "body-lg": [ "1.0625rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "headline-md": [ "1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" } ], "label-xs": [ "0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "600" } ], "label-md": [ "0.75rem", { "lineHeight": "1rem", "fontWeight": "500" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "500" } ], "body-md": [ "0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface border-r border-surface-variant flex flex-col justify-between z-50 select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between border-b border-surface-variant/40"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden">https://lh3.googleusercontent.com/aida/AEtjO1XSfDvsRw7Qe-mVxTX0uj5lCSK7WrmHHmKh7mP2x7uJeErlIr5-dxWqXrYcyCEjioyXFUCIX26P7HHTzEVx81kN9FrrX7jsPlDDzAXDKCEKfCwvWpv1YB84sZj0Fx1CYlCgJxBE549gzWvJ6hc6Kfkiy5FvsEbuVCu8l0h_rRKORICdUK-N_VaSkdYujBJtdCEvt_qGGxTtdcMrVz79P5vg6lioiT6_Dq0zKsBp-kltLsv8-Uq4wE46MH-e</div><div class="flex flex-col"><span class="font-label-md text-label-md tracking-widest uppercase text-on-surface font-semibold">Smart Budget</span><span class="font-label-xs text-label-xs tracking-wider text-outline uppercase">Terminal v2.4</span></div></div><div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-md space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Overview</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">space_dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="transactions" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Transactions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="calendar" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Calendar</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Money</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-all bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium" data-path="budget" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Budget</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="analytics" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="money-owed" href="#"><span class="material-symbols-outlined text-[18px]">request_quote</span><span>Money Owed</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="accounts" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span>Accounts</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Plan</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="goals" href="#"><span class="material-symbols-outlined text-[18px]">flag</span><span>Goals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="subscriptions" href="#"><span class="material-symbols-outlined text-[18px]">repeat</span><span>Subscriptions</span></a></nav></div></div></div><div class="border-t border-surface-variant p-space-sm space-y-space-xs bg-surface-dim"><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-container-lowest/60 border border-surface-variant/40"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span></span><span class="font-label-xs text-label-xs text-on-surface-variant">Cloud synced</span></div><span class="font-label-xs text-label-xs text-outline">2m ago</span></div><div class="flex items-center justify-between pt-1 px-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Alex Mercer</span><span class="font-label-xs text-label-xs text-outline truncate max-w-[110px]">Pro Portfolio</span></div></div><a class="text-outline hover:text-on-surface transition-colors p-1" data-path="logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-variant/40 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-lowest border border-surface-variant"><span class="material-symbols-outlined text-outline text-[16px]">search</span><input class="bg-transparent text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none w-64" placeholder="Search transactions, accounts, rules..." type="text"/><span class="font-label-xs text-label-xs text-outline border border-surface-variant px-1 rounded">⌘K</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-xs text-label-xs text-on-surface-variant border border-surface-variant px-space-sm py-1 rounded bg-surface-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>PRIMARY LEDGER • USD</span></div><button class="text-outline hover:text-on-surface transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-primary-container"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen p-space-xl"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow -->
+<div class="relative w-full">
+<div class="absolute -top-12 left-1/3 w-96 h-48 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Editorial Header & Breadcrumb -->
+<div class="flex flex-col gap-space-xs pb-space-lg">
+<div class="flex items-center gap-space-xs text-outline font-label-xs text-label-xs uppercase tracking-wider">
+<a class="hover:text-primary-container transition-colors" href="#">Budget</a>
+<span>/</span>
+<span class="text-on-surface">New Envelope &amp; Target Cap</span>
+<span class="ml-2 px-1.5 py-0.5 rounded bg-surface-container-high text-primary-fixed font-label-xs text-label-xs">Active Session</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-medium">Configure Fiscal Budget — Envelope Planning</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Calibrate allocation bounds, buffer rates, and envelope containment for the upcoming fiscal cycle.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<button class="px-space-md py-2 rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+            Load Last Month
+          </button>
+<button class="px-space-md py-2 rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">history</span>
+            Audit Templates
+          </button>
+</div>
+</div>
+</div>
+<!-- Top Telemetry Ribbon -->
+<div class="w-full bg-surface-container rounded-xl p-space-md mb-space-xl">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-3.5 h-3.5 rounded-full bg-primary-container flex items-center justify-center animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary-container"></span>
+</div>
+<div>
+<span class="font-label-xs text-label-xs text-outline uppercase block">Allocation State</span>
+<span class="font-label-md text-label-md text-primary-container font-semibold" id="alloc-status-badge">Optimal Liquidity Distribution</span>
+</div>
+</div>
+<div class="hidden sm:block h-8 w-[1px] bg-surface-variant"></div>
+<div>
+<span class="font-label-xs text-label-xs text-outline uppercase block">Configured Outflow</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold tabular-nums" id="total-allocated-metric">₹35,000</span>
+</div>
+<div class="hidden sm:block h-8 w-[1px] bg-surface-variant"></div>
+<div>
+<span class="font-label-xs text-label-xs text-outline uppercase block">Surplus Cap Residual</span>
+<span class="font-label-lg text-label-lg text-primary-fixed-dim font-semibold tabular-nums" id="unallocated-metric">₹0</span>
+</div>
+<div class="hidden sm:block h-8 w-[1px] bg-surface-variant"></div>
+<div>
+<span class="font-label-xs text-label-xs text-outline uppercase block">Runway Ratio</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">66.03% Committed</span>
+</div>
+</div>
+<!-- Mini Visual Progress Indicator -->
+<div class="flex flex-col gap-1.5 lg:w-72">
+<div class="flex items-center justify-between font-label-xs text-label-xs">
+<span class="text-on-surface-variant">Target Cap Match</span>
+<span class="text-primary-container font-semibold" id="pct-label">100.0%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container transition-all duration-300" id="gauge-bar" style="width: 100%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Two-Column Workflow Matrix -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Target Budget Parameters (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Parameter Setup Panel -->
+<div class="bg-surface-container rounded-xl p-space-lg">
+<div class="flex items-center justify-between pb-space-md">
+<div>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider block">Terminal Vector I</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Fiscal Parameters</h2>
+</div>
+<span class="material-symbols-outlined text-outline">tune</span>
+</div>
+<div class="space-y-space-md pt-space-xs">
+<!-- Period Selection -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Budget Period &amp; Horizon</label>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">calendar_month</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">October 2024</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">M10</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Monthly Cycle</span>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</div>
+</div>
+</div>
+<!-- Inflow Benchmark Stat Panel -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Anticipated Inflow Benchmark</span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed">Verified Payroll</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg font-label-lg text-on-surface tabular-nums">₹53,000</span>
+<div class="text-right">
+<span class="font-label-xs text-label-xs text-outline block">TARGET SAVINGS</span>
+<span class="font-label-md text-label-md text-primary-container font-semibold">34% (₹18,000)</span>
+</div>
+</div>
+</div>
+<!-- Total Monthly Cap Field -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Total Monthly Cap ceiling</label>
+<span class="font-label-xs text-label-xs text-outline">Hard Bound</span>
+</div>
+<div class="relative flex items-center bg-surface-container-lowest rounded-lg overflow-hidden px-space-md py-2.5">
+<span class="font-label-lg text-label-lg text-outline select-none mr-2">₹</span>
+<input class="bg-transparent text-on-surface font-headline-md text-headline-md font-label-lg w-full focus:outline-none tabular-nums" id="total-monthly-cap" type="number" value="35000"/>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase ml-2 bg-surface-container px-2 py-1 rounded">INR</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">Calculated non-allocated reservoir: ₹53k - ₹35k = ₹18k retained alpha.</span>
+</div>
+<!-- Pacing Buffer Rule Selection -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Pacing Buffer Rule</label>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Option 1: Conservative (Active) -->
+<button class="text-left p-space-sm rounded-lg bg-surface-container-high transition-all flex flex-col justify-between h-20" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="font-body-sm text-body-sm font-semibold text-primary-fixed">Conservative</span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">check_circle</span>
+</div>
+<div class="flex items-baseline justify-between w-full">
+<span class="font-label-xs text-label-xs text-outline">Daily Outflow Cap</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface tabular-nums">₹1,129</span>
+</div>
+</button>
+<!-- Option 2: Dynamic Velocity -->
+<button class="text-left p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all flex flex-col justify-between h-20" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="font-body-sm text-body-sm font-medium text-on-surface-variant">Front-Loaded</span>
+<span class="w-3.5 h-3.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex items-baseline justify-between w-full">
+<span class="font-label-xs text-label-xs text-outline">Weighted Vol</span>
+<span class="font-label-md text-label-md text-on-surface-variant tabular-nums">Dynamic</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Auto-Rollover Surplus Switch -->
+<div class="pt-space-sm">
+<div class="flex items-center justify-between bg-surface-container-lowest rounded-lg p-space-md">
+<div class="flex flex-col pr-4">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Auto-Rollover Surplus</span>
+<span class="font-label-xs text-label-xs text-outline">Route remaining monthly margin into emergency liquidity pool</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container peer-checked:after:bg-on-primary-container"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Historical Spending Spark Context Card -->
+<div class="bg-surface-container rounded-xl p-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Run-Rate Benchmark</span>
+<span class="font-label-xs text-label-xs text-primary-container font-mono">T-90D Variance: -4.2%</span>
+</div>
+<div class="h-16 w-full flex items-end gap-1.5 pt-2">
+<div class="flex-1 bg-surface-container-high rounded-t hover:bg-surface-bright transition-colors h-[40%]" title="Jul: ₹31.4k"></div>
+<div class="flex-1 bg-surface-container-high rounded-t hover:bg-surface-bright transition-colors h-[65%]" title="Aug: ₹33.8k"></div>
+<div class="flex-1 bg-surface-container-high rounded-t hover:bg-surface-bright transition-colors h-[55%]" title="Sep: ₹32.9k"></div>
+<div class="flex-1 bg-primary-container rounded-t h-[75%]" title="Oct (Target): ₹35.0k"></div>
+<div class="flex-1 bg-surface-container-lowest rounded-t h-[20%] opacity-40"></div>
+<div class="flex-1 bg-surface-container-lowest rounded-t h-[20%] opacity-40"></div>
+</div>
+<div class="flex justify-between items-center text-outline font-label-xs text-label-xs pt-1">
+<span>JUL</span><span>AUG</span><span>SEP</span><span class="text-primary-container font-semibold">OCT</span><span>NOV</span><span>DEC</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Category Envelope Allocation (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<div class="bg-surface-container rounded-xl p-space-lg">
+<div class="flex items-center justify-between pb-space-md">
+<div>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider block">Terminal Vector II</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Category Envelope Distribution</h2>
+</div>
+<button class="font-label-xs text-label-xs text-primary-container hover:underline tracking-wider uppercase flex items-center gap-1" id="auto-rebalance-btn">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+              Smart Distribute
+            </button>
+</div>
+<!-- Allocation Matrix List -->
+<div class="space-y-space-md" id="envelope-list">
+<!-- Item 1: Food & Dining -->
+<div class="envelope-row bg-surface-container-lowest rounded-lg p-space-md transition-colors hover:bg-surface-container-low" data-category="food">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md text-on-surface font-medium leading-none">Food &amp; Dining</h3>
+<span class="font-label-xs text-label-xs text-outline">Groceries, Delivery, Cafes</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline">₹</span>
+<input class="envelope-input bg-surface-container rounded px-2.5 py-1 text-right font-label-md text-label-md text-on-surface tabular-nums w-24 focus:outline-none" step="100" type="number" value="6500"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<input class="envelope-slider w-full accent-primary-container bg-surface-variant rounded-lg h-1.5 cursor-pointer" max="15000" min="0" step="100" type="range" value="6500"/>
+<span class="envelope-pct font-label-xs text-label-xs text-outline w-12 text-right">18.6%</span>
+</div>
+</div>
+<!-- Item 2: Shopping & Discretionary -->
+<div class="envelope-row bg-surface-container-lowest rounded-lg p-space-md transition-colors hover:bg-surface-container-low" data-category="shopping">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md text-on-surface font-medium leading-none">Shopping &amp; Discretionary</h3>
+<span class="font-label-xs text-label-xs text-outline">Apparel, Personal, Hardware</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline">₹</span>
+<input class="envelope-input bg-surface-container rounded px-2.5 py-1 text-right font-label-md text-label-md text-on-surface tabular-nums w-24 focus:outline-none" step="100" type="number" value="5000"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<input class="envelope-slider w-full accent-primary-container bg-surface-variant rounded-lg h-1.5 cursor-pointer" max="15000" min="0" step="100" type="range" value="5000"/>
+<span class="envelope-pct font-label-xs text-label-xs text-outline w-12 text-right">14.3%</span>
+</div>
+</div>
+<!-- Item 3: Transport & Commute -->
+<div class="envelope-row bg-surface-container-lowest rounded-lg p-space-md transition-colors hover:bg-surface-container-low" data-category="transport">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">directions_subway</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md text-on-surface font-medium leading-none">Transport &amp; Commute</h3>
+<span class="font-label-xs text-label-xs text-outline">Fuel, Metro passes, Rideshares</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline">₹</span>
+<input class="envelope-input bg-surface-container rounded px-2.5 py-1 text-right font-label-md text-label-md text-on-surface tabular-nums w-24 focus:outline-none" step="100" type="number" value="3000"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<input class="envelope-slider w-full accent-primary-container bg-surface-variant rounded-lg h-1.5 cursor-pointer" max="10000" min="0" step="100" type="range" value="3000"/>
+<span class="envelope-pct font-label-xs text-label-xs text-outline w-12 text-right">8.6%</span>
+</div>
+</div>
+<!-- Item 4: Housing & Fixed Utilities -->
+<div class="envelope-row bg-surface-container-lowest rounded-lg p-space-md transition-colors hover:bg-surface-container-low" data-category="housing">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">home</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-body-md text-body-md text-on-surface font-medium leading-none">Housing &amp; Fixed Utilities</h3>
+<span class="font-label-xs text-label-xs px-1.5 py-0.2 rounded bg-surface-container-high text-outline">Fixed</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">Rent share, Power, Fiber broadband</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline">₹</span>
+<input class="envelope-input bg-surface-container rounded px-2.5 py-1 text-right font-label-md text-label-md text-on-surface tabular-nums w-24 focus:outline-none" step="100" type="number" value="14000"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<input class="envelope-slider w-full accent-primary-container bg-surface-variant rounded-lg h-1.5 cursor-pointer" max="25000" min="0" step="100" type="range" value="14000"/>
+<span class="envelope-pct font-label-xs text-label-xs text-outline w-12 text-right">40.0%</span>
+</div>
+</div>
+<!-- Item 5: Tech & SaaS -->
+<div class="envelope-row bg-surface-container-lowest rounded-lg p-space-md transition-colors hover:bg-surface-container-low" data-category="saas">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md text-on-surface font-medium leading-none">Tech &amp; SaaS</h3>
+<span class="font-label-xs text-label-xs text-outline">Cloud nodes, IDE seats, Domain leases</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline">₹</span>
+<input class="envelope-input bg-surface-container rounded px-2.5 py-1 text-right font-label-md text-label-md text-on-surface tabular-nums w-24 focus:outline-none" step="100" type="number" value="4000"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<input class="envelope-slider w-full accent-primary-container bg-surface-variant rounded-lg h-1.5 cursor-pointer" max="10000" min="0" step="100" type="range" value="4000"/>
+<span class="envelope-pct font-label-xs text-label-xs text-outline w-12 text-right">11.4%</span>
+</div>
+</div>
+<!-- Item 6: Entertainment -->
+<div class="envelope-row bg-surface-container-lowest rounded-lg p-space-md transition-colors hover:bg-surface-container-low" data-category="entertainment">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md text-on-surface font-medium leading-none">Entertainment</h3>
+<span class="font-label-xs text-label-xs text-outline">Streaming, Books, Live gigs</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline">₹</span>
+<input class="envelope-input bg-surface-container rounded px-2.5 py-1 text-right font-label-md text-label-md text-on-surface tabular-nums w-24 focus:outline-none" step="100" type="number" value="2500"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<input class="envelope-slider w-full accent-primary-container bg-surface-variant rounded-lg h-1.5 cursor-pointer" max="8000" min="0" step="100" type="range" value="2500"/>
+<span class="envelope-pct font-label-xs text-label-xs text-outline w-12 text-right">7.1%</span>
+</div>
+</div>
+<!-- Unallocated Safety Buffer Cell -->
+<div class="bg-surface-container-high/60 rounded-lg p-space-md flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md text-on-surface font-medium leading-none">Unallocated Safety Buffer</h3>
+<span class="font-label-xs text-label-xs text-outline">Volatile delta reserve within monthly cap</span>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center justify-end gap-1.5">
+<span class="font-label-md text-label-md font-semibold text-primary-container tabular-nums" id="buffer-display">₹0</span>
+<span class="material-symbols-outlined text-primary-container text-[16px]">check_circle</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary-fixed uppercase tracking-wider" id="buffer-subtext">Perfect Equilibrium</span>
+</div>
+</div>
+</div>
+<!-- Quick Envelope Add Action -->
+<button class="mt-space-md w-full py-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">add</span>
+            Create Custom Segment Envelope
+          </button>
+</div>
+</div>
+</div>
+<!-- Sticky Commit & Confirmation Ledger Dock -->
+<div class="mt-space-xl pt-space-md bg-surface-container-lowest/80 backdrop-blur-md sticky bottom-4 z-30 rounded-xl p-space-md">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md font-medium text-on-surface">Target Ready for Committal</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-container/10 text-primary-container font-label-xs text-label-xs font-semibold">100% BALANCED</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">All ledger lines accounted for with ₹0 unallocated variance.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="px-space-md py-2.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">
+            Cancel
+          </button>
+<button class="px-space-md py-2.5 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+            Save Draft
+          </button>
+<button class="px-space-lg py-2.5 rounded bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:bg-primary-fixed-dim transition-transform active:scale-[0.99] flex items-center gap-2 shadow-sm" id="commit-btn">
+<span class="material-symbols-outlined text-[18px]">lock_open</span>
+            Commit &amp; Activate Budget
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initBudgetCalculator() {
+    const totalCapInput = document.getElementById('total-monthly-cap');
+    const envelopeRows = document.querySelectorAll('.envelope-row');
+    const totalAllocatedMetric = document.getElementById('total-allocated-metric');
+    const unallocatedMetric = document.getElementById('unallocated-metric');
+    const allocStatusBadge = document.getElementById('alloc-status-badge');
+    const pctLabel = document.getElementById('pct-label');
+    const gaugeBar = document.getElementById('gauge-bar');
+    const bufferDisplay = document.getElementById('buffer-display');
+    const bufferSubtext = document.getElementById('buffer-subtext');
+    const commitBtn = document.getElementById('commit-btn');
+    const autoRebalanceBtn = document.getElementById('auto-rebalance-btn');
+
+    function syncCalculations() {
+      const cap = parseFloat(totalCapInput.value) || 0;
+      let sum = 0;
+
+      envelopeRows.forEach(row => {
+        const input = row.querySelector('.envelope-input');
+        const slider = row.querySelector('.envelope-slider');
+        const pctSpan = row.querySelector('.envelope-pct');
+        const val = parseFloat(input.value) || 0;
+        sum += val;
+        
+        // sync slider
+        if (slider && slider.value !== input.value) {
+          slider.value = val;
+        }
+
+        // update envelope %
+        if (pctSpan) {
+          const ratio = cap > 0 ? ((val / cap) * 100).toFixed(1) : 0;
+          pctSpan.textContent = ratio + '%';
+        }
+      });
+
+      const residual = cap - sum;
+      totalAllocatedMetric.textContent = '₹' + sum.toLocaleString('en-IN');
+      unallocatedMetric.textContent = '₹' + Math.abs(residual).toLocaleString('en-IN');
+      bufferDisplay.textContent = '₹' + residual.toLocaleString('en-IN');
+
+      const progressPct = cap > 0 ? Math.min((sum / cap) * 100, 100).toFixed(1) : 0;
+      pctLabel.textContent = progressPct + '%';
+      gaugeBar.style.width = Math.min((sum / cap) * 100, 100) + '%';
+
+      if (residual === 0) {
+        allocStatusBadge.textContent = 'Optimal Liquidity Distribution';
+        allocStatusBadge.className = 'font-label-md text-label-md text-primary-container font-semibold';
+        bufferSubtext.textContent = 'Perfect Equilibrium';
+        bufferSubtext.className = 'font-label-xs text-label-xs text-primary-fixed uppercase tracking-wider';
+        gaugeBar.className = 'h-full bg-primary-container transition-all duration-300';
+      } else if (residual > 0) {
+        allocStatusBadge.textContent = 'Under-Allocated Reserve';
+        allocStatusBadge.className = 'font-label-md text-label-md text-secondary font-semibold';
+        bufferSubtext.textContent = '₹' + residual + ' Surplus Ready';
+        bufferSubtext.className = 'font-label-xs text-label-xs text-secondary uppercase tracking-wider';
+        gaugeBar.className = 'h-full bg-secondary-container transition-all duration-300';
+      } else {
+        allocStatusBadge.textContent = 'Deficit Allocation Spike';
+        allocStatusBadge.className = 'font-label-md text-label-md text-error font-semibold';
+        bufferSubtext.textContent = 'Over by ₹' + Math.abs(residual);
+        bufferSubtext.className = 'font-label-xs text-label-xs text-error uppercase tracking-wider';
+        gaugeBar.className = 'h-full bg-error transition-all duration-300';
+      }
+    }
+
+    envelopeRows.forEach(row => {
+      const input = row.querySelector('.envelope-input');
+      const slider = row.querySelector('.envelope-slider');
+
+      input.addEventListener('input', () => {
+        if (slider) slider.value = input.value;
+        syncCalculations();
+      });
+
+      if (slider) {
+        slider.addEventListener('input', () => {
+          input.value = slider.value;
+          syncCalculations();
+        });
+      }
+    });
+
+    if (totalCapInput) {
+      totalCapInput.addEventListener('input', syncCalculations);
+    }
+
+    if (autoRebalanceBtn) {
+      autoRebalanceBtn.addEventListener('click', () => {
+        // Preset optimal distribution for 35000
+        const targets = {
+          food: 6500,
+          shopping: 5000,
+          transport: 3000,
+          housing: 14000,
+          saas: 4000,
+          entertainment: 2500
+        };
+        envelopeRows.forEach(row => {
+          const cat = row.getAttribute('data-category');
+          if (targets[cat] !== undefined) {
+            const input = row.querySelector('.envelope-input');
+            const slider = row.querySelector('.envelope-slider');
+            input.value = targets[cat];
+            if (slider) slider.value = targets[cat];
+          }
+        });
+        syncCalculations();
+      });
+    }
+
+    if (commitBtn) {
+      commitBtn.addEventListener('click', () => {
+        const prevText = commitBtn.innerHTML;
+        commitBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Activating...';
+        commitBtn.disabled = true;
+        setTimeout(() => {
+          commitBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Activated!';
+          setTimeout(() => {
+            commitBtn.innerHTML = prevText;
+            commitBtn.disabled = false;
+          }, 1800);
+        }, 650);
+      });
+    }
+
+    syncCalculations();
+  })();
+</script></main></div></body></html>

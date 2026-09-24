@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-low": "#191c1f", "on-tertiary-fixed-variant": "#920418", "secondary": "#adc6ff", "inverse-surface": "#e1e2e6", "on-primary-container": "#556d00", "on-primary-fixed": "#161e00", "on-tertiary-fixed": "#410005", "surface": "#111417", "on-primary-fixed-variant": "#3c4d00", "inverse-on-surface": "#2e3134", "error": "#ffb4ab", "on-secondary-container": "#e6ecff", "surface-container-high": "#272a2d", "on-tertiary-container": "#bd2c32", "tertiary-fixed": "#ffdad7", "on-background": "#e1e2e6", "tertiary-fixed-dim": "#ffb3af", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395", "on-primary": "#283500", "tertiary-container": "#ffdad7", "primary-fixed-dim": "#abd600", "secondary-fixed": "#d8e2ff", "primary-fixed": "#c3f400", "on-error": "#690005", "surface-dim": "#111417", "outline": "#8e9379", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001a42", "on-tertiary": "#68000d", "primary-container": "#c3f400", "surface-bright": "#37393d", "on-surface-variant": "#c4c9ac", "error-container": "#93000a", "on-surface": "#e1e2e6", "surface-tint": "#abd600", "surface-container-lowest": "#0b0e11", "tertiary": "#ffffff", "secondary-container": "#0566d9", "surface-variant": "#323538", "primary": "#ffffff", "on-secondary": "#002e6a", "background": "#111417", "surface-container": "#1d2023", "inverse-primary": "#506600", "surface-container-highest": "#323538", "outline-variant": "#444933" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "margin": "1.5rem", "space-lg": "1.5rem", "gutter": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "display-lg-mobile": [ "Geist" ], "label-lg": [ "JetBrains Mono" ], "display-xl": [ "Geist" ], "display-lg": [ "Geist" ], "display-xl-mobile": [ "Geist" ], "body-sm": [ "Geist" ], "body-lg": [ "Geist" ], "headline-md": [ "Geist" ], "label-xs": [ "JetBrains Mono" ], "label-md": [ "JetBrains Mono" ], "headline-lg": [ "Geist" ], "body-md": [ "Geist" ] }, "fontSize": { "display-lg-mobile": [ "2rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "label-lg": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" } ], "display-xl": [ "3.75rem", { "lineHeight": "4rem", "fontWeight": "600" } ], "display-lg": [ "3rem", { "lineHeight": "3.25rem", "fontWeight": "600" } ], "display-xl-mobile": [ "2.5rem", { "lineHeight": "2.75rem", "fontWeight": "600" } ], "body-sm": [ "0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" } ], "body-lg": [ "1.0625rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "headline-md": [ "1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" } ], "label-xs": [ "0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "600" } ], "label-md": [ "0.75rem", { "lineHeight": "1rem", "fontWeight": "500" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "500" } ], "body-md": [ "0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface border-r border-surface-variant flex flex-col justify-between z-50 select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between border-b border-surface-variant/40"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden">https://lh3.googleusercontent.com/aida/AEtjO1XSfDvsRw7Qe-mVxTX0uj5lCSK7WrmHHmKh7mP2x7uJeErlIr5-dxWqXrYcyCEjioyXFUCIX26P7HHTzEVx81kN9FrrX7jsPlDDzAXDKCEKfCwvWpv1YB84sZj0Fx1CYlCgJxBE549gzWvJ6hc6Kfkiy5FvsEbuVCu8l0h_rRKORICdUK-N_VaSkdYujBJtdCEvt_qGGxTtdcMrVz79P5vg6lioiT6_Dq0zKsBp-kltLsv8-Uq4wE46MH-e</div><div class="flex flex-col"><span class="font-label-md text-label-md tracking-widest uppercase text-on-surface font-semibold">Smart Budget</span><span class="font-label-xs text-label-xs tracking-wider text-outline uppercase">Terminal v2.4</span></div></div><div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-md space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Overview</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">space_dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="transactions" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Transactions</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-all bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium" data-path="calendar" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Calendar</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Money</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="budget" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Budget</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="analytics" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="money-owed" href="#"><span class="material-symbols-outlined text-[18px]">request_quote</span><span>Money Owed</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="accounts" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span>Accounts</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Plan</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="goals" href="#"><span class="material-symbols-outlined text-[18px]">flag</span><span>Goals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="subscriptions" href="#"><span class="material-symbols-outlined text-[18px]">repeat</span><span>Subscriptions</span></a></nav></div></div></div><div class="border-t border-surface-variant p-space-sm space-y-space-xs bg-surface-dim"><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-container-lowest/60 border border-surface-variant/40"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span></span><span class="font-label-xs text-label-xs text-on-surface-variant">Cloud synced</span></div><span class="font-label-xs text-label-xs text-outline">2m ago</span></div><div class="flex items-center justify-between pt-1 px-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Alex Mercer</span><span class="font-label-xs text-label-xs text-outline truncate max-w-[110px]">Pro Portfolio</span></div></div><a class="text-outline hover:text-on-surface transition-colors p-1" data-path="logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-variant/40 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-lowest border border-surface-variant"><span class="material-symbols-outlined text-outline text-[16px]">search</span><input class="bg-transparent text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none w-64" placeholder="Search transactions, accounts, rules..." type="text"/><span class="font-label-xs text-label-xs text-outline border border-surface-variant px-1 rounded">⌘K</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-xs text-label-xs text-on-surface-variant border border-surface-variant px-space-sm py-1 rounded bg-surface-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>PRIMARY LEDGER • USD</span></div><button class="text-outline hover:text-on-surface transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-primary-container"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen p-space-xl"><div class="flex flex-col w-full text-on-surface">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center bg-surface-container rounded-lg p-1 shadow-sm">
+<button class="w-8 h-8 flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high rounded transition-all" title="Previous Month">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<div class="px-space-md flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface font-semibold">September</span>
+<span class="font-label-lg text-label-lg text-outline">2024</span>
+</div>
+<button class="w-8 h-8 flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high rounded transition-all" title="Next Month">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<button class="px-space-md py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface text-label-md font-label-md uppercase tracking-wider rounded-lg transition-all flex items-center gap-1.5 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+        Today
+      </button>
+<div class="hidden xl:flex items-center gap-space-sm pl-space-sm">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-outline">Legend:</span>
+<div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded">
+<span class="w-2 h-2 rounded-full bg-surface-variant"></span>
+<span class="font-label-xs text-label-xs text-outline">Zero</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded">
+<span class="w-2 h-2 rounded-full bg-surface-bright"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">&lt;₹1k</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-fixed-variant"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">₹1k-₹5k</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-label-xs text-label-xs text-error">₹5k+</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-xs text-label-xs text-primary-fixed-dim">Inflow Spike</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg self-stretch sm:self-auto shadow-sm">
+<button class="px-space-md py-1.5 bg-surface-container-high text-primary-fixed font-label-sm text-label-md rounded flex items-center gap-1.5 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_view_month</span>
+        Heatmap
+      </button>
+<button class="px-space-md py-1.5 text-outline hover:text-on-surface font-label-sm text-label-md rounded flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[16px]">view_week</span>
+        Weekly Matrix
+      </button>
+<button class="px-space-md py-1.5 text-outline hover:text-on-surface font-label-sm text-label-md rounded flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+        Cashflow Horizon
+      </button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md mb-space-xl">
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-xs text-label-xs uppercase tracking-widest">Total Inflow</span>
+<span class="material-symbols-outlined text-primary-container text-[18px]">south_west</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-primary-container font-label-lg tracking-tight font-semibold">+₹53,000</div>
+<div class="flex items-center gap-1 mt-space-xs font-label-xs text-label-xs text-outline">
+<span class="text-primary-container">3 transfers</span>
+<span>• Avg ₹17.6k</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-xs text-label-xs uppercase tracking-widest">Total Outflow</span>
+<span class="material-symbols-outlined text-error text-[18px]">north_east</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-error font-label-lg tracking-tight font-semibold">−₹20,150</div>
+<div class="flex items-center gap-1 mt-space-xs font-label-xs text-label-xs text-outline">
+<span class="text-error">38 total txns</span>
+<span>• 38% of limit</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-xs text-label-xs uppercase tracking-widest">Net Surplus</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">account_balance_wallet</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface font-label-lg tracking-tight font-semibold">+₹32,850</div>
+<div class="flex items-center gap-1 mt-space-xs font-label-xs text-label-xs text-primary-container">
+<span>+62.0%</span>
+<span class="text-outline">savings velocity</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-xs text-label-xs uppercase tracking-widest">Active Velocity</span>
+<span class="material-symbols-outlined text-outline text-[18px]">speed</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface font-label-lg tracking-tight font-semibold">21 / 30 Days</div>
+<div class="flex items-center gap-1 mt-space-xs font-label-xs text-label-xs text-outline">
+<span class="text-secondary font-medium">9 Zero-Spend</span>
+<span>days logged</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<div class="lg:col-span-8 flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-xl shadow-sm">
+<div class="grid grid-cols-7 gap-2 pb-2">
+<div class="text-center font-label-xs text-label-xs uppercase tracking-widest text-outline py-1">Mon</div>
+<div class="text-center font-label-xs text-label-xs uppercase tracking-widest text-outline py-1">Tue</div>
+<div class="text-center font-label-xs text-label-xs uppercase tracking-widest text-outline py-1">Wed</div>
+<div class="text-center font-label-xs text-label-xs uppercase tracking-widest text-outline py-1">Thu</div>
+<div class="text-center font-label-xs text-label-xs uppercase tracking-widest text-outline py-1">Fri</div>
+<div class="text-center font-label-xs text-label-xs uppercase tracking-widest text-outline py-1 text-secondary">Sat</div>
+<div class="text-center font-label-xs text-label-xs uppercase tracking-widest text-outline py-1 text-secondary">Sun</div>
+</div>
+<div class="grid grid-cols-7 gap-2">
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">26</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">27</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">28</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">29</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">30</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">31</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<!-- 01 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">01</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container" title="Major Inflow"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-primary-container font-medium font-label-lg">+₹45k</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Salary</span>
+</div>
+</div>
+<!-- 02 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">02</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error" title="High Spend"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-error font-label-lg">−₹6,400</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- 03 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">03</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-label-lg">₹0</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Rest</span>
+</div>
+</div>
+<!-- 04 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">04</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹480</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">1 txn</span>
+</div>
+</div>
+<!-- 05 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">05</span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-error font-label-lg">−₹1,850</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">3 txns</span>
+</div>
+</div>
+<!-- 06 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">06</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹620</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">1 txn</span>
+</div>
+</div>
+<!-- 07 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-secondary">07</span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-error font-label-lg">−₹2,400</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">4 txns</span>
+</div>
+</div>
+<!-- 08 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-secondary">08</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-label-lg">₹0</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Rest</span>
+</div>
+</div>
+<!-- 09 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">09</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹340</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">1 txn</span>
+</div>
+</div>
+<!-- 10 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">10</span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-error font-label-lg">−₹1,120</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- 11 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">11</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-label-lg">₹0</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Rest</span>
+</div>
+</div>
+<!-- 12 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">12</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹890</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- 13 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">13</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹410</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">1 txn</span>
+</div>
+</div>
+<!-- 14 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-secondary">14</span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-error font-label-lg">−₹3,200</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">5 txns</span>
+</div>
+</div>
+<!-- 15 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-secondary">15</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹750</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- 16 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">16</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-label-lg">₹0</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Rest</span>
+</div>
+</div>
+<!-- 17 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">17</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹290</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">1 txn</span>
+</div>
+</div>
+<!-- 18 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">18</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹510</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">1 txn</span>
+</div>
+</div>
+<!-- 19 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">19</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-label-lg">₹0</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Rest</span>
+</div>
+</div>
+<!-- 20 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">20</span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-error font-label-lg">−₹1,440</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- 21 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-secondary">21</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹950</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- 22 SEP (ACTIVE TARGET DATE) -->
+<div class="aspect-square bg-surface-container-highest rounded-lg p-2 flex flex-col justify-between relative cursor-pointer shadow-md transform scale-[1.02] z-10">
+<div class="absolute inset-0 rounded-lg pointer-events-none bg-primary-container/10"></div>
+<div class="flex items-center justify-between relative z-10">
+<span class="font-label-md text-label-md font-bold text-primary-fixed bg-surface-container-lowest px-1.5 py-0.5 rounded">22</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+</div>
+</div>
+<div class="flex flex-col relative z-10">
+<span class="font-label-xs text-label-xs text-primary-container font-semibold font-label-lg">+₹6,750 net</span>
+<span class="font-label-xs text-label-xs text-on-surface font-medium scale-90 origin-left">4 txns</span>
+</div>
+</div>
+<!-- 23 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">23</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-label-lg">₹0</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Rest</span>
+</div>
+</div>
+<!-- 24 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">24</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹320</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">1 txn</span>
+</div>
+</div>
+<!-- 25 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">25</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹680</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- 26 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">26</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-label-lg">₹0</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Rest</span>
+</div>
+</div>
+<!-- 27 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">27</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹440</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">1 txn</span>
+</div>
+</div>
+<!-- 28 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-secondary">28</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹860</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- 29 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-secondary">29</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-label-lg">₹0</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">Rest</span>
+</div>
+</div>
+<!-- 30 SEP -->
+<div class="aspect-square bg-surface-container rounded-lg p-2 flex flex-col justify-between hover:bg-surface-container-high transition-colors cursor-pointer group shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">30</span>
+<span class="w-1.5 h-1.5 rounded-full bg-surface-bright"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-lg">−₹720</span>
+<span class="font-label-xs text-label-xs text-outline scale-90 origin-left">2 txns</span>
+</div>
+</div>
+<!-- OCT DAYS GHOST -->
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">01</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">02</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">03</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">04</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">05</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+<div class="aspect-square bg-surface-container-lowest/30 rounded-lg p-2 flex flex-col justify-between opacity-35 cursor-not-allowed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline">06</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline">—</span>
+</div>
+</div>
+<div class="mt-space-md p-space-md bg-surface-container rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+</div>
+<div>
+<div class="font-body-md text-body-md font-medium text-on-surface">Weekly Distribution Pattern</div>
+<div class="font-label-xs text-label-xs text-outline">Sundays show highest inflow balance due to freelance milestones</div>
+</div>
+</div>
+<div class="flex items-center gap-1 font-label-md text-label-md text-primary-container bg-surface-container-high px-space-md py-1.5 rounded-lg">
+<span>Weekly Target: 92% Met</span>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: 22 SEP DEEP-DIVE -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-lg shadow-sm">
+<div class="flex items-start justify-between pb-space-sm bg-surface-container-low">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-semibold">Active Selection</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-semibold text-on-surface tracking-tight mt-1">22 Sep 2024</h2>
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Sunday • 4 Events Recorded</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-space-md py-1.5 rounded font-label-sm text-label-md font-semibold hover:opacity-90 transition-all flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+          Log Entry
+        </button>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-surface-container p-space-sm rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline uppercase">Income</span>
+<span class="font-label-lg text-label-lg text-primary-container font-semibold">+₹8,000</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline uppercase">Expense</span>
+<span class="font-label-lg text-label-lg text-error font-semibold">−₹1,250</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline uppercase">Daily Net</span>
+<span class="font-label-lg text-label-lg text-secondary font-semibold">+₹6,750</span>
+</div>
+</div>
+<!-- Quick Visual Spark Mini Chart -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-xs text-label-xs uppercase tracking-wider">Hourly Trajectory</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-label-md">10:00 AM – 09:00 PM</span>
+</div>
+<div class="h-10 w-full flex items-end gap-1.5 pt-2">
+<div class="flex-1 bg-surface-container-high rounded-t h-[30%]" title="10:00 AM Coffee"></div>
+<div class="flex-1 bg-surface-container-high rounded-t h-[10%]"></div>
+<div class="flex-1 bg-surface-container-high rounded-t h-[10%]"></div>
+<div class="flex-1 bg-primary-container rounded-t h-[100%]" title="02:30 PM Wire Inflow"></div>
+<div class="flex-1 bg-surface-container-high rounded-t h-[10%]"></div>
+<div class="flex-1 bg-error rounded-t h-[25%]" title="05:15 PM Uber"></div>
+<div class="flex-1 bg-surface-container-high rounded-t h-[10%]"></div>
+<div class="flex-1 bg-error rounded-t h-[55%]" title="08:42 PM Dinner"></div>
+</div>
+</div>
+<!-- Itemized Ledger -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-outline">Itemized Ledger</span>
+<span class="font-label-xs text-label-xs text-outline">Ascending Time</span>
+</div>
+<div class="space-y-1">
+<!-- TXN 1 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">local_cafe</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface leading-tight">Blue Tokai Coffee</span>
+<span class="font-label-xs text-label-xs text-outline">Dining • HDFC Bank • 10:15 AM</span>
+</div>
+</div>
+<span class="font-label-md text-label-md text-error font-medium">−₹380</span>
+</div>
+<!-- TXN 2 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface leading-tight">Freelance Retainer</span>
+<span class="font-label-xs text-label-xs text-primary-container">Inflow • Wire Transfer • 02:30 PM</span>
+</div>
+</div>
+<span class="font-label-md text-label-md text-primary-container font-semibold">+₹8,000</span>
+</div>
+<!-- TXN 3 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface leading-tight">Uber Ride</span>
+<span class="font-label-xs text-label-xs text-outline">Transport • UPI Auto • 05:15 PM</span>
+</div>
+</div>
+<span class="font-label-md text-label-md text-error font-medium">−₹220</span>
+</div>
+<!-- TXN 4 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface leading-tight">Sunday Dinner</span>
+<span class="font-label-xs text-label-xs text-outline">Food &amp; Dining • UPI • 08:42 PM</span>
+</div>
+</div>
+<span class="font-label-md text-label-md text-error font-medium">−₹650</span>
+</div>
+</div>
+</div>
+<!-- Quick Categorization Note & Tags -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-xs text-label-xs uppercase tracking-wider">Session Context</span>
+<span class="material-symbols-outlined text-[16px] text-outline">edit_note</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Settled group dinner split via GPay. Freelancing invoice #INV-204 from TechStudio confirmed credited in full.
+        </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-xs text-label-xs hover:text-on-surface cursor-pointer">#friends</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-xs text-label-xs hover:text-on-surface cursor-pointer">#dinner</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-xs text-label-xs hover:text-on-surface cursor-pointer">#weekend</span>
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary-container font-label-xs text-label-xs cursor-pointer">#retainer</span>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

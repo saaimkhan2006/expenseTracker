@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-low": "#191c1f", "on-tertiary-fixed-variant": "#920418", "secondary": "#adc6ff", "inverse-surface": "#e1e2e6", "on-primary-container": "#556d00", "on-primary-fixed": "#161e00", "on-tertiary-fixed": "#410005", "surface": "#111417", "on-primary-fixed-variant": "#3c4d00", "inverse-on-surface": "#2e3134", "error": "#ffb4ab", "on-secondary-container": "#e6ecff", "surface-container-high": "#272a2d", "on-tertiary-container": "#bd2c32", "tertiary-fixed": "#ffdad7", "on-background": "#e1e2e6", "tertiary-fixed-dim": "#ffb3af", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395", "on-primary": "#283500", "tertiary-container": "#ffdad7", "primary-fixed-dim": "#abd600", "secondary-fixed": "#d8e2ff", "primary-fixed": "#c3f400", "on-error": "#690005", "surface-dim": "#111417", "outline": "#8e9379", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001a42", "on-tertiary": "#68000d", "primary-container": "#c3f400", "surface-bright": "#37393d", "on-surface-variant": "#c4c9ac", "error-container": "#93000a", "on-surface": "#e1e2e6", "surface-tint": "#abd600", "surface-container-lowest": "#0b0e11", "tertiary": "#ffffff", "secondary-container": "#0566d9", "surface-variant": "#323538", "primary": "#ffffff", "on-secondary": "#002e6a", "background": "#111417", "surface-container": "#1d2023", "inverse-primary": "#506600", "surface-container-highest": "#323538", "outline-variant": "#444933" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "margin": "1.5rem", "space-lg": "1.5rem", "gutter": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "display-lg-mobile": [ "Geist" ], "label-lg": [ "JetBrains Mono" ], "display-xl": [ "Geist" ], "display-lg": [ "Geist" ], "display-xl-mobile": [ "Geist" ], "body-sm": [ "Geist" ], "body-lg": [ "Geist" ], "headline-md": [ "Geist" ], "label-xs": [ "JetBrains Mono" ], "label-md": [ "JetBrains Mono" ], "headline-lg": [ "Geist" ], "body-md": [ "Geist" ] }, "fontSize": { "display-lg-mobile": [ "2rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "label-lg": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" } ], "display-xl": [ "3.75rem", { "lineHeight": "4rem", "fontWeight": "600" } ], "display-lg": [ "3rem", { "lineHeight": "3.25rem", "fontWeight": "600" } ], "display-xl-mobile": [ "2.5rem", { "lineHeight": "2.75rem", "fontWeight": "600" } ], "body-sm": [ "0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" } ], "body-lg": [ "1.0625rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "headline-md": [ "1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" } ], "label-xs": [ "0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "600" } ], "label-md": [ "0.75rem", { "lineHeight": "1rem", "fontWeight": "500" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "500" } ], "body-md": [ "0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface border-r border-surface-variant flex flex-col justify-between z-50 select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between border-b border-surface-variant/40"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center"><div class="w-3 h-3 bg-primary-container rotate-45 rounded-[1px]"></div></div><div class="flex flex-col"><span class="font-label-md text-label-md tracking-widest uppercase text-on-surface font-semibold">Smart Budget</span><span class="font-label-xs text-label-xs tracking-wider text-outline uppercase">Terminal v2.4</span></div></div><div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-md space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Overview</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">space_dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="transactions" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Transactions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="calendar" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Calendar</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Money</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="budget" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Budget</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="analytics" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="money-owed" href="#"><span class="material-symbols-outlined text-[18px]">request_quote</span><span>Money Owed</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="accounts" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span>Accounts</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Plan</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="goals" href="#"><span class="material-symbols-outlined text-[18px]">flag</span><span>Goals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="subscriptions" href="#"><span class="material-symbols-outlined text-[18px]">repeat</span><span>Subscriptions</span></a></nav></div></div></div><div class="border-t border-surface-variant p-space-sm space-y-space-xs bg-surface-dim"><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-container-lowest/60 border border-surface-variant/40"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span></span><span class="font-label-xs text-label-xs text-on-surface-variant">Cloud synced</span></div><span class="font-label-xs text-label-xs text-outline">2m ago</span></div><div class="flex items-center justify-between pt-1 px-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Alex Mercer</span><span class="font-label-xs text-label-xs text-outline truncate max-w-[110px]">Pro Portfolio</span></div></div><a class="text-outline hover:text-on-surface transition-colors p-1" data-path="logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-variant/40 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-lowest border border-surface-variant"><span class="material-symbols-outlined text-outline text-[16px]">search</span><input class="bg-transparent text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none w-64" placeholder="Search transactions, accounts, rules..." type="text"/><span class="font-label-xs text-label-xs text-outline border border-surface-variant px-1 rounded">⌘K</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-xs text-label-xs text-on-surface-variant border border-surface-variant px-space-sm py-1 rounded bg-surface-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>PRIMARY LEDGER • USD</span></div><button class="text-outline hover:text-on-surface transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-primary-container"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen p-space-xl"><div class="flex flex-col w-full space-y-space-xl">
+<!-- Top Header Telemetry & Network Status Switcher -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-surface-variant/40 pb-space-lg">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs font-label-xs text-label-xs tracking-wider text-outline uppercase">
+<span>System</span>
+<span class="text-surface-variant">/</span>
+<span class="text-primary-container">Protocols &amp; Edge States</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">System States: Empty States, Error Handling &amp; Skeleton Loaders</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Component specifications for zero-data states, non-alarming error boundaries, network telemetry, and skeleton loading screens.</p>
+</div>
+<!-- Live Network Status Pill Switcher Component -->
+<div class="flex items-center bg-surface-container-high p-1 rounded-lg border border-surface-variant/60 shadow-inner">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded font-label-xs text-label-xs tracking-wider text-on-surface-variant hover:text-on-surface transition-all" id="net-offline" onclick="setNetworkState('offline')">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>Offline Mode</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded font-label-xs text-label-xs tracking-wider text-on-surface-variant hover:text-on-surface transition-all" id="net-syncing" onclick="setNetworkState('syncing')">
+<span class="material-symbols-outlined text-[14px] text-secondary animate-spin">autorenew</span>
+<span>Syncing... (12/142)</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded font-label-xs text-label-xs tracking-wider bg-surface-container-lowest text-primary-container font-semibold transition-all shadow-sm" id="net-synced" onclick="setNetworkState('synced')">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Synced (All nodes valid)</span>
+</button>
+</div>
+</div>
+<!-- Dynamic Network Banner Simulation -->
+<div class="hidden flex items-center justify-between px-space-md py-space-sm rounded-lg bg-surface-container border border-surface-variant transition-all" id="network-alert-banner">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]" id="banner-icon">sync</span>
+<span class="font-label-sm text-label-sm text-on-surface" id="banner-text">Network telemetry active</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline" id="banner-timestamp">LATENCY 24ms • TLS 1.3 SECURE</span>
+</div>
+<!-- SECTION 1: REFINED ZERO-DATA STATES (6-Tile Precision Grid) -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between border-b border-surface-variant/30 pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container px-2 py-0.5 rounded bg-surface-container-high border border-primary-container/20">Protocol 01</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Refined Empty States</h2>
+</div>
+<span class="font-label-xs text-label-xs text-outline">6 ISOLATED BOUNDARIES</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- 1. No Transactions -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/40 hover:border-surface-variant transition-colors min-h-[260px] group">
+<div class="space-y-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-surface-variant flex items-center justify-center text-primary-container group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">No transactions logged yet</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your cashflow journal is ready. Add your first expense or income entry.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-start">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-xs text-label-xs font-semibold uppercase tracking-wider transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined text-[15px]">add</span>
+<span>Add Transaction</span>
+</button>
+</div>
+</div>
+<!-- 2. No Budgets -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/40 hover:border-surface-variant transition-colors min-h-[260px] group">
+<div class="space-y-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-surface-variant flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">donut_small</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">No active budget envelopes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Set spending guardrails to track your monthly burn velocity.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-start">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface border border-surface-variant font-label-xs text-label-xs font-semibold uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span>Create Fiscal Budget</span>
+</button>
+</div>
+</div>
+<!-- 3. No Goals -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/40 hover:border-surface-variant transition-colors min-h-[260px] group">
+<div class="space-y-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-surface-variant flex items-center justify-center text-primary-container group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Zero capital vaults active</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Create targeted accumulation funds for your upcoming milestones.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-start">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface border border-surface-variant font-label-xs text-label-xs font-semibold uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[15px]">flag</span>
+<span>New Goal</span>
+</button>
+</div>
+</div>
+<!-- 4. No Subscriptions -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/40 hover:border-surface-variant transition-colors min-h-[260px] group">
+<div class="space-y-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-surface-variant flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">all_inclusive</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">No recurring subscriptions</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Monitor SaaS, entertainment, and utilities to protect against price creep.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-start">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface border border-surface-variant font-label-xs text-label-xs font-semibold uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[15px]">add_circle</span>
+<span>Add Subscription</span>
+</button>
+</div>
+</div>
+<!-- 5. No Money Lent -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/40 hover:border-surface-variant transition-colors min-h-[260px] group">
+<div class="space-y-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-surface-variant flex items-center justify-center text-primary-container group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">call_made</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">No counterparty receivables</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">You have not lent funds to anyone. Peer transfers stay segregated from expenses.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-start">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface border border-surface-variant font-label-xs text-label-xs font-semibold uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[15px]">outbound</span>
+<span>Record Lent Capital</span>
+</button>
+</div>
+</div>
+<!-- 6. No Money Borrowed -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/40 hover:border-surface-variant transition-colors min-h-[260px] group">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-surface-variant flex items-center justify-center text-outline group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">south_west</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase tracking-wider text-primary-container bg-primary-container/10 border border-primary-container/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Clean Balance Sheet
+            </span>
+</div>
+<div class="space-y-1">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Zero peer liabilities</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">You currently owe nothing to friends, colleagues, or counterparties.</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between border-t border-surface-variant/30 font-label-xs text-label-xs text-outline">
+<span>Owed Balance: $0.00</span>
+<span class="text-on-surface-variant">Optimal Solvency</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: FRIENDLY & CALM ERROR BOUNDARIES -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between border-b border-surface-variant/30 pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary px-2 py-0.5 rounded bg-surface-container-high border border-secondary/20">Protocol 02</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Non-Alarming Error Handling</h2>
+</div>
+<span class="font-label-xs text-label-xs text-outline">GRACEFUL DEGRADATION</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Error 1: Gateway Timeout -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/50 space-y-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-tertiary-container/30 flex items-center justify-center text-tertiary-fixed-dim shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">cloud_off</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-space-xs">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Sync Engine Temporarily Paused</h3>
+<span class="font-label-xs text-label-xs px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary-fixed-dim uppercase tracking-wider">Gateway Idle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We couldn’t reach the banking ledger gateway. Your local data is completely safe, cached, and editable.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest px-space-md py-2.5 rounded-lg border border-surface-variant/60 flex items-center justify-between font-label-xs text-label-xs">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<code>Code: NET_GATEWAY_TIMEOUT</code>
+</div>
+<span class="text-outline">Auto-retry in <span class="text-on-surface font-semibold" id="timeout-countdown">14</span>s</span>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface border border-surface-variant font-label-xs text-label-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5" onclick="simulateRetry(this)">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+<span>Retry Sync Now</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg bg-transparent hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-xs text-label-xs uppercase tracking-wider transition-all">
+            Continue Offline
+          </button>
+</div>
+</div>
+<!-- Error 2: Node 404 Missing -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/50 space-y-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-surface-variant flex items-center justify-center text-outline shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">troubleshoot</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-space-xs">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Record or Account Node Not Found</h3>
+<span class="font-label-xs text-label-xs px-1.5 py-0.5 rounded bg-surface-container-high text-outline uppercase tracking-wider">Index 404</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The transaction or vault you are looking for has been archived, consolidated, or settled.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest px-space-md py-2.5 rounded-lg border border-surface-variant/60 flex items-center justify-between font-label-xs text-label-xs text-outline">
+<span>Query: <code class="text-on-surface-variant">tx_01HG8...49B</code></span>
+<span>Scope: Primary Ledger</span>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<a class="px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface border border-surface-variant font-label-xs text-label-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-[14px]">home</span>
+<span>Back to Dashboard</span>
+</a>
+<button class="px-3.5 py-1.5 rounded-lg bg-transparent hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-xs text-label-xs uppercase tracking-wider transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">search</span>
+<span>Search Journal</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: PRECISION SKELETON LOADERS -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between border-b border-surface-variant/30 pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-outline px-2 py-0.5 rounded bg-surface-container-high border border-surface-variant">Protocol 03</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Zero-Spinner Skeleton Pulses</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline">ANIMATION: 1.8s HARMONIC PULSE</span>
+<button class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container border border-surface-variant text-on-surface-variant hover:text-on-surface" id="toggle-shimmer-btn" onclick="toggleSkeletonAnimation()">Pause</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- 1. Card & Metric Skeleton (4 Cols) -->
+<div class="lg:col-span-4 p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/40 space-y-space-lg">
+<div class="flex items-center justify-between">
+<div class="h-3 w-28 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-3 w-12 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+<!-- Metric Big Placeholder: mimicking ₹24,850 dashboard indicator -->
+<div class="space-y-2">
+<div class="h-10 w-44 rounded bg-surface-container-highest animate-pulse"></div>
+<div class="h-3.5 w-32 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+<!-- Burn velocity progress pulse bar -->
+<div class="space-y-2 pt-space-xs">
+<div class="flex justify-between">
+<div class="h-2.5 w-16 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-2.5 w-10 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full w-2/3 bg-surface-variant rounded-full animate-pulse"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-sm border-t border-surface-variant/30">
+<div class="space-y-1.5">
+<div class="h-2.5 w-14 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-4 w-20 rounded bg-surface-container-highest animate-pulse"></div>
+</div>
+<div class="space-y-1.5">
+<div class="h-2.5 w-14 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-4 w-20 rounded bg-surface-container-highest animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- 2. Chart Shimmer Skeleton (8 Cols) -->
+<div class="lg:col-span-8 p-space-lg rounded-xl bg-surface-container-low border border-surface-variant/40 flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="space-y-1.5">
+<div class="h-3.5 w-36 rounded bg-surface-container-highest animate-pulse"></div>
+<div class="h-2.5 w-24 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+<div class="flex gap-2">
+<div class="h-6 w-12 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-6 w-12 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+</div>
+<!-- Inline Wave SVG Shimmer Silhouette -->
+<div class="relative w-full h-36 flex items-end">
+<svg class="w-full h-full text-surface-container-high opacity-70 animate-pulse" fill="none" preserveaspectratio="none" viewbox="0 0 500 120">
+<path d="M0 80 Q 60 40 120 70 T 240 30 T 360 60 T 500 20 L 500 120 L 0 120 Z" fill="currentColor" fill-opacity="0.25"></path>
+<path d="M0 80 Q 60 40 120 70 T 240 30 T 360 60 T 500 20" stroke="currentColor" stroke-width="2"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-label-xs text-label-xs text-outline tracking-widest uppercase bg-surface-container-lowest/80 px-2 py-1 rounded border border-surface-variant/30">Aggregating Timeseries...</span>
+</div>
+</div>
+<div class="flex justify-between border-t border-surface-variant/30 pt-space-xs">
+<div class="h-2 w-8 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-2 w-8 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-2 w-8 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-2 w-8 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-2 w-8 rounded bg-surface-container-high animate-pulse"></div>
+<div class="h-2 w-8 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- 3. Transaction Table Skeleton (Full-Width High-Density Row Matrix) -->
+<div class="rounded-xl bg-surface-container-low border border-surface-variant/40 overflow-hidden">
+<div class="px-space-md py-space-sm bg-surface-container flex items-center justify-between border-b border-surface-variant/40 font-label-xs text-label-xs text-outline">
+<span class="uppercase tracking-wider">Ledger Synchronizer Buffer (4 Pending Rows)</span>
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+<span>STREAM IDLE</span>
+</span>
+</div>
+<div class="divide-y divide-surface-variant/30">
+<!-- Skeleton Row 1 -->
+<div class="flex items-center justify-between px-space-md py-3.5 hover:bg-surface-container/30 transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high animate-pulse shrink-0"></div>
+<div class="space-y-1.5">
+<div class="h-3 w-40 rounded bg-surface-container-highest animate-pulse"></div>
+<div class="h-2.5 w-24 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="h-5 w-20 rounded bg-surface-container-high animate-pulse hidden md:block"></div>
+<div class="space-y-1 text-right">
+<div class="h-3 w-24 rounded bg-surface-container-highest animate-pulse ml-auto"></div>
+<div class="h-2 w-16 rounded bg-surface-container-high animate-pulse ml-auto"></div>
+</div>
+</div>
+</div>
+<!-- Skeleton Row 2 -->
+<div class="flex items-center justify-between px-space-md py-3.5 hover:bg-surface-container/30 transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high animate-pulse shrink-0"></div>
+<div class="space-y-1.5">
+<div class="h-3 w-32 rounded bg-surface-container-highest animate-pulse"></div>
+<div class="h-2.5 w-20 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="h-5 w-16 rounded bg-surface-container-high animate-pulse hidden md:block"></div>
+<div class="space-y-1 text-right">
+<div class="h-3 w-20 rounded bg-surface-container-highest animate-pulse ml-auto"></div>
+<div class="h-2 w-12 rounded bg-surface-container-high animate-pulse ml-auto"></div>
+</div>
+</div>
+</div>
+<!-- Skeleton Row 3 -->
+<div class="flex items-center justify-between px-space-md py-3.5 hover:bg-surface-container/30 transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high animate-pulse shrink-0"></div>
+<div class="space-y-1.5">
+<div class="h-3 w-48 rounded bg-surface-container-highest animate-pulse"></div>
+<div class="h-2.5 w-28 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="h-5 w-24 rounded bg-surface-container-high animate-pulse hidden md:block"></div>
+<div class="space-y-1 text-right">
+<div class="h-3 w-28 rounded bg-surface-container-highest animate-pulse ml-auto"></div>
+<div class="h-2 w-14 rounded bg-surface-container-high animate-pulse ml-auto"></div>
+</div>
+</div>
+</div>
+<!-- Skeleton Row 4 -->
+<div class="flex items-center justify-between px-space-md py-3.5 hover:bg-surface-container/30 transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high animate-pulse shrink-0"></div>
+<div class="space-y-1.5">
+<div class="h-3 w-36 rounded bg-surface-container-highest animate-pulse"></div>
+<div class="h-2.5 w-16 rounded bg-surface-container-high animate-pulse"></div>
+</div>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="h-5 w-14 rounded bg-surface-container-high animate-pulse hidden md:block"></div>
+<div class="space-y-1 text-right">
+<div class="h-3 w-16 rounded bg-surface-container-highest animate-pulse ml-auto"></div>
+<div class="h-2 w-10 rounded bg-surface-container-high animate-pulse ml-auto"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Spec Footer Note -->
+<div class="flex items-center justify-between border-t border-surface-variant/30 pt-space-md text-outline font-label-xs text-label-xs">
+<span>SPEC_RELEASE: DESIGN_SYSTEM_V2.4</span>
+<span>TERMINAL PRECISION PROTOCOL ENFORCED</span>
+</div>
+</div>
+<script>
+  function setNetworkState(state) {
+    const btnOffline = document.getElementById('net-offline');
+    const btnSyncing = document.getElementById('net-syncing');
+    const btnSynced = document.getElementById('net-synced');
+    const banner = document.getElementById('network-alert-banner');
+    const bannerText = document.getElementById('banner-text');
+    const bannerIcon = document.getElementById('banner-icon');
+
+    // Reset styles
+    [btnOffline, btnSyncing, btnSynced].forEach(b => {
+      b.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded font-label-xs text-label-xs tracking-wider text-on-surface-variant hover:text-on-surface transition-all';
+    });
+
+    if (state === 'offline') {
+      btnOffline.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded font-label-xs text-label-xs tracking-wider bg-surface-container-lowest text-error font-semibold transition-all shadow-sm';
+      banner.classList.remove('hidden');
+      bannerText.textContent = 'Offline Mode Active: Local ledger buffer operational. Zero data loss.';
+      bannerIcon.textContent = 'wifi_off';
+      bannerIcon.className = 'material-symbols-outlined text-error text-[20px]';
+    } else if (state === 'syncing') {
+      btnSyncing.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded font-label-xs text-label-xs tracking-wider bg-surface-container-lowest text-secondary font-semibold transition-all shadow-sm';
+      banner.classList.remove('hidden');
+      bannerText.textContent = 'Synchronizing peer vouchers (12 of 142 records settled)...';
+      bannerIcon.textContent = 'autorenew';
+      bannerIcon.className = 'material-symbols-outlined text-secondary text-[20px] animate-spin';
+    } else {
+      btnSynced.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded font-label-xs text-label-xs tracking-wider bg-surface-container-lowest text-primary-container font-semibold transition-all shadow-sm';
+      banner.classList.add('hidden');
+    }
+  }
+
+  // Countdown timer simulation for gateway retry
+  let countdown = 14;
+  setInterval(() => {
+    const el = document.getElementById('timeout-countdown');
+    if (el) {
+      countdown = countdown <= 1 ? 14 : countdown - 1;
+      el.textContent = countdown;
+    }
+  }, 1000);
+
+  function simulateRetry(btn) {
+    const origHtml = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[14px] animate-spin">autorenew</span><span>Pinging...</span>';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[14px] text-primary-container">check</span><span>Available</span>';
+      setTimeout(() => {
+        btn.innerHTML = origHtml;
+        btn.disabled = false;
+        countdown = 14;
+      }, 1500);
+    }, 1200);
+  }
+
+  let animationPaused = false;
+  function toggleSkeletonAnimation() {
+    animationPaused = !animationPaused;
+    const pulseEls = document.querySelectorAll('.animate-pulse');
+    const toggleBtn = document.getElementById('toggle-shimmer-btn');
+    pulseEls.forEach(el => {
+      if (animationPaused) {
+        el.classList.remove('animate-pulse');
+        toggleBtn.textContent = 'Resume';
+      } else {
+        el.classList.add('animate-pulse');
+        toggleBtn.textContent = 'Pause';
+      }
+    });
+  }
+</script></main></div></body></html>

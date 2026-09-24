@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-bright": "#37393d", "on-secondary-fixed-variant": "#004395", "inverse-primary": "#506600", "tertiary": "#ffffff", "on-error": "#690005", "inverse-surface": "#e1e2e6", "on-tertiary-container": "#bd2c32", "secondary-fixed": "#d8e2ff", "background": "#111417", "surface-container": "#1d2023", "outline-variant": "#444933", "surface-dim": "#111417", "secondary": "#adc6ff", "secondary-fixed-dim": "#adc6ff", "tertiary-fixed-dim": "#ffb3af", "on-error-container": "#ffdad6", "primary": "#ffffff", "on-surface": "#e1e2e6", "on-secondary": "#002e6a", "surface": "#111417", "on-primary": "#283500", "on-primary-container": "#556d00", "tertiary-container": "#ffdad7", "on-tertiary-fixed-variant": "#920418", "secondary-container": "#0566d9", "on-secondary-container": "#e6ecff", "surface-tint": "#abd600", "on-primary-fixed": "#161e00", "surface-container-low": "#191c1f", "error-container": "#93000a", "surface-container-lowest": "#0b0e11", "outline": "#8e9379", "on-tertiary": "#68000d", "primary-fixed-dim": "#abd600", "inverse-on-surface": "#2e3134", "primary-fixed": "#c3f400", "surface-container-high": "#272a2d", "error": "#ffb4ab", "on-tertiary-fixed": "#410005", "surface-container-highest": "#323538", "surface-variant": "#323538", "on-primary-fixed-variant": "#3c4d00", "tertiary-fixed": "#ffdad7", "primary-container": "#c3f400", "on-background": "#e1e2e6", "on-secondary-fixed": "#001a42", "on-surface-variant": "#c4c9ac" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-md": "1rem", "space-xl": "2.5rem", "gutter": "1.25rem", "space-lg": "1.5rem", "margin": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "display-xl": [ "Geist" ], "body-sm": [ "Geist" ], "label-md": [ "JetBrains Mono" ], "label-lg": [ "JetBrains Mono" ], "display-lg-mobile": [ "Geist" ], "label-xs": [ "JetBrains Mono" ], "display-lg": [ "Geist" ], "headline-lg": [ "Geist" ], "body-lg": [ "Geist" ], "headline-md": [ "Geist" ], "body-md": [ "Geist" ], "display-xl-mobile": [ "Geist" ] }, "fontSize": { "display-xl": [ "3.75rem", { "lineHeight": "4rem", "fontWeight": "600" } ], "body-sm": [ "0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" } ], "label-md": [ "0.75rem", { "lineHeight": "1rem", "fontWeight": "500" } ], "label-lg": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" } ], "display-lg-mobile": [ "2rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "label-xs": [ "0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "600" } ], "display-lg": [ "3rem", { "lineHeight": "3.25rem", "fontWeight": "600" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "500" } ], "body-lg": [ "1.0625rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "headline-md": [ "1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" } ], "body-md": [ "0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ], "display-xl-mobile": [ "2.5rem", { "lineHeight": "2.75rem", "fontWeight": "600" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest flex flex-col z-50 overflow-y-auto"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-lowest shrink-0"><img alt="Brand logo. - Primary color: #ccff00
+- Font: geist
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XSfDvsRw7Qe-mVxTX0uj5lCSK7WrmHHmKh7mP2x7uJeErlIr5-dxWqXrYcyCEjioyXFUCIX26P7HHTzEVx81kN9FrrX7jsPlDDzAXDKCEKfCwvWpv1YB84sZj0Fx1CYlCgJxBE549gzWvJ6hc6Kfkiy5FvsEbuVCu8l0h_rRKORICdUK-N_VaSkdYujBJtdCEvt_qGGxTtdcMrVz79P5vg6lioiT6_Dq0zKsBp-kltLsv8-Uq4wE46MH-e"/><div class="flex flex-col"><span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface font-semibold">Smart Budget</span><span class="font-label-xs text-label-xs tracking-tight text-on-surface-variant">TERMINAL V2.4</span></div></div><div class="flex-1 px-space-sm py-space-sm space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant font-medium">Overview</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="transactions" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Transactions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="calendar" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Calendar</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant font-medium">Money</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="budget" href="#"><span class="material-symbols-outlined text-[18px]">pie_chart</span><span>Budget</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="analytics" href="#"><span class="material-symbols-outlined text-[18px]">query_stats</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="money-owed" href="#"><span class="material-symbols-outlined text-[18px]">swap_horiz</span><span>Money Owed</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="accounts" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span>Accounts</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant font-medium">Plan</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="goals" href="#"><span class="material-symbols-outlined text-[18px]">flag</span><span>Goals</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-colors bg-primary-container text-on-primary-container font-semibold rounded" data-path="subscriptions" href="#"><span class="material-symbols-outlined text-[18px]">autorenew</span><span>Subscriptions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="net-worth" href="#"><span class="material-symbols-outlined text-[18px]">trending_up</span><span>Net Worth</span></a></nav></div></div><div class="p-space-sm bg-surface-container-lowest shrink-0 space-y-space-xs"><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav><div class="flex items-center justify-between px-space-sm py-space-xs text-on-surface-variant"><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span><span class="font-label-xs text-label-xs uppercase tracking-tight">Cloud synced</span></div><span class="font-label-xs text-label-xs font-mono text-on-surface-variant">2m ago</span></div><div class="flex items-center gap-space-sm p-space-sm rounded bg-surface-container-low"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center shrink-0"><span class="font-label-xs text-label-xs font-bold text-on-primary-container">AM</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-body-sm text-body-sm font-medium text-on-surface truncate">Alex Mercer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate uppercase tracking-tight">Pro Portfolio</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">verified</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl z-40 px-space-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md w-full max-w-lg"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span><input class="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant pl-9 pr-14 py-1.5 rounded font-body-sm text-body-sm focus:outline-none focus:bg-surface-container focus:text-on-surface transition-colors" placeholder="Search commands, ledgers, assets..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 bg-surface-container-high text-on-surface-variant rounded font-label-xs text-label-xs font-mono">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs px-2.5 py-1 rounded bg-surface-container-low"><span class="font-label-xs text-label-xs uppercase text-on-surface-variant font-medium">BASE CURRENCY</span><span class="font-label-xs text-label-xs font-mono font-semibold text-primary-fixed">USD ($)</span></div><div class="h-4 w-px bg-surface-container-highest"></div><button aria-label="Notifications" class="p-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors relative flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-primary-fixed rounded-full"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 px-space-lg pb-space-xl bg-background min-h-screen"><div class="flex flex-col w-full space-y-space-xl">
+<!-- TOP HEADER & CONTROLS -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-outline">PLAN</span>
+<span class="text-surface-container-highest">/</span>
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-fixed">RECURRING COMMITMENTS &amp; RUNWAY</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-medium">Subscriptions &amp; Recurring Burn</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+        Audited monthly retainers, automated renewals, and scheduled SaaS liabilities. High-conviction burn rate telemetry.
+      </p>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-space-xs px-3.5 py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-label-md font-label-md transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+<span>Export Renewal Calendar</span>
+</button>
+<button class="flex items-center gap-space-xs px-4 py-2 rounded bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:opacity-90 transition-transform active:scale-[0.99] shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ Add Subscription</span>
+</button>
+</div>
+</div>
+<!-- HERO TELEMETRY STRIP (Open Metric Architecture) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Hero Metric 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary-fixed/5 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">Active Monthly Retainer</span>
+<span class="inline-flex items-center gap-1 font-label-xs text-label-xs text-primary-fixed bg-surface-container px-2 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span> LOCKED
+        </span>
+</div>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-semibold tracking-tighter text-on-surface">
+          ₹917<span class="font-label-md text-label-md text-on-surface-variant font-normal"> / mo</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline font-mono">0.82% OF MONTHLY FREE CASH</span>
+</div>
+</div>
+<!-- Hero Metric 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">Annualized Outflow</span>
+<span class="material-symbols-outlined text-outline text-[18px]">trending_flat</span>
+</div>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-semibold tracking-tighter text-on-surface">
+          ₹11,004<span class="font-label-md text-label-md text-on-surface-variant font-normal"> / yr</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-label-xs text-label-xs font-mono">PROJECTED RUNWAY DRAIN</span>
+</div>
+</div>
+<!-- Hero Metric 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">Fleet Inventory</span>
+<span class="font-label-xs text-label-xs text-primary-fixed font-mono bg-surface-container px-2 py-0.5 rounded">0 SURPLUS</span>
+</div>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-semibold tracking-tighter text-on-surface">
+          3 <span class="font-headline-md text-headline-md font-normal text-on-surface-variant">Services</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">0 Flagged for Cancellation</span>
+</div>
+</div>
+<!-- Hero Metric 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-error">Next Renewal Event</span>
+<span class="font-label-xs text-label-xs text-error font-mono bg-error-container/40 px-2 py-0.5 rounded">T-MINUS 4D</span>
+</div>
+<div class="my-space-md">
+<div class="font-headline-lg text-headline-lg font-semibold tracking-tight text-on-surface">
+          In 4 Days
+        </div>
+<div class="font-label-md text-label-md text-on-surface-variant font-mono mt-1">
+          28 Oct • Netflix ₹649
+        </div>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary-fixed h-full rounded-full" style="width: 86.6%;"></div>
+</div>
+</div>
+</div>
+<!-- SUBSCRIPTION REGISTRY (High Density Table) -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-md overflow-hidden">
+<!-- Table Header Controls -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">Active Ledger Registers</span>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-xs text-label-xs font-mono">
+<span>3 ACTIVE OF 3 TOTAL</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-surface-container px-2.5 py-1 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] mr-1.5">filter_list</span>
+<span class="font-label-xs text-label-xs uppercase">Sort: Renewal ASC</span>
+</div>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Reload list">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+</div>
+</div>
+<!-- Registry Matrix View -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50 text-outline font-label-xs text-label-xs uppercase tracking-wider">
+<th class="py-3 px-space-md font-medium">Service &amp; Category</th>
+<th class="py-3 px-space-md font-medium">Cadence</th>
+<th class="py-3 px-space-md font-medium">Account Debited</th>
+<th class="py-3 px-space-md font-medium">Next Billing</th>
+<th class="py-3 px-space-md font-medium text-right">Monthly Burn</th>
+<th class="py-3 px-space-md font-medium text-right">Annual Burn</th>
+<th class="py-3 px-space-md font-medium text-center">Status</th>
+<th class="py-3 px-space-md font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface">
+<!-- Item 1: Netflix -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center font-label-md font-bold text-[#E50914] shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[20px]">movie</span>
+</div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface font-body-md group-hover:text-primary transition-colors">Netflix 4K HDR</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Entertainment &amp; Streaming</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-xs text-label-xs font-mono">
+                Monthly
+              </span>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-outline">credit_card</span>
+<span class="font-label-sm font-mono text-label-md">HDFC Bank (••9042)</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-mono text-on-surface">28 Oct 2024</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container/50 text-error font-label-xs text-label-xs font-mono uppercase tracking-tight">4 Days</span>
+</div>
+</td>
+<td class="py-4 px-space-md text-right font-mono font-medium text-on-surface">
+              ₹649<span class="text-on-surface-variant font-normal">.00</span>
+</td>
+<td class="py-4 px-space-md text-right font-mono text-on-surface-variant">
+              ₹7,788<span class="text-outline">.00</span>
+</td>
+<td class="py-4 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-primary-fixed font-label-xs text-label-xs font-medium uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span> Auto-Debit
+              </span>
+</td>
+<td class="py-4 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Ledger">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Manage Contract">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 2: YouTube Premium -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center font-label-md font-bold text-[#FF0000] shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[20px]">smart_display</span>
+</div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface font-body-md group-hover:text-primary transition-colors">YouTube Premium</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Media &amp; Productivity</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-xs text-label-xs font-mono">
+                Monthly
+              </span>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-outline">account_balance_wallet</span>
+<span class="font-label-sm font-mono text-label-md">UPI Express Direct</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-mono text-on-surface">05 Nov 2024</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-xs text-label-xs font-mono uppercase tracking-tight">12 Days</span>
+</div>
+</td>
+<td class="py-4 px-space-md text-right font-mono font-medium text-on-surface">
+              ₹149<span class="text-on-surface-variant font-normal">.00</span>
+</td>
+<td class="py-4 px-space-md text-right font-mono text-on-surface-variant">
+              ₹1,788<span class="text-outline">.00</span>
+</td>
+<td class="py-4 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-xs text-label-xs font-medium uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Family Plan
+              </span>
+</td>
+<td class="py-4 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Ledger">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Manage Contract">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 3: Spotify -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center font-label-md font-bold text-[#1ED760] shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[20px]">music_note</span>
+</div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface font-body-md group-hover:text-primary transition-colors">Spotify Individual</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Music &amp; Audio</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-xs text-label-xs font-mono">
+                Monthly
+              </span>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-outline">credit_card</span>
+<span class="font-label-sm font-mono text-label-md">HDFC Bank (••9042)</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-mono text-on-surface">18 Nov 2024</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-xs text-label-xs font-mono uppercase tracking-tight">25 Days</span>
+</div>
+</td>
+<td class="py-4 px-space-md text-right font-mono font-medium text-on-surface">
+              ₹119<span class="text-on-surface-variant font-normal">.00</span>
+</td>
+<td class="py-4 px-space-md text-right font-mono text-on-surface-variant">
+              ₹1,428<span class="text-outline">.00</span>
+</td>
+<td class="py-4 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-primary-fixed font-label-xs text-label-xs font-medium uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span> Verified
+              </span>
+</td>
+<td class="py-4 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Ledger">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Manage Contract">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Aggregates -->
+<div class="p-space-md bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-xs text-label-xs">
+<span class="uppercase">Active Payment Rails:</span>
+<span class="font-mono text-on-surface">HDFC Bank (2)</span>
+<span>•</span>
+<span class="font-mono text-on-surface">UPI Express (1)</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="text-right">
+<span class="font-label-xs text-label-xs uppercase text-outline">Total Aggregate Run Rate:</span>
+<span class="font-mono font-semibold text-label-md text-primary-fixed ml-2">₹11,004.00 / YR</span>
+</div>
+</div>
+</div>
+</div>
+<!-- LOWER CHASSIS: TIMELINE RHYTHM & OPTIMIZATION RADAR (2-Column Asymmetric) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Annual Outflow Rhythm Timeline (8 Cols) -->
+<div class="lg:col-span-8 p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">Cash Flow Cadence</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">12-Month Outflow Rhythm</h2>
+</div>
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 font-label-xs text-label-xs text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-fixed"></span> Regular Burn (₹917)
+          </span>
+<span class="inline-flex items-center gap-1.5 font-label-xs text-label-xs text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-sm bg-surface-container-highest"></span> Baseline Cap
+          </span>
+</div>
+</div>
+<!-- Outflow Bar Chart Visualization -->
+<div class="w-full pt-4">
+<div class="grid grid-cols-12 gap-2 items-end h-36 w-full px-2">
+<!-- Jan -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">JAN</span>
+</div>
+<!-- Feb -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">FEB</span>
+</div>
+<!-- Mar -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">MAR</span>
+</div>
+<!-- Apr -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">APR</span>
+</div>
+<!-- May -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">MAY</span>
+</div>
+<!-- Jun -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">JUN</span>
+</div>
+<!-- Jul -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">JUL</span>
+</div>
+<!-- Aug -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">AUG</span>
+</div>
+<!-- Sep -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">SEP</span>
+</div>
+<!-- Oct (Current Month - Highlighted) -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-primary-fixed font-semibold">917</span>
+<div class="w-full bg-primary-fixed rounded-t-sm shadow-[0_0_12px_rgba(195,244,0,0.3)]" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-primary-fixed font-bold">OCT</span>
+</div>
+<!-- Nov -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">NOV</span>
+</div>
+<!-- Dec -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group">
+<span class="font-label-xs text-label-xs font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">917</span>
+<div class="w-full bg-surface-container-high group-hover:bg-primary-fixed transition-colors rounded-t-sm" style="height: 52%;"></div>
+<span class="font-label-xs text-label-xs font-mono text-outline">DEC</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-xs text-label-xs">
+<span>STABLE PROJECTION: Zero periodic lump-sum renewals detected for current fiscal cycle.</span>
+<span class="font-mono text-outline">VARIANCE: 0.00%</span>
+</div>
+</div>
+<!-- Optimization & Unused License Radar (4 Cols) -->
+<div class="lg:col-span-4 p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between space-y-space-md">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-fixed font-semibold">Optimization Radar</span>
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">radar</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium">Pricing Integrity Audit</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+          Autonomous monitor tracking unannounced price hikes, tier inflation, and ghost licenses across connected payment rails.
+        </p>
+</div>
+<!-- Radar Status Indicator -->
+<div class="p-space-md rounded bg-surface-container space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase text-on-surface font-medium">Price Creep Detection</span>
+<span class="font-label-xs text-label-xs font-mono text-primary-fixed bg-surface-container-lowest px-1.5 py-0.5 rounded">0% SPREAD</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Zero price creep across all 3 active services over the past 180 days. All contracts conform to locked introductory benchmarks.
+        </p>
+</div>
+<!-- Action Insight Item -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed">verified_user</span>
+<span>Annual Conversion Alpha</span>
+</span>
+<span class="font-mono text-primary-fixed font-semibold">Save ₹1,830/yr</span>
+</div>
+<p class="font-label-xs text-label-xs text-on-surface-variant">
+          Switching Spotify &amp; YouTube to prepay annual passes reduces annualized burn by ~16.6%.
+        </p>
+</div>
+<button class="w-full py-2 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md text-center transition-colors">
+        Run Deep License Scan
+      </button>
+</div>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-low": "#191c1f", "on-tertiary-fixed-variant": "#920418", "secondary": "#adc6ff", "inverse-surface": "#e1e2e6", "on-primary-container": "#556d00", "on-primary-fixed": "#161e00", "on-tertiary-fixed": "#410005", "surface": "#111417", "on-primary-fixed-variant": "#3c4d00", "inverse-on-surface": "#2e3134", "error": "#ffb4ab", "on-secondary-container": "#e6ecff", "surface-container-high": "#272a2d", "on-tertiary-container": "#bd2c32", "tertiary-fixed": "#ffdad7", "on-background": "#e1e2e6", "tertiary-fixed-dim": "#ffb3af", "secondary-fixed-dim": "#adc6ff", "on-secondary-fixed-variant": "#004395", "on-primary": "#283500", "tertiary-container": "#ffdad7", "primary-fixed-dim": "#abd600", "secondary-fixed": "#d8e2ff", "primary-fixed": "#c3f400", "on-error": "#690005", "surface-dim": "#111417", "outline": "#8e9379", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001a42", "on-tertiary": "#68000d", "primary-container": "#c3f400", "surface-bright": "#37393d", "on-surface-variant": "#c4c9ac", "error-container": "#93000a", "on-surface": "#e1e2e6", "surface-tint": "#abd600", "surface-container-lowest": "#0b0e11", "tertiary": "#ffffff", "secondary-container": "#0566d9", "surface-variant": "#323538", "primary": "#ffffff", "on-secondary": "#002e6a", "background": "#111417", "surface-container": "#1d2023", "inverse-primary": "#506600", "surface-container-highest": "#323538", "outline-variant": "#444933" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "margin": "1.5rem", "space-lg": "1.5rem", "gutter": "1.25rem", "space-xs": "0.25rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "display-lg-mobile": [ "Geist" ], "label-lg": [ "JetBrains Mono" ], "display-xl": [ "Geist" ], "display-lg": [ "Geist" ], "display-xl-mobile": [ "Geist" ], "body-sm": [ "Geist" ], "body-lg": [ "Geist" ], "headline-md": [ "Geist" ], "label-xs": [ "JetBrains Mono" ], "label-md": [ "JetBrains Mono" ], "headline-lg": [ "Geist" ], "body-md": [ "Geist" ] }, "fontSize": { "display-lg-mobile": [ "2rem", { "lineHeight": "2.25rem", "fontWeight": "600" } ], "label-lg": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" } ], "display-xl": [ "3.75rem", { "lineHeight": "4rem", "fontWeight": "600" } ], "display-lg": [ "3rem", { "lineHeight": "3.25rem", "fontWeight": "600" } ], "display-xl-mobile": [ "2.5rem", { "lineHeight": "2.75rem", "fontWeight": "600" } ], "body-sm": [ "0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" } ], "body-lg": [ "1.0625rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "headline-md": [ "1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" } ], "label-xs": [ "0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "600" } ], "label-md": [ "0.75rem", { "lineHeight": "1rem", "fontWeight": "500" } ], "headline-lg": [ "1.75rem", { "lineHeight": "2.25rem", "fontWeight": "500" } ], "body-md": [ "0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface border-r border-surface-variant flex flex-col justify-between z-50 select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-md flex items-center justify-between border-b border-surface-variant/40"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center"><div class="w-3 h-3 bg-primary-container rotate-45 rounded-[1px]"></div></div><div class="flex flex-col"><span class="font-label-md text-label-md tracking-widest uppercase text-on-surface font-semibold">Smart Budget</span><span class="font-label-xs text-label-xs tracking-wider text-outline uppercase">Terminal v2.4</span></div></div><div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-md space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Overview</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">space_dashboard</span><span>Home</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-all bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium" data-path="transactions" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Transactions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="calendar" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Calendar</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Money</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="budget" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Budget</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="analytics" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="money-owed" href="#"><span class="material-symbols-outlined text-[18px]">request_quote</span><span>Money Owed</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="accounts" href="#"><span class="material-symbols-outlined text-[18px]">account_balance</span><span>Accounts</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-xs text-label-xs tracking-wider uppercase text-outline">Plan</div><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="goals" href="#"><span class="material-symbols-outlined text-[18px]">flag</span><span>Goals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="subscriptions" href="#"><span class="material-symbols-outlined text-[18px]">repeat</span><span>Subscriptions</span></a></nav></div></div></div><div class="border-t border-surface-variant p-space-sm space-y-space-xs bg-surface-dim"><nav class="space-y-0.5" data-active-classes="bg-surface-container-high text-primary-fixed border-l-2 border-primary-container font-medium"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-container-lowest/60 border border-surface-variant/40"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span></span><span class="font-label-xs text-label-xs text-on-surface-variant">Cloud synced</span></div><span class="font-label-xs text-label-xs text-outline">2m ago</span></div><div class="flex items-center justify-between pt-1 px-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Alex Mercer</span><span class="font-label-xs text-label-xs text-outline truncate max-w-[110px]">Pro Portfolio</span></div></div><a class="text-outline hover:text-on-surface transition-colors p-1" data-path="logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-variant/40 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-lowest border border-surface-variant"><span class="material-symbols-outlined text-outline text-[16px]">search</span><input class="bg-transparent text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none w-64" placeholder="Search transactions, accounts, rules..." type="text"/><span class="font-label-xs text-label-xs text-outline border border-surface-variant px-1 rounded">⌘K</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-xs text-label-xs text-on-surface-variant border border-surface-variant px-space-sm py-1 rounded bg-surface-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>PRIMARY LEDGER • USD</span></div><button class="text-outline hover:text-on-surface transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-primary-container"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen p-space-xl"><div class="flex flex-col w-full space-y-space-lg font-body-md text-on-surface">
+<!-- Top Page Header & Quick Controls -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pb-space-xs">
+<div class="space-y-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-xs text-label-xs text-primary-fixed uppercase tracking-wider bg-primary-container/10 px-2 py-0.5 rounded">Audit Mode ACTIVE</span>
+<span class="text-outline font-label-xs text-label-xs">ID: LEDGER-SYS-9942</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-medium">Transaction Journal</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+        Audited ledger of real-time accounts and synchronized cashflows across domestic &amp; international rails.
+      </p>
+</div>
+<!-- Quick Actions -->
+<div class="flex items-center gap-space-sm self-start lg:self-auto flex-wrap">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-outline">file_download</span>
+<span>Export CSV / OFX</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-outline">checklist_rtl</span>
+<span>Batch Edit</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-semibold hover:bg-primary-fixed-dim transition-transform active:scale-[0.99] shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ Add Transaction</span>
+</button>
+</div>
+</div>
+<!-- Summary Metric Strip (Unbounded Open Telemetry) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-outline">Total Cleared Inflow</span>
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">arrow_downward_alt</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold tracking-tight text-primary-fixed">+₹53,000.00</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">2 receipts</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary-fixed h-full w-[72%]"></div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-outline">Total Cleared Outflow</span>
+<span class="material-symbols-outlined text-[18px] text-error">arrow_upward_alt</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold tracking-tight text-error">−₹21,089.00</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">32 debits</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[38%]"></div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-outline">Net Operational Delta</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">balance</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold tracking-tight text-on-surface">+₹31,911.00</span>
+<span class="font-label-xs text-label-xs px-1.5 py-0.5 rounded bg-surface-container text-primary-fixed font-semibold">+60.2%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[60%]"></div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-outline">Reconciled Velocity</span>
+<span class="material-symbols-outlined text-[18px] text-outline">speed</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold tracking-tight text-on-surface">34 <span class="font-body-sm text-body-sm font-normal text-outline">Entries</span></span>
+<span class="font-label-xs text-label-xs text-primary-fixed">100% In Sync</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-xs text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Avg: ₹1,560/day</span>
+</div>
+</div>
+</div>
+<!-- Filter & Segmentation Control Rack -->
+<div class="p-space-md rounded-xl bg-surface-container-low space-y-space-md">
+<!-- Primary Filter Row -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm items-center">
+<!-- Search -->
+<div class="md:col-span-4 flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-outline">search</span>
+<input class="bg-transparent text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none w-full" placeholder="Search description, counterparty, hash..." type="text"/>
+<span class="font-label-xs text-label-xs text-outline bg-surface-container px-1 py-0.5 rounded">/</span>
+</div>
+<!-- Segmented Flow Filter -->
+<div class="md:col-span-5 flex items-center p-1 rounded-lg bg-surface-container-lowest overflow-x-auto text-on-surface-variant font-label-md text-label-md">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-semibold shrink-0">All Flows</button>
+<button class="px-3 py-1.5 hover:text-on-surface shrink-0 transition-colors">Outflow / Expenses</button>
+<button class="px-3 py-1.5 hover:text-on-surface shrink-0 transition-colors">Inflow / Income</button>
+<button class="px-3 py-1.5 hover:text-on-surface shrink-0 transition-colors">Transfers</button>
+</div>
+<!-- Date Range Selector -->
+<div class="md:col-span-3 flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">calendar_month</span>
+<span>Oct 1 – Oct 31, 2024</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline">arrow_drop_down</span>
+</div>
+</div>
+<!-- Secondary Modular Filter Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-space-sm items-center pt-space-xs">
+<!-- Category Dropdown -->
+<div class="lg:col-span-4 flex items-center justify-between px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md cursor-pointer">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px] text-outline">category</span>
+<span class="text-on-surface-variant">Category:</span>
+<span class="font-medium truncate">All (Groceries, Food, Tech...)</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span>
+</div>
+<!-- Account Selector -->
+<div class="lg:col-span-4 flex items-center justify-between px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md cursor-pointer">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px] text-outline">account_balance</span>
+<span class="text-on-surface-variant">Account:</span>
+<span class="font-medium truncate">All Accounts (HDFC, ICICI, UPI)</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span>
+</div>
+<!-- Amount Range Slider/Picker -->
+<div class="lg:col-span-4 flex items-center justify-between px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">tune</span>
+<span class="text-on-surface-variant">Range:</span>
+<span class="font-label-sm text-label-sm text-on-surface">₹0 – ₹50,000+</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary-fixed cursor-pointer hover:underline">Reset</span>
+</div>
+</div>
+<!-- Active Filter Tags & Ledger Meta State -->
+<div class="flex items-center justify-between pt-space-xs flex-wrap gap-2">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Filtered by:</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-xs text-label-xs">
+          Oct 2024
+          <span class="material-symbols-outlined text-[12px] cursor-pointer hover:text-error">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-xs text-label-xs">
+          Salary &amp; Outflow
+          <span class="material-symbols-outlined text-[12px] cursor-pointer hover:text-error">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-xs text-label-xs">
+          Verified Accounts
+          <span class="material-symbols-outlined text-[12px] cursor-pointer hover:text-error">close</span>
+</span>
+<button class="font-label-xs text-label-xs text-outline hover:text-error underline ml-1">Clear all tags</button>
+</div>
+<div class="flex items-center gap-space-sm font-label-xs text-label-xs text-outline">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+          Live Feed Auto-Reconcile
+        </span>
+<span>•</span>
+<span>Sync freq: 60s</span>
+</div>
+</div>
+</div>
+<!-- Primary Transactions High-Density Ledger Matrix -->
+<div class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden shadow-sm">
+<!-- Table Header Stripe -->
+<div class="grid grid-cols-12 px-space-md py-space-sm bg-surface-container text-outline font-label-xs text-label-xs uppercase tracking-wider items-center select-none">
+<div class="col-span-2 flex items-center gap-2">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<span>Timestamp</span>
+</div>
+<div class="col-span-4">Counterparty / Description</div>
+<div class="col-span-2">Category</div>
+<div class="col-span-2">Account / Rail</div>
+<div class="col-span-1 text-center">Status</div>
+<div class="col-span-1 text-right">Amount (INR)</div>
+</div>
+<!-- Rows Container -->
+<div class="divide-y-0 flex flex-col font-body-sm text-body-sm">
+<!-- Row 1: Selected / Highlighted State with Quick Inline Action Tray -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-surface-container-high/80 hover:bg-surface-container-high transition-colors group relative cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input checked="" class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-on-surface font-medium">Oct 19, 2024</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">20:42:14 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface">restaurant</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Dinner with friends</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span class="text-secondary font-mono">#friends</span>
+<span class="text-secondary font-mono">#dinner</span>
+<span>•</span>
+<span class="truncate">REF: TX-9041284</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-on-surface-variant">
+            Food &amp; Dining
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed">bolt</span>
+<span class="truncate">UPI Instant • Razorpay</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-semibold tracking-wider uppercase">
+            CLEARED
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-error">
+          −₹650.00
+        </div>
+<!-- Selected Quick-Actions Overlay Pill on Hover / Focus -->
+<div class="absolute right-space-md hidden group-hover:flex items-center gap-1 bg-surface-container-lowest px-2 py-1 rounded-lg shadow-md border-0">
+<button class="p-1 hover:text-primary-fixed transition-colors" title="Edit Record"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+<button class="p-1 hover:text-secondary transition-colors" title="Split Bill"><span class="material-symbols-outlined text-[16px]">call_split</span></button>
+<button class="p-1 hover:text-on-surface transition-colors" title="View Receipt"><span class="material-symbols-outlined text-[16px]">receipt</span></button>
+<button class="p-1 hover:text-error transition-colors" title="Archive"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-transparent hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-on-surface font-medium">Oct 19, 2024</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">17:15:02 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface">local_taxi</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Uber Technologies Inc</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span>Ride to BKC Terminal 2</span>
+<span>•</span>
+<span class="font-mono">#mobility</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-on-surface-variant">
+            Transport &amp; Commute
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed">bolt</span>
+<span class="truncate">UPI (Instant)</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-semibold tracking-wider uppercase">
+            CLEARED
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-error">
+          −₹220.00
+        </div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-surface-container-lowest/30 hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-on-surface font-medium">Oct 19, 2024</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">10:15:30 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface">coffee</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Blue Tokai Coffee Roasters</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span>Espresso Beans 500g</span>
+<span>•</span>
+<span class="font-mono">#lifestyle</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-on-surface-variant">
+            Dining &amp; Social
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">credit_card</span>
+<span class="truncate">HDFC Salary ••4821</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-semibold tracking-wider uppercase">
+            CLEARED
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-error">
+          −₹340.00
+        </div>
+</div>
+<!-- Row 4: INFLOW HIGHLIGHT -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-primary-container/[0.03] hover:bg-primary-container/[0.07] transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-primary-fixed font-medium">Oct 18, 2024</span>
+<span class="font-label-xs text-label-xs text-primary-fixed/70 font-mono">14:30:00 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">payments</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Acrolink Design Studio</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span>Sprint Retainer • Q4 Design Systems</span>
+<span>•</span>
+<span class="font-mono text-primary-fixed">#retainer</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-label-xs text-label-xs font-semibold">
+            Freelance Inflow
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">account_balance</span>
+<span class="truncate">HDFC Salary ••4821</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/20 text-primary-fixed font-semibold tracking-wider uppercase">
+            CREDITED
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-primary-fixed">
+          +₹8,000.00
+        </div>
+</div>
+<!-- Row 5 -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-transparent hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-on-surface font-medium">Oct 18, 2024</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">16:15:22 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface">shopping_basket</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Zepto Supermarket</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span>Bi-weekly provisions &amp; fresh items</span>
+<span>•</span>
+<span class="font-mono">#groceries</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-on-surface-variant">
+            Groceries &amp; Essentials
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed">bolt</span>
+<span class="truncate">UPI (Instant)</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-semibold tracking-wider uppercase">
+            CLEARED
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-error">
+          −₹1,240.00
+        </div>
+</div>
+<!-- Row 6: Subscription Recurring -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-surface-container-lowest/30 hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-on-surface font-medium">Oct 18, 2024</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">09:00:00 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-secondary">repeat</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Spotify Family Subscription</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span class="text-secondary font-mono">Auto-Debit #Monthly</span>
+<span>•</span>
+<span>Next cycle Nov 18</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-on-surface-variant">
+            Subscriptions
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">credit_card</span>
+<span class="truncate">HDFC Salary ••4821</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-semibold tracking-wider uppercase">
+            RECURRING
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-error">
+          −₹179.00
+        </div>
+</div>
+<!-- Row 7: Cloud Dev Cost -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-transparent hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-on-surface font-medium">Oct 16, 2024</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">16:22:19 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface">dns</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Amazon Web Services</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span>Compute Node Cluster ap-south-1</span>
+<span>•</span>
+<span class="font-mono">#cloud</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-on-surface-variant">
+            Tech &amp; Cloud Infra
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">credit_card</span>
+<span class="truncate">HDFC Salary ••4821</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-semibold tracking-wider uppercase">
+            CLEARED
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-error">
+          −₹2,100.00
+        </div>
+</div>
+<!-- Row 8: Groceries -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-surface-container-lowest/30 hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-on-surface font-medium">Oct 15, 2024</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">20:05:41 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface">local_grocery_store</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Nature's Basket Fine Foods</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span>Gourmet pantry restocking</span>
+<span>•</span>
+<span class="font-mono">#organic</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-on-surface-variant">
+            Groceries &amp; Essentials
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">credit_card</span>
+<span class="truncate">ICICI Reserve ••9012</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-semibold tracking-wider uppercase">
+            CLEARED
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-error">
+          −₹4,320.00
+        </div>
+</div>
+<!-- Row 9: Housing Rent -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-transparent hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-on-surface font-medium">Oct 14, 2024</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">23:30:11 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface">apartment</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">Apex Realty Holdings</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span>Residential Lease #402 October</span>
+<span>•</span>
+<span class="font-mono">#fixed-cost</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-label-xs text-label-xs text-on-surface-variant">
+            Housing &amp; Lease
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-outline">account_balance</span>
+<span class="truncate">ICICI Reserve ••9012</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-semibold tracking-wider uppercase">
+            FIXED COST
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-error">
+          −₹12,000.00
+        </div>
+</div>
+<!-- Row 10: SALARY DIRECT DEPOSIT -->
+<div class="grid grid-cols-12 px-space-md py-3 items-center bg-primary-container/[0.05] hover:bg-primary-container/[0.08] transition-colors group cursor-pointer">
+<div class="col-span-2 flex items-center gap-2 min-w-0">
+<input class="w-3.5 h-3.5 rounded bg-surface-container-lowest accent-primary-container cursor-pointer" type="checkbox"/>
+<div class="flex flex-col truncate">
+<span class="font-label-md text-label-md text-primary-fixed font-medium">Oct 01, 2024</span>
+<span class="font-label-xs text-label-xs text-primary-fixed/70 font-mono">09:14:50 IST</span>
+</div>
+</div>
+<div class="col-span-4 flex items-center gap-space-sm min-w-0 pr-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">corporate_fare</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-on-surface truncate">AlphaTech Global Corp</span>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline truncate">
+<span>Direct Salary Deposit • Batch #1092-OCT</span>
+<span>•</span>
+<span class="font-mono text-primary-fixed">#payroll</span>
+</div>
+</div>
+</div>
+<div class="col-span-2 min-w-0">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/10 text-primary-fixed font-label-xs text-label-xs font-semibold">
+            Salary &amp; Inflow
+          </span>
+</div>
+<div class="col-span-2 flex items-center gap-1.5 truncate text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed">verified</span>
+<span class="truncate">HDFC Salary ••4821</span>
+</div>
+<div class="col-span-1 flex justify-center">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary-container/20 text-primary-fixed font-semibold tracking-wider uppercase">
+            DIRECT CR
+          </span>
+</div>
+<div class="col-span-1 text-right font-label-md text-label-md font-semibold text-primary-fixed">
+          +₹45,000.00
+        </div>
+</div>
+</div>
+<!-- Ledger Telemetry, Integrity & Pagination Strip -->
+<div class="px-space-md py-space-sm bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm text-outline font-label-xs text-label-xs">
+<div class="flex items-center gap-space-md">
+<span>Showing <strong class="text-on-surface font-mono">10</strong> of <strong class="text-on-surface font-mono">34</strong> verified ledger events</span>
+<span class="hidden md:inline">•</span>
+<span class="hidden md:flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+          Terminal Latency: <span class="text-on-surface font-mono">12ms</span>
+</span>
+<span class="hidden lg:inline">•</span>
+<span class="hidden lg:inline text-on-surface-variant">Open Banking Protocol v4.2 [TLS 1.3]</span>
+</div>
+<!-- Pagination Buttons -->
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface hover:bg-surface-bright disabled:opacity-40 transition-colors" disabled="">
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+</button>
+<span class="px-2 py-1 font-mono text-on-surface bg-surface-container-lowest rounded">1 / 4</span>
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Visual Asset & Context Split Rail -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md pt-space-xs">
+<!-- Cashflow Trajectory Vector Visual -->
+<div class="lg:col-span-8 p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<div class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Intra-Month Reconciliation Curve</div>
+<div class="font-headline-md text-headline-md text-on-surface font-semibold">Cashflow Equilibrium</div>
+</div>
+<div class="flex items-center gap-3 font-label-xs text-label-xs">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-fixed"></span>
+<span>Projected Inflow</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>Burn Velocity</span>
+</div>
+</div>
+</div>
+<!-- Visual Sparkline SVG -->
+<div class="h-28 w-full relative flex items-end">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 400 100">
+<defs>
+<lineargradient id="curveGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#c3f400" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#c3f400" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Hairlines -->
+<line stroke="#272a2d" stroke-dasharray="3 3" x1="0" x2="400" y1="20" y2="20"></line>
+<line stroke="#272a2d" stroke-dasharray="3 3" x1="0" x2="400" y1="60" y2="60"></line>
+<line stroke="#272a2d" x1="0" x2="400" y1="90" y2="90"></line>
+<!-- Gradient Area -->
+<path d="M0,85 Q60,80 120,40 T240,65 T320,25 T400,15 L400,90 L0,90 Z" fill="url(#curveGrad)"></path>
+<!-- Expense Outflow Line -->
+<path d="M0,90 Q80,85 160,78 T280,68 T400,55" fill="none" stroke="#ffb4ab" stroke-linecap="round" stroke-width="2"></path>
+<!-- Main Velocity Line -->
+<path d="M0,85 Q60,80 120,40 T240,65 T320,25 T400,15" fill="none" stroke="#c3f400" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Marker Dot -->
+<circle class="animate-pulse" cx="320" cy="25" fill="#c3f400" r="4"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between font-label-xs text-label-xs text-outline border-0 pt-1">
+<span>Oct 01: ₹45.0k CR</span>
+<span>Oct 10: ₹38.2k</span>
+<span>Oct 18: Retainer (+₹8.0k)</span>
+<span class="text-primary-fixed">Oct 31: Est. +₹28.4k Net</span>
+</div>
+</div>
+<!-- Verified Institutional Clearing Banner -->
+<div class="lg:col-span-4 p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between space-y-space-md">
+<div class="space-y-1">
+<div class="font-label-xs text-label-xs text-outline uppercase tracking-wider">Account Rails Linked</div>
+<div class="font-headline-md text-headline-md text-on-surface font-semibold">Ledger Health</div>
+</div>
+<div class="space-y-2">
+<div class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">account_balance</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">HDFC Salary (••4821)</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">Status: SYNCED</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-mono text-on-surface font-semibold">₹1,42,850</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">credit_card</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">ICICI Reserve (••9012)</span>
+<span class="font-label-xs text-label-xs text-outline font-mono">Unbilled: ₹16,320</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-mono text-error font-semibold">−₹16,320</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-outline">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed">lock</span>
+<span>Zero-Knowledge Encryption</span>
+</div>
+<button class="font-label-xs text-label-xs text-primary-fixed hover:underline">Re-index all</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

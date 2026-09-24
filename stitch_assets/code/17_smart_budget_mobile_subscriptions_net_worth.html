@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#111417;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-bright": "#37393d", "on-secondary-fixed-variant": "#004395", "inverse-primary": "#506600", "tertiary": "#ffffff", "on-error": "#690005", "inverse-surface": "#e1e2e6", "on-tertiary-container": "#bd2c32", "secondary-fixed": "#d8e2ff", "background": "#111417", "surface-container": "#1d2023", "outline-variant": "#444933", "surface-dim": "#111417", "secondary": "#adc6ff", "secondary-fixed-dim": "#adc6ff", "tertiary-fixed-dim": "#ffb3af", "on-error-container": "#ffdad6", "primary": "#ffffff", "on-surface": "#e1e2e6", "on-secondary": "#002e6a", "surface": "#111417", "on-primary": "#283500", "on-primary-container": "#556d00", "tertiary-container": "#ffdad7", "on-tertiary-fixed-variant": "#920418", "secondary-container": "#0566d9", "on-secondary-container": "#e6ecff", "surface-tint": "#abd600", "on-primary-fixed": "#161e00", "surface-container-low": "#191c1f", "error-container": "#93000a", "surface-container-lowest": "#0b0e11", "outline": "#8e9379", "on-tertiary": "#68000d", "primary-fixed-dim": "#abd600", "inverse-on-surface": "#2e3134", "primary-fixed": "#c3f400", "surface-container-high": "#272a2d", "error": "#ffb4ab", "on-tertiary-fixed": "#410005", "surface-container-highest": "#323538", "surface-variant": "#323538", "on-primary-fixed-variant": "#3c4d00", "tertiary-fixed": "#ffdad7", "primary-container": "#c3f400", "on-background": "#e1e2e6", "on-secondary-fixed": "#001a42", "on-surface-variant": "#c4c9ac" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-md": "1rem", "space-xl": "2.5rem", "gutter": "1.25rem", "space-lg": "1.5rem", "margin": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, fontFamily: { "display-xl": ["Geist"], "body-sm": ["Geist"], "label-md": ["JetBrains Mono"], "label-lg": ["JetBrains Mono"], "display-lg-mobile": ["Geist"], "label-xs": ["JetBrains Mono"], "display-lg": ["Geist"], "headline-lg": ["Geist"], "body-lg": ["Geist"], "headline-md": ["Geist"], "body-md": ["Geist"], "display-xl-mobile": ["Geist"] }, fontSize: { "display-xl": ["3.75rem", { "lineHeight": "4rem", "fontWeight": "600" }], "body-sm": ["0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" }], "label-md": ["0.75rem", { "lineHeight": "1rem", "fontWeight": "500" }], "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" }], "display-lg-mobile": ["2rem", { "lineHeight": "2.25rem", "fontWeight": "600" }], "label-xs": ["0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "600" }], "display-lg": ["3rem", { "lineHeight": "3.25rem", "fontWeight": "600" }], "headline-lg": ["1.75rem", { "lineHeight": "2.25rem", "fontWeight": "500" }], "body-lg": ["1.0625rem", { "lineHeight": "1.625rem", "fontWeight": "400" }], "headline-md": ["1.375rem", { "lineHeight": "1.75rem", "fontWeight": "500" }], "body-md": ["0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "display-xl-mobile": ["2.5rem", { "lineHeight": "2.75rem", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #ccff00
+- Font: geist
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XSfDvsRw7Qe-mVxTX0uj5lCSK7WrmHHmKh7mP2x7uJeErlIr5-dxWqXrYcyCEjioyXFUCIX26P7HHTzEVx81kN9FrrX7jsPlDDzAXDKCEKfCwvWpv1YB84sZj0Fx1CYlCgJxBE549gzWvJ6hc6Kfkiy5FvsEbuVCu8l0h_rRKORICdUK-N_VaSkdYujBJtdCEvt_qGGxTtdcMrVz79P5vg6lioiT6_Dq0zKsBp-kltLsv8-Uq4wE46MH-e"/><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-primary-container inline-block animate-pulse"></span><h1 class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface">Plan</h1></div></div><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-gutter py-space-md gap-space-lg text-on-surface">
+<!-- Segmented View Controller -->
+<div class="w-full bg-surface-container-lowest p-1 rounded-lg flex items-center shadow-inner">
+<button class="flex-1 py-2 px-3 rounded text-center transition-all duration-200 bg-surface-container-high text-primary-container font-label-xs uppercase tracking-widest shadow-sm flex items-center justify-center gap-1.5" id="tab-subs-btn" onclick="switchView('subs')">
+<span class="material-symbols-outlined text-[16px]">chevron_forward</span>
+<span>Subscriptions</span>
+</button>
+<button class="flex-1 py-2 px-3 rounded text-center transition-all duration-200 text-on-surface-variant hover:text-on-surface font-label-xs uppercase tracking-widest flex items-center justify-center gap-1.5" id="tab-net-btn" onclick="switchView('net')">
+<span class="material-symbols-outlined text-[16px]">analytics</span>
+<span>Net Worth</span>
+</button>
+</div>
+<!-- VIEW CONTAINER: SUBSCRIPTIONS -->
+<section class="flex flex-col gap-space-lg w-full transition-opacity duration-300" id="subs-view">
+<!-- Master Financial Burn Banner -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md relative overflow-hidden shadow-md">
+<div class="absolute right-0 top-0 w-32 h-32 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-xs uppercase tracking-widest text-on-surface-variant">Recurring Burn Rate</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-container/10 text-primary-container font-label-xs">AUTO-RENEW ACTIVE</span>
+</div>
+<span class="material-symbols-outlined text-primary-container text-[20px]">bolt</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-display-lg tracking-tight">₹917</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">/ Month</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>Annual Run-rate:</span>
+<span class="text-primary font-semibold font-label-md">₹11,004 / yr</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high/60 rounded-lg px-3 py-2.5 flex items-center justify-between mt-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-ping"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Next billing:</span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Oct 28 (Netflix)</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-xs text-primary-container font-bold">IN 4 DAYS</span>
+</div>
+</div>
+<!-- Active Subscription Ledger Items -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-xs uppercase tracking-widest text-on-surface-variant">Active Committed Services (3)</span>
+<button class="text-primary-container font-label-xs flex items-center gap-1 hover:underline">
+<span>SORT BY DATE</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+<!-- Item 1: Netflix -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col gap-3 transition-transform active:scale-[0.99] shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-error font-headline-md font-bold">
+<span class="material-symbols-outlined text-error">smart_display</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Netflix</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-xs">Entertainment</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant">HDFC Bank ••9042</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md font-medium text-on-surface">₹649</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Monthly</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[18px]">schedule</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Next invoice on <strong class="text-on-surface">28 Oct 2024</strong></span>
+</div>
+<span class="px-2 py-0.5 rounded bg-error-container/30 text-error font-label-xs font-bold">4 DAYS LEFT</span>
+</div>
+</div>
+<!-- Item 2: Spotify -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col gap-3 transition-transform active:scale-[0.99] shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-primary-container">music_note</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Spotify</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-xs">Music</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant">HDFC Bank ••9042</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md font-medium text-on-surface">₹119</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Monthly</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">event</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Next invoice on <strong class="text-on-surface">18 Nov 2024</strong></span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-xs">25 DAYS</span>
+</div>
+</div>
+<!-- Item 3: YouTube Premium -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col gap-3 transition-transform active:scale-[0.99] shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">play_circle</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">YouTube Premium</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-xs">Productivity</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant">UPI Express</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md font-medium text-on-surface">₹149</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Monthly</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">event</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Next invoice on <strong class="text-on-surface">05 Nov 2024</strong></span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-xs">12 DAYS</span>
+</div>
+</div>
+</div>
+<!-- Quick Add Full CTA -->
+<button class="w-full py-3.5 px-4 rounded-lg bg-primary-container text-on-primary font-label-lg font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(195,244,0,0.25)] hover:bg-surface-tint active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined font-bold text-[20px]">add_circle</span>
+<span>Add Subscription</span>
+</button>
+</section>
+<!-- NET WORTH TELEMETRY SECTION (Persistent preview / switchable target) -->
+<section class="flex flex-col gap-space-md w-full" id="net-view">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-xs uppercase tracking-widest text-on-surface-variant">Solvency & Wealth Ledger</span>
+<span class="font-label-xs text-primary-container tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+        AUDITED REAL-TIME
+      </span>
+</div>
+<!-- Consolidated Net Worth Hub -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md relative overflow-hidden shadow-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-xs uppercase tracking-widest text-on-surface-variant">Consolidated Net Worth</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-xl-mobile text-display-xl-mobile font-display-xl tracking-tight text-on-surface">₹72,500</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded bg-primary-container/10 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary-container text-[16px]">verified</span>
+<span class="font-label-xs text-primary-container font-bold">AAA GRADE</span>
+</div>
+</div>
+<!-- Sparkline Visual (Past 6 months trend) -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs">
+<span>6-MONTH MOMENTUM</span>
+<span class="text-primary-container font-semibold">+₹18,200 (+33.5%)</span>
+</div>
+<div class="w-full h-14 relative flex items-end">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 300 60">
+<defs>
+<lineargradient id="netWorthGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#c3f400" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#c3f400" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Area Fill -->
+<polygon fill="url(#netWorthGrad)" points="0,50 50,44 100,48 160,32 220,24 300,8 300,60 0,60"></polygon>
+<!-- Line Path -->
+<polyline fill="none" points="0,50 50,44 100,48 160,32 220,24 300,8" stroke="#c3f400" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Data Dots -->
+<circle cx="300" cy="8" fill="#c3f400" r="4"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs pt-1">
+<span>MAY</span>
+<span>JUN</span>
+<span>JUL</span>
+<span>AUG</span>
+<span>SEP</span>
+<span class="text-on-surface font-semibold">OCT</span>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-lg p-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">shield</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Safe Capital Grade AAA</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Solvency ratio stands at 7.25x debt coverage</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">info</span>
+</div>
+</div>
+<!-- Balance Sheet Breakdown -->
+<div class="grid grid-cols-1 gap-3">
+<!-- Assets Breakdown Section -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-container"></span>
+<span class="font-label-xs uppercase tracking-wider text-on-surface font-bold">Total Assets</span>
+</div>
+<span class="font-label-md text-label-md text-primary-container font-bold">₹72,500</span>
+</div>
+<div class="flex flex-col gap-2 pt-1">
+<!-- Asset Row 1 -->
+<div class="flex items-center justify-between py-1.5 px-2.5 rounded bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">account_balance</span>
+<span class="font-body-sm text-body-sm text-on-surface">Bank Reserves</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface">₹35,000</span>
+</div>
+<!-- Asset Row 2 -->
+<div class="flex items-center justify-between py-1.5 px-2.5 rounded bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">payments</span>
+<span class="font-body-sm text-body-sm text-on-surface">Cash on Hand</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface">₹5,000</span>
+</div>
+<!-- Asset Row 3 -->
+<div class="flex items-center justify-between py-1.5 px-2.5 rounded bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">call_received</span>
+<span class="font-body-sm text-body-sm text-on-surface">Money Owed to You</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-primary-container">+₹32,500</span>
+</div>
+</div>
+</div>
+<!-- Liabilities Breakdown Section -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-sm bg-error"></span>
+<span class="font-label-xs uppercase tracking-wider text-on-surface font-bold">Total Liabilities</span>
+</div>
+<span class="font-label-md text-label-md text-error font-bold">−₹10,000</span>
+</div>
+<div class="flex flex-col gap-2 pt-1">
+<!-- Liability Row 1 -->
+<div class="flex items-center justify-between py-1.5 px-2.5 rounded bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-error">call_made</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface">Money You Owe</span>
+<span class="font-label-xs text-on-surface-variant">Due to Amit & Co.</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-error">−₹10,000</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function switchView(tab) {
+    const subsView = document.getElementById('subs-view');
+    const netView = document.getElementById('net-view');
+    const subsBtn = document.getElementById('tab-subs-btn');
+    const netBtn = document.getElementById('tab-net-btn');
+
+    if (tab === 'subs') {
+      subsView.classList.remove('hidden');
+      netView.classList.remove('ring-2');
+      
+      subsBtn.className = 'flex-1 py-2 px-3 rounded text-center transition-all duration-200 bg-surface-container-high text-primary-container font-label-xs uppercase tracking-widest shadow-sm flex items-center justify-center gap-1.5';
+      netBtn.className = 'flex-1 py-2 px-3 rounded text-center transition-all duration-200 text-on-surface-variant hover:text-on-surface font-label-xs uppercase tracking-widest flex items-center justify-center gap-1.5';
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      subsBtn.className = 'flex-1 py-2 px-3 rounded text-center transition-all duration-200 text-on-surface-variant hover:text-on-surface font-label-xs uppercase tracking-widest flex items-center justify-center gap-1.5';
+      netBtn.className = 'flex-1 py-2 px-3 rounded text-center transition-all duration-200 bg-surface-container-high text-primary-container font-label-xs uppercase tracking-widest shadow-sm flex items-center justify-center gap-1.5';
+      
+      netView.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]" data-active-classes="text-primary-container"><div class="flex items-center justify-between h-16 px-space-md max-w-md mx-auto relative"><a class="flex flex-col items-center justify-center min-w-[48px] h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-xs text-label-xs uppercase tracking-wider">HOME</span></a><a class="flex flex-col items-center justify-center min-w-[48px] h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="activity" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><span class="font-label-xs text-label-xs uppercase tracking-wider">ACTIVITY</span></a><div class="flex items-center justify-center -mt-5"><a class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_4px_16px_rgba(195,244,0,0.35)] transition-transform active:scale-95" data-path="add-transaction" href="#"><span class="material-symbols-outlined text-[26px] font-bold text-on-primary">add</span></a></div><a aria-current="page" class="flex flex-col items-center justify-center min-w-[48px] h-11 gap-0.5 transition-colors text-primary-container" data-path="plan" href="#"><span class="material-symbols-outlined text-[20px]">pie_chart</span><span class="font-label-xs text-label-xs uppercase tracking-wider">PLAN</span></a><a class="flex flex-col items-center justify-center min-w-[48px] h-11 gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="font-label-xs text-label-xs uppercase tracking-wider">PROFILE</span></a></div></nav></body></html>
