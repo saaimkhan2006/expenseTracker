@@ -31,6 +31,17 @@ export function createApp() {
   app.use(express.json({ limit: '1mb' }));
   app.use(sanitize);
   app.use(morgan('dev'));
+  app.get('/', (req, res) => {
+    res.json({
+      name: 'Smart Budget API',
+      version: '2.4',
+      status: 'healthy',
+      endpoints: {
+        health: '/health',
+        api: '/api',
+      },
+    });
+  });
   app.use('/health', healthRoutes);
   app.use('/api', rateLimit({ windowMs: 60_000, max: 300 }), routes);
   app.use(errorHandler);
