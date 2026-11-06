@@ -1,6 +1,6 @@
-// Minimal IndexedDB wrapper (no external dep). Stores: transactions, accounts, queue meta.
+// Minimal IndexedDB wrapper (no external dep). Stores: transactions, accounts, goals, queue meta.
 const DB = 'smart-budget';
-const VERSION = 1;
+const VERSION = 2;
 
 function open(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
@@ -12,10 +12,12 @@ function open(): Promise<IDBDatabase> {
         s.createIndex('date', 'date', { unique: false });
       }
       if (!db.objectStoreNames.contains('accounts')) db.createObjectStore('accounts', { keyPath: '_id' });
+      if (!db.objectStoreNames.contains('goals')) db.createObjectStore('goals', { keyPath: '_id' });
       if (!db.objectStoreNames.contains('meta')) db.createObjectStore('meta', { keyPath: 'key' });
     };
     r.onsuccess = () => resolve(r.result);
     r.onerror = () => reject(r.error);
+    
   });
 }
 

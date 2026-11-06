@@ -5,7 +5,7 @@ import { useFinance, Tx } from '../stores/finance';
 export function Transactions() {
   const nav = useNavigate();
   const [params] = useSearchParams();
-  const { transactions } = useFinance();
+  const { transactions, deleteTx } = useFinance();
   const [filterType, setFilterType] = useState<'all' | 'expense' | 'income'>('all');
   const [search, setSearch] = useState(params.get('q') || '');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
@@ -30,6 +30,17 @@ export function Transactions() {
   const totalInflow = allTxs.filter((t) => t.type === 'income').reduce((s, t) => s + t.amount, 0);
   const totalOutflow = allTxs.filter((t) => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
   const netDelta = totalInflow - totalOutflow;
+
+  const maxVol = Math.max(totalInflow, totalOutflow, 1);
+  const inflowBarPct = Math.round((totalInflow / maxVol) * 100);
+  const outflowBarPct = Math.round((totalOutflow / maxVol) * 100);
+  const deltaBarPct = totalInflow > 0 ? Math.min(100, Math.max(0, Math.round((netDelta / totalInflow) * 100))) : 0;
+
+  const handleDelete = async (t: Tx) => {
+    if (confirm(`Delete transaction "${t.description || t.category}" (₹${t.amount.toLocaleString('en-IN')})?`)) {
+      await deleteTx(t._id || t.clientId);
+    }
+  };
 
   return (
     <div className="flex flex-col w-full space-y-space-lg text-on-surface">
@@ -69,7 +80,7 @@ export function Transactions() {
             </span>
           </div>
           <div className="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
-            <div className="bg-primary-fixed h-full w-[75%]"></div>
+            <div className="bg-primary-fixed h-full transition-all duration-500" style={{ width: `${inflowBarPct}%` }}></div>
           </div>
         </div>
 
@@ -84,7 +95,7 @@ export function Transactions() {
             </span>
           </div>
           <div className="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
-            <div className="bg-error h-full w-[45%]"></div>
+            <div className="bg-error h-full transition-all duration-500" style={{ width: `${outflowBarPct}%` }}></div>
           </div>
         </div>
 
@@ -95,11 +106,11 @@ export function Transactions() {
           </div>
           <div className="flex items-baseline gap-2">
             <span className="font-headline-lg text-headline-lg font-semibold tracking-tight text-on-surface">
-              +₹{netDelta.toLocaleString('en-IN')}
+              {netDelta >= 0 ? '+' : '−'}₹{Math.abs(netDelta).toLocaleString('en-IN')}
             </span>
           </div>
           <div className="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
-            <div className="bg-secondary h-full w-[60%]"></div>
+            <div className="bg-secondary h-full transition-all duration-500" style={{ width: `${deltaBarPct}%` }}></div>
           </div>
         </div>
 
@@ -187,6 +198,7 @@ export function Transactions() {
                 <th className="py-3 px-space-md">Date</th>
                 <th className="py-3 px-space-md text-right">Amount</th>
                 <th className="py-3 px-space-md text-center">Status</th>
+                <th className="py-3 px-space-md text-right">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-surface-variant/30">
@@ -224,11 +236,20 @@ export function Transactions() {
                       </span>
                     )}
                   </td>
+                  <td className="py-3 px-space-md text-right">
+                    <button
+                      onClick={() => handleDelete(t)}
+                      className="p-1 rounded text-outline hover:text-error hover:bg-surface-container-high transition-colors"
+                      title="Delete entry"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">delete</span>
+                    </button>
+                  </td>
                 </tr>
               ))}
               {!filtered.length && (
                 <tr>
-                  <td colSpan={5} className="py-space-xl text-center text-outline font-body-md">
+                  <td colSpan={6} className="py-space-xl text-center text-outline font-body-md">
                     {allTxs.length
                       ? 'No transaction entries match your criteria.'
                       : 'No transactions yet. Tap + Add Transaction to record your first one.'}

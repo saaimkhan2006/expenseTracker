@@ -4,11 +4,21 @@ import { useFinance } from '../stores/finance';
 
 export function Accounts() {
   const nav = useNavigate();
-  const { accounts, createAccount } = useFinance();
+  const { accounts, createAccount, updateAccount, transactions } = useFinance();
   const [showAddModal, setShowAddModal] = useState(false);
   const [newAccName, setNewAccName] = useState('');
-  const [newAccBalance, setNewAccBalance] = useState('10000');
+  const [newAccBalance, setNewAccBalance] = useState('0');
+  const [newAccType, setNewAccType] = useState('bank');
   const [creating, setCreating] = useState(false);
+
+  // Edit Modal State
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editingAcc, setEditingAcc] = useState<any | null>(null);
+  const [editName, setEditName] = useState('');
+  const [editBalance, setEditBalance] = useState('');
+  const [editType, setEditType] = useState('bank');
+  const [saving, setSaving] = useState(false);
+  const [editError, setEditError] = useState('');
 
   // Real accounts only — never fabricate balances.
   const displayAccounts = accounts;
@@ -16,6 +26,12 @@ export function Accounts() {
   const totalLiquid = displayAccounts.filter((a) => a.balance > 0).reduce((s, a) => s + a.balance, 0);
   const totalLiabilities = displayAccounts.filter((a) => a.balance < 0).reduce((s, a) => s + Math.abs(a.balance), 0);
   const netPosition = totalLiquid - totalLiabilities;
+  const grossAssets = totalLiquid + totalLiabilities;
+  const solvencyPct = grossAssets > 0 ? Math.round((totalLiquid / grossAssets) * 100) : 100;
+  const liabilityPct = 100 - solvencyPct;
+
+  const totalExpense = transactions.filter((t) => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
+  const runwayMonths = totalExpense > 0 ? (totalLiquid / totalExpense).toFixed(1) : (totalLiquid > 0 ? '12+' : '0.0');
 
   const handleCreateAccount = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,8 +40,43 @@ export function Accounts() {
     await createAccount(newAccName.trim(), parseFloat(newAccBalance) || 0);
     setCreating(false);
     setNewAccName('');
-    setNewAccBalance('10000');
+    setNewAccBalance('0');
+    setNewAccType('bank');
     setShowAddModal(false);
+  };
+
+  const handleOpenEditModal = (acc: any) => {
+    setEditingAcc(acc);
+    setEditName(acc.name);
+    setEditBalance(acc.balance.toString());
+    setEditType(acc.type || 'bank');
+    setEditError('');
+    setShowEditModal(true);
+  };
+
+  const handleSaveEdit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingAcc) return;
+    const numBalance = parseFloat(editBalance);
+    if (isNaN(numBalance)) {
+      setEditError('Please enter a valid numeric balance.');
+      return;
+    }
+    setSaving(true);
+    setEditError('');
+    try {
+      await updateAccount(editingAcc._id, {
+        name: editName.trim() || editingAcc.name,
+        balance: numBalance,
+        type: editType,
+      });
+      setShowEditModal(false);
+      setEditingAcc(null);
+    } catch (err: any) {
+      setEditError(err?.response?.data?.message || 'Failed to update balance.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -101,20 +152,20 @@ export function Accounts() {
           <div className="flex items-center justify-between">
             <span className="font-label-xs text-label-xs text-outline tracking-widest uppercase">SOLVENCY TELEMETRY</span>
             <span className="font-label-xs text-label-xs text-primary-fixed font-mono bg-primary-container/10 px-2 py-0.5 rounded font-semibold">
-              92.5% LIQUID
+              {solvencyPct}% LIQUID
             </span>
           </div>
 
           <div className="py-space-md flex flex-col gap-space-sm">
             <div className="flex items-center justify-between">
-              <span className="font-body-sm text-body-sm text-on-surface-variant">Available vs Committed</span>
+              <span className="font-body-sm text-body-sm text-on-surface-variant">Liquid vs Liabilities</span>
               <span className="font-label-sm text-label-sm text-on-surface font-mono">
-                ₹{netPosition.toLocaleString('en-IN')} / ₹{totalLiquid.toLocaleString('en-IN')}
+                ₹{totalLiquid.toLocaleString('en-IN')} / ₹{totalLiabilities.toLocaleString('en-IN')}
               </span>
             </div>
             <div className="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden flex">
-              <div className="bg-primary-container h-full" style={{ width: '92.5%' }}></div>
-              <div className="bg-error h-full" style={{ width: '7.5%' }}></div>
+              <div className="bg-primary-container h-full transition-all duration-500" style={{ width: `${solvencyPct}%` }}></div>
+              <div className="bg-error h-full transition-all duration-500" style={{ width: `${liabilityPct}%` }}></div>
             </div>
           </div>
 
@@ -123,7 +174,7 @@ export function Accounts() {
               <span className="material-symbols-outlined text-[16px] text-primary-container">shield</span>
               <span className="font-body-sm text-body-sm text-on-surface">Emergency Buffer</span>
             </div>
-            <span className="font-label-md text-label-md text-on-surface font-mono">3.4 Months Runway</span>
+            <span className="font-label-md text-label-md text-on-surface font-mono">{runwayMonths} Months Runway</span>
           </div>
         </div>
       </div>
@@ -155,20 +206,32 @@ export function Accounts() {
                     </div>
                     <div>
                       <div className="font-body-md text-body-md font-semibold text-on-surface">{acc.name}</div>
-                      <div className="font-label-xs text-label-xs text-outline">{acc.type || 'Account Rail'} • {acc.accountNum || 'Active'}</div>
+                      <div className="font-label-xs text-label-xs text-outline uppercase">{acc.type || 'Account Rail'}</div>
                     </div>
                   </div>
 
                   <span className="font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant border border-surface-variant/30 uppercase font-semibold">
-                    {acc.status || 'Active'}
+                    {acc.isActive ? 'Active' : 'Inactive'}
                   </span>
                 </div>
 
-                <div className="flex items-baseline justify-between border-t border-surface-variant/30 pt-space-sm">
-                  <span className="font-label-xs text-label-xs uppercase text-outline">Current Balance</span>
-                  <span className={`font-headline-md text-headline-md font-bold ${isNegative ? 'text-error' : 'text-on-surface'}`}>
-                    ₹{acc.balance.toLocaleString('en-IN')}
-                  </span>
+                <div className="flex items-center justify-between border-t border-surface-variant/30 pt-space-sm">
+                  <div>
+                    <span className="font-label-xs text-label-xs uppercase text-outline block">Current Balance</span>
+                    <span className={`font-headline-md text-headline-md font-bold ${isNegative ? 'text-error' : 'text-on-surface'}`}>
+                      ₹{acc.balance.toLocaleString('en-IN')}
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => handleOpenEditModal(acc)}
+                    className="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-xs text-label-xs font-semibold uppercase flex items-center gap-1.5 border border-surface-variant/40 transition-colors shadow-xs"
+                    title="Edit account balance"
+                  >
+                    <span className="material-symbols-outlined text-[16px] text-primary-fixed">edit</span>
+                    <span>Edit Balance</span>
+                  </button>
                 </div>
               </div>
             );
@@ -201,10 +264,26 @@ export function Accounts() {
               </div>
 
               <div className="space-y-1">
+                <label className="font-label-xs text-label-xs uppercase text-outline">Account Type</label>
+                <select
+                  value={newAccType}
+                  onChange={(e) => setNewAccType(e.target.value)}
+                  className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
+                >
+                  <option value="bank">Bank Account</option>
+                  <option value="cash">Cash in Hand</option>
+                  <option value="upi">UPI / Wallet</option>
+                  <option value="credit_card">Credit Card (Liability)</option>
+                  <option value="other">Other Account</option>
+                </select>
+              </div>
+
+              <div className="space-y-1">
                 <label className="font-label-xs text-label-xs uppercase text-outline">Opening Balance (₹)</label>
                 <input
                   type="number"
-                  placeholder="10000"
+                  step="any"
+                  placeholder="0"
                   value={newAccBalance}
                   onChange={(e) => setNewAccBalance(e.target.value)}
                   className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
@@ -219,6 +298,85 @@ export function Accounts() {
               >
                 {creating ? 'Saving...' : 'Add Account'}
               </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Account & Balance Modal */}
+      {showEditModal && editingAcc && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-space-md" onClick={() => setShowEditModal(false)}>
+          <div className="w-full max-w-md bg-surface-container rounded-xl p-space-lg border border-surface-variant/40 space-y-space-md shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between border-b border-surface-variant/40 pb-space-sm">
+              <div>
+                <span className="font-label-xs text-label-xs uppercase text-outline">BALANCE RECONCILIATION</span>
+                <h3 className="font-headline-md text-headline-md font-medium text-on-surface">Edit {editingAcc.name}</h3>
+              </div>
+              <button onClick={() => setShowEditModal(false)} className="text-outline hover:text-on-surface">
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+
+            {editError && <p className="text-error font-semibold text-label-xs">{editError}</p>}
+
+            <form onSubmit={handleSaveEdit} className="space-y-space-md">
+              <div className="space-y-1">
+                <label className="font-label-xs text-label-xs uppercase text-outline">Account Name</label>
+                <input
+                  type="text"
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
+                  className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
+                  required
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-label-xs text-label-xs uppercase text-outline">Account Type</label>
+                <select
+                  value={editType}
+                  onChange={(e) => setEditType(e.target.value)}
+                  className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none"
+                >
+                  <option value="bank">Bank Account</option>
+                  <option value="cash">Cash in Hand</option>
+                  <option value="upi">UPI / Wallet</option>
+                  <option value="credit_card">Credit Card (Liability)</option>
+                  <option value="other">Other Account</option>
+                </select>
+              </div>
+
+              <div className="space-y-1">
+                <div className="flex items-center justify-between">
+                  <label className="font-label-xs text-label-xs uppercase text-outline">Current Balance (₹)</label>
+                  <span className="font-label-xs text-label-xs text-outline">Positive for asset, negative for debt</span>
+                </div>
+                <input
+                  type="number"
+                  step="any"
+                  value={editBalance}
+                  onChange={(e) => setEditBalance(e.target.value)}
+                  className="w-full p-space-sm rounded-lg bg-surface-container-lowest border border-surface-variant/40 text-on-surface font-body-md focus:outline-none font-mono"
+                  required
+                />
+              </div>
+
+              <div className="flex items-center gap-space-sm pt-space-xs">
+                <button
+                  type="button"
+                  onClick={() => setShowEditModal(false)}
+                  className="w-1/2 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md font-semibold transition-all"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={saving}
+                  className="w-1/2 py-2.5 rounded-lg bg-primary-container text-on-primary-fixed font-label-md text-label-md font-semibold hover:bg-primary-fixed-dim transition-all"
+                >
+                  {saving ? 'Updating...' : 'Update Balance'}
+                </button>
+              </div>
             </form>
           </div>
         </div>

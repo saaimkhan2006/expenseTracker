@@ -4,36 +4,41 @@ import { useFinance } from '../stores/finance';
 
 export function AddTx() {
   const nav = useNavigate();
-  const { addTx, accounts } = useFinance();
+  const { addTx, accounts, categories } = useFinance();
 
   const [type, setType] = useState<'expense' | 'income'>('expense');
-  const [amountStr, setAmountStr] = useState('500');
-  const [category, setCategory] = useState('Food & Dining');
+  const [amountStr, setAmountStr] = useState('');
+  const [category, setCategory] = useState('');
   const [accountId, setAccountId] = useState(accounts[0]?._id || '');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
-  const expenseCategories = [
-    { name: 'Food & Dining', icon: 'restaurant' },
-    { name: 'Shopping', icon: 'shopping_bag' },
-    { name: 'Transport', icon: 'directions_car' },
-    { name: 'Operations', icon: 'dns' },
-    { name: 'Utilities', icon: 'bolt' },
-    { name: 'Subscriptions', icon: 'repeat' },
-    { name: 'Entertainment', icon: 'movie' },
-    { name: 'Healthcare', icon: 'medical_services' },
-  ];
+  // Use dynamic user categories from the backend/store with fallback defaults
+  const userCatsForType = categories.filter((c: any) => c.kind === type);
+  const activeCategories = userCatsForType.length > 0
+    ? userCatsForType.map((c: any) => ({ name: c.name, icon: c.icon || (type === 'income' ? 'payments' : 'category') }))
+    : type === 'expense'
+    ? [
+        { name: 'Food', icon: 'restaurant' },
+        { name: 'Shopping', icon: 'shopping_bag' },
+        { name: 'Transport', icon: 'directions_car' },
+        { name: 'Bills', icon: 'receipt' },
+        { name: 'Entertainment', icon: 'movie' },
+        { name: 'Health', icon: 'medical_services' },
+        { name: 'Subscriptions', icon: 'repeat' },
+        { name: 'Other', icon: 'category' },
+      ]
+    : [
+        { name: 'Salary', icon: 'payments' },
+        { name: 'Freelancing', icon: 'work' },
+        { name: 'Business', icon: 'storefront' },
+        { name: 'Investment', icon: 'trending_up' },
+        { name: 'Other', icon: 'account_balance_wallet' },
+      ];
 
-  const incomeCategories = [
-    { name: 'Salary', icon: 'payments' },
-    { name: 'Freelance', icon: 'work' },
-    { name: 'Investments', icon: 'trending_up' },
-    { name: 'Other Income', icon: 'account_balance_wallet' },
-  ];
-
-  const activeCategories = type === 'expense' ? expenseCategories : incomeCategories;
+  const currentCategory = category || activeCategories[0]?.name || 'Other';
 
   const handleAdjustAmount = (delta: number) => {
     const val = (parseFloat(amountStr) || 0) + delta;
@@ -51,10 +56,10 @@ export function AddTx() {
     await addTx({
       type,
       amount: numericAmount,
-      category,
+      category: currentCategory,
       accountId: acc,
       date,
-      description: description || category,
+      description: description || currentCategory,
     });
     setSubmitting(false);
     nav('/transactions');
@@ -88,7 +93,7 @@ export function AddTx() {
         <div className="flex items-center p-1 rounded-xl bg-surface-container border border-surface-variant/40">
           <button
             type="button"
-            onClick={() => { setType('expense'); setCategory('Food & Dining'); }}
+            onClick={() => { setType('expense'); setCategory(''); }}
             className={`px-4 py-1.5 rounded-lg font-label-xs text-label-xs uppercase tracking-wider font-semibold transition-all ${
               type === 'expense' ? 'bg-error-container text-on-error-container shadow-sm' : 'text-on-surface-variant'
             }`}
@@ -97,7 +102,7 @@ export function AddTx() {
           </button>
           <button
             type="button"
-            onClick={() => { setType('income'); setCategory('Salary'); }}
+            onClick={() => { setType('income'); setCategory(''); }}
             className={`px-4 py-1.5 rounded-lg font-label-xs text-label-xs uppercase tracking-wider font-semibold transition-all ${
               type === 'income' ? 'bg-primary-container text-on-primary-fixed shadow-sm' : 'text-on-surface-variant'
             }`}
@@ -185,7 +190,7 @@ export function AddTx() {
           <label className="font-label-xs text-label-xs text-outline uppercase tracking-wider">Allocation Category</label>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
             {activeCategories.map((cat) => {
-              const isSelected = category === cat.name;
+              const isSelected = currentCategory === cat.name;
               return (
                 <button
                   type="button"

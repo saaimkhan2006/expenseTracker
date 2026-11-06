@@ -1,54 +1,37 @@
 import express from 'express';
-import { body } from 'express-validator';
-import { auth } from '../middleware/auth.js';
-import * as authC from '../controllers/authController.js';
-import * as accC from '../controllers/accountController.js';
-import * as catC from '../controllers/categoryController.js';
-import * as txC from '../controllers/transactionController.js';
-import * as dashC from '../controllers/dashboardController.js';
-import * as budgetC from '../controllers/budgetController.js';
-import * as transferC from '../controllers/transferController.js';
-import * as loanC from '../controllers/loanController.js';
-import * as subC from '../controllers/subscriptionController.js';
+import authRoutes from './authRoutes.js';
+import accountRoutes from './accountRoutes.js';
+import transactionRoutes from './transactionRoutes.js';
+import categoryRoutes from './categoryRoutes.js';
+import budgetRoutes from './budgetRoutes.js';
+import transferRoutes from './transferRoutes.js';
+import loanRoutes from './loanRoutes.js';
+import subscriptionRoutes from './subscriptionRoutes.js';
+import goalRoutes from './goalRoutes.js';
+import dashboardRoutes from './dashboardRoutes.js';
+import healthRoutes from './healthRoutes.js';
 
 const router = express.Router();
 
-router.post('/auth/register', body('email').isEmail(), body('password').isLength({ min: 6 }), (req, res, next) => authC.register(req, res, next));
-router.post('/auth/login', (req, res, next) => authC.login(req, res, next));
-router.get('/auth/me', auth, (req, res, next) => authC.me(req, res, next));
+// System & Health
+router.use('/health', healthRoutes);
 
-router.get('/dashboard', auth, (req, res, next) => dashC.dashboard(req, res, next));
+// Authentication & Identity
+router.use('/auth', authRoutes);
 
-router.get('/accounts', auth, accC.list);
-router.post('/accounts', auth, accC.create);
-router.put('/accounts/:id', auth, accC.update);
+// Financial Ledger & Rails
+router.use('/accounts', accountRoutes);
+router.use('/transactions', transactionRoutes);
+router.use('/categories', categoryRoutes);
+router.use('/transfers', transferRoutes);
 
-router.get('/categories', auth, catC.list);
-router.post('/categories', auth, catC.create);
+// Planning & Commitments
+router.use('/budgets', budgetRoutes);
+router.use('/loans', loanRoutes);
+router.use('/subscriptions', subscriptionRoutes);
+router.use('/goals', goalRoutes);
 
-router.get('/transactions', auth, txC.list);
-router.post('/transactions', auth, txC.create);
-router.post('/transactions/sync', auth, txC.syncBulk);
-router.put('/transactions/:id', auth, txC.update);
-router.delete('/transactions/:id', auth, txC.remove);
-
-router.get('/budgets', auth, budgetC.list);
-router.post('/budgets', auth, budgetC.create);
-router.put('/budgets/:id', auth, budgetC.update);
-router.delete('/budgets/:id', auth, budgetC.remove);
-
-router.post('/transfers', auth, transferC.create);
-
-router.get('/loans', auth, loanC.list);
-router.post('/loans', auth, loanC.create);
-router.post('/loans/:id/repay', auth, loanC.repay);
-router.delete('/loans/:id', auth, loanC.remove);
-
-router.get('/subscriptions', auth, subC.list);
-router.post('/subscriptions', auth, subC.create);
-router.put('/subscriptions/:id', auth, subC.update);
-router.delete('/subscriptions/:id', auth, subC.remove);
-
-router.get('/health', (req, res) => res.json({ ok: true }));
+// Analytics & Aggregates
+router.use('/dashboard', dashboardRoutes);
 
 export default router;

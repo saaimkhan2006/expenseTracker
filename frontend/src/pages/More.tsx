@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useAuth } from '../stores/auth';
 import { useFinance } from '../stores/finance';
+import { api } from '../services/api';
 
 export function More() {
   const { user, logout } = useAuth();
   const { online, syncing, sync, transactions } = useFinance();
-  const [currency, setCurrency] = useState('INR (₹)');
+  const [currency, setCurrency] = useState(() => localStorage.getItem('sb_currency') || 'INR (₹)');
   const [savedMsg, setSavedMsg] = useState('');
 
   const handleExportData = () => {
@@ -18,7 +19,11 @@ export function More() {
     downloadAnchor.remove();
   };
 
-  const handleSavePreferences = () => {
+  const handleSavePreferences = async () => {
+    localStorage.setItem('sb_currency', currency);
+    try {
+      await api.put('/auth/me', { currency });
+    } catch { /* saved to local storage */ }
     setSavedMsg('Preferences saved successfully!');
     setTimeout(() => setSavedMsg(''), 3000);
   };

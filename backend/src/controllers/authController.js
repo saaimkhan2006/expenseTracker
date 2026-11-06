@@ -72,3 +72,15 @@ export async function me(req, res, next) {
     res.json({ user });
   } catch (e) { next(e); }
 }
+
+export async function updateMe(req, res, next) {
+  try {
+    const { name, currency } = req.body;
+    const user = await User.findById(req.userId);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+    if (name) user.name = name.trim();
+    if (currency) user.currency = currency.trim();
+    await user.save();
+    res.json({ user: { id: user._id, name: user.name, email: user.email, currency: user.currency } });
+  } catch (e) { next(e); }
+}

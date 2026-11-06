@@ -3,9 +3,34 @@ import { useFinance } from '../stores/finance';
 
 export function Dashboard() {
   const nav = useNavigate();
-  const { transactions, accounts } = useFinance();
+  const { transactions, accounts, budgets } = useFinance();
 
-  // Live metrics from the real ledger — never fabricate financial data.
+  const now = new Date();
+  const dayOfMonth = now.getDate();
+  const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  const monthProgressPct = Math.round((dayOfMonth / daysInMonth) * 100);
+
+  // Month-over-month calculation from real ledger
+  const thisMonthTxs = transactions.filter((t) => {
+    const d = new Date(t.date);
+    return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+  });
+
+  const lastMonthTxs = transactions.filter((t) => {
+    const d = new Date(t.date);
+    const lm = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    return d.getFullYear() === lm.getFullYear() && d.getMonth() === lm.getMonth();
+  });
+
+  const thisMonthNet = thisMonthTxs.reduce((sum, t) => sum + (t.type === 'income' ? t.amount : -t.amount), 0);
+  const lastMonthNet = lastMonthTxs.reduce((sum, t) => sum + (t.type === 'income' ? t.amount : -t.amount), 0);
+
+  const momGrowth =
+    lastMonthNet > 0
+      ? (((thisMonthNet - lastMonthNet) / lastMonthNet) * 100).toFixed(1)
+      : null;
+
+  // Live metrics from the real ledger
   const totalIncome = transactions
     .filter((t) => t.type === 'income')
     .reduce((sum, t) => sum + t.amount, 0);
@@ -18,12 +43,16 @@ export function Dashboard() {
   const savingsRate = totalIncome > 0 ? ((netRetained / totalIncome) * 100).toFixed(1) : '0.0';
 
   const displayAccounts = accounts;
-
   const totalAvailable = displayAccounts.reduce((acc, a) => acc + (a.balance > 0 ? a.balance : 0), 0);
-
   const recentTxs = transactions.slice(0, 5);
+  const monthLabel = now.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
 
-  const monthLabel = new Date().toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
+  // Real budget envelope metrics
+  const totalBudgetCap = budgets.reduce((acc, b) => acc + (b.cap || 0), 0);
+  const totalBudgetSpent = budgets.reduce((acc, b) => acc + (b.spent || 0), 0);
+  const budgetUtilizationPct = totalBudgetCap > 0 ? Math.min(100, Math.round((totalBudgetSpent / totalBudgetCap) * 100)) : 0;
+  const expectedPacingSpend = Math.round((totalBudgetCap / daysInMonth) * dayOfMonth);
+  const pacingDiff = expectedPacingSpend - totalBudgetSpent;
 
   return (
     <div className="flex flex-col w-full gap-space-xl">
@@ -67,10 +96,17 @@ export function Dashboard() {
               <span className="font-label-xs text-label-xs uppercase text-outline self-center">INR</span>
             </div>
             <div className="flex items-center gap-3 pt-1">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary-container/10 border border-primary-container/30 text-primary-fixed font-label-xs text-label-xs font-semibold uppercase tracking-wider">
-                <span className="material-symbols-outlined text-[14px]">trending_up</span>
-                +8.4% this month
-              </span>
+              {momGrowth !== null ? (
+                <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded border font-label-xs text-label-xs font-semibold uppercase tracking-wider ${+momGrowth >= 0 ? 'bg-primary-container/10 border-primary-container/30 text-primary-fixed' : 'bg-error-container/20 border-error-container text-error'}`}>
+                  <span className="material-symbols-outlined text-[14px]">{+momGrowth >= 0 ? 'trending_up' : 'trending_down'}</span>
+                  {+momGrowth >= 0 ? `+${momGrowth}% vs last cycle` : `${momGrowth}% vs last cycle`}
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high border border-surface-variant/40 text-on-surface-variant font-label-xs text-label-xs font-semibold uppercase tracking-wider">
+                  <span className="material-symbols-outlined text-[14px]">check_circle</span>
+                  Live Reconciled
+                </span>
+              )}
               <span className="font-body-sm text-body-sm text-outline">Across {displayAccounts.length} synchronized accounts</span>
             </div>
           </div>
@@ -82,7 +118,7 @@ export function Dashboard() {
               <div className="font-headline-md text-headline-md font-semibold text-primary-fixed tabular-nums">
                 +₹{totalIncome.toLocaleString('en-IN')}
               </div>
-              <span className="font-label-xs text-label-xs text-outline block">Salary + Earnings</span>
+              <span className="font-label-xs text-label-xs text-outline block">Lifetime Cleared</span>
             </div>
 
             <div className="space-y-1">
@@ -90,7 +126,7 @@ export function Dashboard() {
               <div className="font-headline-md text-headline-md font-semibold text-error tabular-nums">
                 −₹{totalExpense.toLocaleString('en-IN')}
               </div>
-              <span className="font-label-xs text-label-xs text-outline block">Operating Expenses</span>
+              <span className="font-label-xs text-label-xs text-outline block">Lifetime Debits</span>
             </div>
 
             <div className="space-y-1">
@@ -127,27 +163,44 @@ export function Dashboard() {
               </div>
               <div className="flex items-center gap-space-sm">
                 <span className="font-label-xs text-label-xs px-2 py-1 rounded bg-surface-container-high text-on-surface-variant border border-surface-variant/30 uppercase tracking-wider">
-                  DAY 24 OF 30 (80%)
+                  DAY {dayOfMonth} OF {daysInMonth} ({monthProgressPct}%)
                 </span>
-                <span className="font-label-xs text-label-xs px-2 py-1 rounded bg-primary-container/10 text-primary-fixed border border-primary-container/20 uppercase tracking-wider font-semibold">
-                  SAFE PACING
-                </span>
+                {totalBudgetCap > 0 && (
+                  <span className={`font-label-xs text-label-xs px-2 py-1 rounded border uppercase tracking-wider font-semibold ${
+                    pacingDiff >= 0 ? 'bg-primary-container/10 text-primary-fixed border-primary-container/20' : 'bg-error-container/20 text-error border-error-container/30'
+                  }`}>
+                    {pacingDiff >= 0 ? 'SAFE PACING' : 'ACCELERATED BURN'}
+                  </span>
+                )}
               </div>
             </div>
 
-            <div className="space-y-space-xs">
-              <div className="flex justify-between text-body-sm">
-                <span className="text-on-surface-variant">Monthly Allocation Cap (₹35,000)</span>
-                <span className="text-on-surface font-mono font-medium">₹20,150 Spent (57.5%)</span>
+            {totalBudgetCap > 0 ? (
+              <div className="space-y-space-xs">
+                <div className="flex justify-between text-body-sm">
+                  <span className="text-on-surface-variant">Monthly Allocation Cap (₹{totalBudgetCap.toLocaleString('en-IN')})</span>
+                  <span className="text-on-surface font-mono font-medium">₹{totalBudgetSpent.toLocaleString('en-IN')} Spent ({budgetUtilizationPct}%)</span>
+                </div>
+                <div className="w-full bg-surface-container-lowest h-3 rounded-full overflow-hidden p-0.5 border border-surface-variant/50">
+                  <div className="bg-primary-container h-full rounded-full transition-all duration-500" style={{ width: `${budgetUtilizationPct}%` }}></div>
+                </div>
+                <div className="flex justify-between text-label-xs text-outline pt-1">
+                  <span>Pacing Threshold: ₹{expectedPacingSpend.toLocaleString('en-IN')} expected by today</span>
+                  <span className={pacingDiff >= 0 ? 'text-primary-fixed' : 'text-error font-medium'}>
+                    {pacingDiff >= 0 ? `₹${pacingDiff.toLocaleString('en-IN')} Under Target Runway` : `₹${Math.abs(pacingDiff).toLocaleString('en-IN')} Over Target Runway`}
+                  </span>
+                </div>
               </div>
-              <div className="w-full bg-surface-container-lowest h-3 rounded-full overflow-hidden p-0.5 border border-surface-variant/50">
-                <div className="bg-primary-container h-full rounded-full" style={{ width: '57.5%' }}></div>
+            ) : (
+              <div className="py-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md bg-surface-container-lowest/60 p-space-md rounded-lg border border-surface-variant/20">
+                <div className="text-body-sm text-outline">
+                  No monthly budget envelopes configured for this period. Create one to monitor live pacing.
+                </div>
+                <button onClick={() => nav('/budget')} className="px-space-md py-1.5 rounded bg-primary-container text-on-primary font-label-xs text-label-xs uppercase tracking-wider font-semibold whitespace-nowrap">
+                  + Create Budget
+                </button>
               </div>
-              <div className="flex justify-between text-label-xs text-outline pt-1">
-                <span>Pacing Threshold: ₹28,000 expected by today</span>
-                <span className="text-primary-fixed">₹7,850 Under Target Runway</span>
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Recent Dispatches / Activity */}
@@ -189,7 +242,7 @@ export function Dashboard() {
                     <div className={`font-label-lg text-label-lg font-medium ${tx.type === 'income' ? 'text-primary-fixed' : 'text-error'}`}>
                       {tx.type === 'income' ? '+' : '-'}₹{tx.amount.toLocaleString('en-IN')}
                     </div>
-                    <span className="font-label-xs text-label-xs text-outline uppercase">Synced</span>
+                    <span className="font-label-xs text-label-xs text-outline uppercase">{tx.syncStatus === 'synced' ? 'Synced' : 'Pending'}</span>
                   </div>
                 </div>
               ))}

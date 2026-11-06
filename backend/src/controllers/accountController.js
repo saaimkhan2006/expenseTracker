@@ -31,12 +31,24 @@ export async function create(req, res, next) {
 
 export async function update(req, res, next) {
   try {
+    const { name, balance, type, icon, color, isActive } = req.body;
+    const updates = {};
+    if (name !== undefined) updates.name = name.trim();
+    if (balance !== undefined) updates.balance = Number(balance);
+    if (type !== undefined) updates.type = type;
+    if (icon !== undefined) updates.icon = icon;
+    if (color !== undefined) updates.color = color;
+    if (isActive !== undefined) updates.isActive = isActive;
+
     const acc = await Account.findOneAndUpdate(
       { _id: req.params.id, userId: req.userId },
-      { $set: req.body, $inc: { version: 1 } },
+      { $set: updates, $inc: { version: 1 } },
       { new: true }
     );
     if (!acc) return res.status(404).json({ message: 'Account not found' });
     res.json({ account: acc });
-  } catch (e) { next(e); }
+  } catch (e) {
+    if (e.code === 11000) return res.status(409).json({ message: 'Account name already exists' });
+    next(e);
+  }
 }
