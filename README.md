@@ -43,5 +43,3 @@ sudo certbot --nginx -d yourdomain.com
 ## PWA / offline
 `vite-plugin-pwa` generates the service worker on `npm run build`. App shell cached; data in IndexedDB (`smart-budget` DB: `transactions`, `accounts`). Offline banner + `✓ Synced / 🔄 Syncing / 📴 Offline` states.
 
-## Roadmap
-Phase 2: budgets, transfers, lending/borrowing, recurring, subscriptions. Phase 3: advanced analytics + rule-based insights. Phase 4: goals, net worth. Phase 5: push, AI assistant.
